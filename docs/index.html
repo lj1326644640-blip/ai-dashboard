@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 爆款日报看板</title><style>#t0:checked ~ main .d0{display:block}#t0:checked ~ label[for="t0"]{color:#0b1020;background:linear-gradient(90deg,#ffd166,#ffb86b);border-color:transparent;font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;min-height:100vh;
+  background:linear-gradient(160deg,#0b1020 0%,#101a33 55%,#0d1226 100%);color:#e6ebf8}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 20px 60px}
+header{margin-bottom:18px}
+.logo{font-size:30px;font-weight:800;background:linear-gradient(90deg,#ffd166,#ff6b6b 40%,#7aa2ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+.sub{color:#8b93a7;font-size:13px;margin-top:4px}
+.trend{margin-top:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:12px 16px}
+.tlabel{font-size:12px;color:#8b93a7;margin-bottom:8px}
+.tchart{display:flex;gap:10px;align-items:flex-end;min-height:96px}
+.tcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;max-width:80px}
+.tcol i{width:70%;max-width:46px;border-radius:6px 6px 2px 2px;
+  background:linear-gradient(180deg,#7aa2ff,#4c6ef5);min-height:4px}
+.tcol em{font-style:normal;font-size:11px;color:#c7d0e8;margin-top:4px}
+.tcol span{font-size:10px;color:#5d6580;margin-top:1px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 14px}
+.tabs label{cursor:pointer;padding:7px 16px;border-radius:999px;font-size:13px;color:#aeb8d0;
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);transition:.15s}
+.tabs label:hover{color:#fff;border-color:#7aa2ff66}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.kpi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;
+  padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.kpi b{font-size:17px}
+.kpi span{font-size:11.5px;color:#8b93a7;line-height:1.5;word-break:break-all}
+.day{display:none}
+.cards{display:flex;flex-direction:column;gap:10px}
+.item{display:flex;gap:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:14px 16px;transition:.15s}
+.item:hover{transform:translateY(-1px);border-color:rgba(122,162,255,.35);background:rgba(255,255,255,.05)}
+.rankmedal{font-size:22px;width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  color:#5d6580;font-weight:800}
+.score{flex-shrink:0;width:64px;height:64px;border-radius:14px;border:1.5px solid;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,.25)}
+.score b{font-size:19px;line-height:1.1}
+.score span{font-size:10px;color:#8b93a7}
+.body{flex:1;min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;color:#8b93a7;margin-bottom:6px}
+.badge{padding:2px 9px;border-radius:999px;border:1px solid;font-size:11.5px;font-weight:600}
+.eng{color:#c7d0e8}
+.author{color:#6d7690}
+.title{display:block;color:#f2f5ff;font-size:15.5px;font-weight:650;line-height:1.45;
+  text-decoration:none;margin-bottom:6px;overflow-wrap:anywhere}
+.title:hover{color:#9cc0ff}
+.why{font-size:13px;color:#b9c2da;background:rgba(122,162,255,.07);border-left:3px solid #7aa2ff66;
+  padding:7px 10px;border-radius:0 8px 8px 0;margin-bottom:9px;line-height:1.6;overflow-wrap:anywhere}
+.bars{display:grid;grid-template-columns:1fr 1fr;gap:5px 18px;max-width:560px}
+.bar{display:flex;align-items:center;gap:8px;font-size:11px;color:#8b93a7}
+.bar em{font-style:normal;width:26px;flex-shrink:0}
+.bar .track{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar .track i{display:block;height:100%;border-radius:3px}
+.bar b{width:24px;text-align:right;color:#c7d0e8;font-weight:600}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chip{font-size:11px;color:#c4b5fd;background:rgba(196,181,253,.1);border:1px solid rgba(196,181,253,.25);
+  padding:2px 8px;border-radius:999px}
+.chip.warn{color:#fbbf24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.3)}
+footer{margin-top:26px;color:#5d6580;font-size:12px;line-height:1.8}
+footer a{color:#7aa2ff;text-decoration:none}
+</style></head>
+<body><div class="wrap">
+<header><div class="logo">🔥 AI 爆款看板</div>
+<div class="sub">海外社媒 AI 内容热度追踪 · 每日 12:00 自动抓取打分更新</div></header>
+<div class="trend"><div class="tlabel">每日候选量（近1天）</div><div class="tchart"><div class="tcol" title="10-05: 20条"><i style="height:56px"></i><em>20</em><span>10-05</span></div></div></div>
+<input type="radio" name="day" id="t0" class="tabhit" checked><label for="t0">2026-10-05（最新）</label>
+<main><section class="day d0"><div class="kpis"><div class="kpi"><b style="color:#7aa2ff">20</b><span>精选条数</span></div><div class="kpi"><b style="color:#34d399">96.5</b><span>最高分</span></div><div class="kpi"><b style="color:#9ee7ff">Hacker News×13 · TikTok×4 · X/Twitter×3</b><span>来源分布</span></div><div class="kpi"><b style="color:#c4b5fd">20/20</b><span>LLM评审覆盖</span></div><div class="kpi"><b style="color:#fda4af">hn+producthunt+reddit+tiktok+twitter</b><span>采集通道</span></div></div><div class="cards">
+    <article class="item">
+      <div class="rankmedal rank1">🥇</div>
+      <div class="score" style="color:#34d399;border-color:#34d39955"><b>96.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">784 points · 352 comments</span>
+          <span class="time">10-04 20:51 · 20h前</span>
+          <span class="author">@snehesht</span>
+        </div>
+        <a class="title" href="https://github.com/Niko1221/Strata" target="_blank" rel="noopener">Run Qwen 3.8 Flash Next (125B) on consumer hardware (RTX 4090) at 100T/s</a>
+        <div class="why">自称RTX 4090跑Qwen 3.8 125B达每秒100 token，HN 784分352评论热议跑分真实性</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:72%;background:#a3e635"></i></div><b>72</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 9/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank2">🥈</div>
+      <div class="score" style="color:#34d399;border-color:#34d39955"><b>95.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ee1d52;border-color:#ee1d5266;background:#ee1d5214">TikTok</span>
+          <span class="eng">145,400 plays · 11,300 likes · 117 comments</span>
+          <span class="time">10-05 00:50 · 16h前</span>
+          <span class="author">@WHOADIE</span>
+        </div>
+        <a class="title" href="https://www.tiktok.com/@whitewhoadie/video/7692856072624770318" target="_blank" rel="noopener">🚨 REVERSE ENGINEER ANY APP, THEN HAND IT TO YOUR AGENT
+
+REA is an open-source toolkit that plugs reverse engineering into your AI agent thro</a>
+        <div class="why">开源工具REA经MCP把逆向工程接入AI Agent，反编译任意App交给Claude/Codex复刻，14.5万播放</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:78%;background:#a3e635"></i></div><b>78</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank3">🥉</div>
+      <div class="score" style="color:#34d399;border-color:#34d39955"><b>91.7</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">473 points · 790 comments</span>
+          <span class="time">10-03 21:46 · 43h前</span>
+          <span class="author">@Brajeshwar</span>
+        </div>
+        <a class="title" href="https://www.theatlantic.com/technology/2026/10/openai-safety-team-resignation/688881/?gift=v5U_UzUTothfWXsPxtvNVAh7esWToMRD6XnbXmc5WgA" target="_blank" rel="noopener">I quit OpenAI because its culture is broken</a>
+        <div class="why">OpenAI安全团队负责人出走并公开称公司文化已坏，大西洋月刊深度爆料，HN 473分790条评论激辩</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:97%;background:#34d399"></i></div><b>97</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:95%;background:#34d399"></i></div><b>95</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:40%;background:#f87171"></i></div><b>40</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 9/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#4</span></div>
+      <div class="score" style="color:#34d399;border-color:#34d39955"><b>89.0</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">399 points · 754 comments</span>
+          <span class="time">10-04 01:44 · 39h前</span>
+          <span class="author">@Anon84</span>
+        </div>
+        <a class="title" href="https://fortune.com/2026/10/01/ai-godfather-yann-lecun-has-zero-concerns-about-human-extinction-says-anthropic-ceo-dario-amodei-is-deuded/" target="_blank" rel="noopener">LeCun has &quot;zero concerns&quot; about AI wiping out humanity, recent &quot;rogue&quot; incidents</a>
+        <div class="why">LeCun称对AI灭绝人类零担忧并暗讽Amodei被迷惑，HN 399分754条评论激辩AI风险立场</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:95%;background:#34d399"></i></div><b>95</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:92%;background:#34d399"></i></div><b>92</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:46%;background:#f87171"></i></div><b>46</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#5</span></div>
+      <div class="score" style="color:#34d399;border-color:#34d39955"><b>88.2</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">419 points · 12 comments</span>
+          <span class="time">10-03 18:43 · 46h前</span>
+          <span class="author">@tejaskumar__</span>
+        </div>
+        <a class="title" href="https://tej.as/blog/aleph-alpha-kolibri" target="_blank" rel="noopener">Aleph Alpha Kolibri: How the sovereign German LLM works</a>
+        <div class="why">德国主权LLM Kolibri开放权重的技术拆解，419分但仅12条评论，欧洲AI自主路线议题少见</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:92%;background:#34d399"></i></div><b>92</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:87%;background:#34d399"></i></div><b>87</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:65%;background:#fbbf24"></i></div><b>65</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:36%;background:#f87171"></i></div><b>36</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 7/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#6</span></div>
+      <div class="score" style="color:#34d399;border-color:#34d39955"><b>85.0</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">359 points · 102 comments</span>
+          <span class="time">10-03 02:01 · 63h前</span>
+          <span class="author">@fibo</span>
+        </div>
+        <a class="title" href="https://dwarfstar.sh/" target="_blank" rel="noopener">From the creator of Redis; run LLM locally with ds4</a>
+        <div class="why">Redis作者antirez推出本地LLM运行器ds4，HN 359分102条评论，名家开源新作首发引关注</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:74%;background:#a3e635"></i></div><b>74</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:13%;background:#f87171"></i></div><b>13</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#7</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>81.8</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">159 points · 412 comments</span>
+          <span class="time">10-04 10:34 · 30h前</span>
+          <span class="author">@bookofjoe</span>
+        </div>
+        <a class="title" href="https://www.nytimes.com/2026/09/29/us/anthropic-claude-morals-ai.html" target="_blank" rel="noopener">Religious scholars met with Anthropic</a>
+        <div class="why">纽约时报曝Anthropic与宗教学者会面讨论AI道德，159分却有412条评论，争议讨论比极高</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:87%;background:#34d399"></i></div><b>87</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:58%;background:#fbbf24"></i></div><b>58</b></div></div><div class="chips"><span class="chip">AI相关 7/10</span><span class="chip">内容价值 7/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#8</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>80.0</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">234 points · 156 comments</span>
+          <span class="time">10-04 02:29 · 38h前</span>
+          <span class="author">@saikatsg</span>
+        </div>
+        <a class="title" href="https://claude.dev/blog/getting-the-most-out-of-opus-5-5/" target="_blank" rel="noopener">Getting the most out of Opus 5.5 in Claude and Claude Code</a>
+        <div class="why">Opus 5.5在Claude与Claude Code中的最佳实践指南，234分156评论，开发者可直接复用的调优技巧</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:80%;background:#a3e635"></i></div><b>80</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:85%;background:#a3e635"></i></div><b>85</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:47%;background:#f87171"></i></div><b>47</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 7/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#9</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>79.4</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ee1d52;border-color:#ee1d5266;background:#ee1d5214">TikTok</span>
+          <span class="eng">66,200 plays · 4,260 likes · 230 comments</span>
+          <span class="time">10-03 10:33 · 54h前</span>
+          <span class="author">@benkimball.ai</span>
+        </div>
+        <a class="title" href="https://www.tiktok.com/@benkimball.ai/video/7692264115812732190" target="_blank" rel="noopener">Wait until the end 🤯 LTX 2.5 AI Video Generator is changing AI video generation with cinematic text-to-video! #LTX25 #LTX2 #AIVideo #AIVideo</a>
+        <div class="why">LTX 2.5文生视频电影级效果演示，6.6万播放4260赞，但属达人推广且用看到最后式标题党</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:94%;background:#34d399"></i></div><b>94</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:88%;background:#34d399"></i></div><b>88</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:25%;background:#f87171"></i></div><b>25</b></div></div><div class="chips"><span class="chip">AI相关 6/10</span><span class="chip">内容价值 5/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#10</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>78.0</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#1d9bf0;border-color:#1d9bf066;background:#1d9bf014">X/Twitter</span>
+          <span class="eng">4,374 likes · 4,125 RT · 4,541 replies</span>
+          <span class="time">10-02 23:01 · 66h前</span>
+          <span class="author">@Amadeus Protocol</span>
+        </div>
+        <a class="title" href="https://x.com/ama_protocol/status/2106036907155272065" target="_blank" rel="noopener">You built an AI Agent on AMA Hub?
+An Agent people like using?
+
+Reply with your published agent link
+
+Show us your most popular agent +
+Share</a>
+        <div class="why">AMA Hub号召开发者晒Agent链接，4541条回复远超60条引用，疑似互刷引流的营销贴，无实质内容</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:80%;background:#a3e635"></i></div><b>80</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:9%;background:#f87171"></i></div><b>9</b></div></div><div class="chips"><span class="chip">AI相关 6/10</span><span class="chip">内容价值 3/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#11</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>77.8</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">287 points · 148 comments</span>
+          <span class="time">10-02 22:11 · 67h前</span>
+          <span class="author">@PaulHoule</span>
+        </div>
+        <a class="title" href="https://arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget/" target="_blank" rel="noopener">With most information hidden, the game Stratego had stumped AI until now</a>
+        <div class="why">AI低成本击败史上最强Stratego玩家并登Nature论文，HN 287分148条评论，但发布近3天热度已退</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:85%;background:#a3e635"></i></div><b>85</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:72%;background:#a3e635"></i></div><b>72</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:8%;background:#f87171"></i></div><b>8</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 6/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#12</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>77.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ee1d52;border-color:#ee1d5266;background:#ee1d5214">TikTok</span>
+          <span class="eng">55,100 plays · 3,528 likes · 26 comments</span>
+          <span class="time">10-05 08:17 · 8h前</span>
+          <span class="author">@Luminary</span>
+        </div>
+        <a class="title" href="https://www.tiktok.com/@luminary6513/video/7692971056365178126" target="_blank" rel="noopener">#dreamina #dreaminapioneer ：Canvas-first — that&#x27;s the new way AI video is made. Dreamina 2.0 is the new creative standard.#DreaminaWeb2 ：AI </a>
+        <div class="why">Dreamina 2.0画布式AI视频功能宣传，附缅甸语教学引流话术，5.5万播放但仅26条评论，营销属性重</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:88%;background:#34d399"></i></div><b>88</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:94%;background:#34d399"></i></div><b>94</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:88%;background:#34d399"></i></div><b>88</b></div></div><div class="chips"><span class="chip">AI相关 6/10</span><span class="chip">内容价值 4/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#13</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>76.6</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">267 points · 3 comments</span>
+          <span class="time">10-04 06:18 · 34h前</span>
+          <span class="author">@jethronethro</span>
+        </div>
+        <a class="title" href="https://www.theguardian.com/technology/2026/oct/03/openai-safety-leader-quits-warning-ai-companys-culture-is-broken" target="_blank" rel="noopener">OpenAI safety leader quits, warning AI company&#x27;s culture is &#x27;broken&#x27;</a>
+        <div class="why">卫报版OpenAI安全负责人离职报道，与同日大西洋月刊版同题重复，267分仅3条评论，信息增量少</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:77%;background:#a3e635"></i></div><b>77</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:80%;background:#a3e635"></i></div><b>80</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:52%;background:#f87171"></i></div><b>52</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 6/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#14</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>72.7</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">151 points · 67 comments</span>
+          <span class="time">10-04 17:24 · 23h前</span>
+          <span class="author">@allenleee</span>
+        </div>
+        <a class="title" href="https://github.com/allenv0/SCM" target="_blank" rel="noopener">Show HN: AI search for every photo and every frame of video on macOS</a>
+        <div class="why">开源macOS工具对本地照片和视频逐帧做AI语义搜索，151分67评论，Show HN反响良好可自部署</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:72%;background:#a3e635"></i></div><b>72</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:82%;background:#a3e635"></i></div><b>82</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:68%;background:#fbbf24"></i></div><b>68</b></div></div><div class="chips"><span class="chip">AI相关 7/10</span><span class="chip">内容价值 6/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#15</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>71.6</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">116 points · 166 comments</span>
+          <span class="time">10-04 01:57 · 39h前</span>
+          <span class="author">@bundie</span>
+        </div>
+        <a class="title" href="https://www.neowin.net/news/system76-bans-ai-generated-code-across-many-of-its-cosmic-codebases/" target="_blank" rel="noopener">Pop!_OS bans AI-generated code from much of its codebase</a>
+        <div class="why">System76在Pop!_OS与COSMIC多数代码库禁用AI生成代码，166条评论超116分，开源社区激辩代码质量</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:74%;background:#a3e635"></i></div><b>74</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:69%;background:#fbbf24"></i></div><b>69</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:46%;background:#f87171"></i></div><b>46</b></div></div><div class="chips"><span class="chip">AI相关 7/10</span><span class="chip">内容价值 7/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#16</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>70.8</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">66 points · 58 comments</span>
+          <span class="time">10-05 13:37 · 3h前</span>
+          <span class="author">@emptybits</span>
+        </div>
+        <a class="title" href="https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html" target="_blank" rel="noopener">Anthropic reported diary entry to police, woman faces felony charge</a>
+        <div class="why">Anthropic将用户Claude日记上报警方致其被控重罪，隐私与安全审查争议激烈，发布3小时HN已58条评论</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:46%;background:#f87171"></i></div><b>46</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:97%;background:#34d399"></i></div><b>97</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:96%;background:#34d399"></i></div><b>96</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#17</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>70.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span>
+          <span class="eng">195 points · 243 comments</span>
+          <span class="time">10-02 23:18 · 65h前</span>
+          <span class="author">@mondobe</span>
+        </div>
+        <a class="title" href="https://mondobe.com/ai-makes-me-sad" target="_blank" rel="noopener">AI Makes Me Sad</a>
+        <div class="why">作者控诉AI让编程与创作失去乐趣的情感随笔，引发强烈共鸣，HN 195分243条评论热议</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:82%;background:#a3e635"></i></div><b>82</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:67%;background:#fbbf24"></i></div><b>67</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:9%;background:#f87171"></i></div><b>9</b></div></div><div class="chips"><span class="chip">AI相关 6/10</span><span class="chip">内容价值 6/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#18</span></div>
+      <div class="score" style="color:#fbbf24;border-color:#fbbf2455"><b>67.8</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ee1d52;border-color:#ee1d5266;background:#ee1d5214">TikTok</span>
+          <span class="eng">26,500 plays · 456 likes · 10 comments</span>
+          <span class="time">10-04 20:40 · 20h前</span>
+          <span class="author">@aitoolvaultly</span>
+        </div>
+        <a class="title" href="https://www.tiktok.com/@aitoolvaultly/video/7692791735973350678" target="_blank" rel="noopener">30 ChatGPT prompt shortcuts you need to try 🔥
+
+Type /human, /expert, /eli5, /critic or /copywriter at the start of your prompt and watch how</a>
+        <div class="why">30个ChatGPT斜杠快捷指令教学如/human /eli5，2.65万播放仅456赞，实用但内容浅且同质化</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:69%;background:#fbbf24"></i></div><b>69</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:75%;background:#a3e635"></i></div><b>75</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:72%;background:#a3e635"></i></div><b>72</b></div></div><div class="chips"><span class="chip">AI相关 7/10</span><span class="chip">内容价值 4/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#19</span></div>
+      <div class="score" style="color:#fbbf24;border-color:#fbbf2455"><b>67.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#1d9bf0;border-color:#1d9bf066;background:#1d9bf014">X/Twitter</span>
+          <span class="eng">10,258 likes · 643 RT · 462 replies</span>
+          <span class="time">10-02 21:49 · 67h前</span>
+          <span class="author">@Burak Tuyan</span>
+        </div>
+        <a class="title" href="https://x.com/buraktuyan/status/2106018840383717513" target="_blank" rel="noopener">Eleven v4 is INSANE! 🤯
+
+Here&#x27;s my 44-sec spec ad for it.
+
+I wrote a script of everything an AI voice &quot;can&#x27;t do.&quot; Then made Eleven v4 read it</a>
+        <div class="why">作者让Eleven v4朗读AI语音做不到的事来反证能力，创意演示获1万赞，AI语音应用爆款案例</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:80%;background:#a3e635"></i></div><b>80</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:40%;background:#f87171"></i></div><b>40</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:7%;background:#f87171"></i></div><b>7</b></div></div><div class="chips"><span class="chip">AI相关 7/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#20</span></div>
+      <div class="score" style="color:#fbbf24;border-color:#fbbf2455"><b>67.0</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#1d9bf0;border-color:#1d9bf066;background:#1d9bf014">X/Twitter</span>
+          <span class="eng">3,761 likes · 472 RT · 832 replies</span>
+          <span class="time">10-05 13:40 · 3h前</span>
+          <span class="author">@Elon Musk</span>
+        </div>
+        <a class="title" href="https://x.com/elonmusk/status/2106982949832774039" target="_blank" rel="noopener">Grok Imagine</a>
+        <div class="why">马斯克只发Grok Imagine三词预告AI新品，3小时3761赞832回复，纯悬念营销无实质信息</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:60%;background:#fbbf24"></i></div><b>60</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:96%;background:#34d399"></i></div><b>96</b></div></div><div class="chips"><span class="chip">AI相关 6/10</span><span class="chip">内容价值 3/10</span></div>
+      </div>
+    </article></div></section></main>
+<footer>数据截至 <b>2026-10-05</b> 1 天历史 · 生成于 2026-10-05 17:02 · 每 finalize 自动更新本页 · 通道与排障见 PIPELINE.md<br>通道：HN/PH 免key直连 · Reddit/X/TikTok 经 Apify · YouTube 经代理+yt-dlp · 打分=热度40%+速度25%+AI相关25%+价值10%</footer>
+</div></body></html>
