@@ -1,0 +1,49 @@
+{
+  "timezone_offset_hours": 8,
+  "proxy": {
+    "mode": "auto",
+    "host": "127.0.0.1",
+    "port": null,
+    "common_ports": [7890, 7897, 1080, 10808, 10809, 33210]
+  },
+  "apify": {
+    "token": "",
+    "reddit_actor": "trudax/reddit-scraper-lite",
+    "twitter_actor": "apidojo/tweet-scraper",
+    "tiktok_actor": "clockworks/tiktok-scraper",
+    "max_items": { "reddit": 100, "twitter": 100, "tiktok": 100 }
+  },
+  "window_hours": 72,
+  "candidates_per_platform": 50,
+  "top_n": 20,
+  "auto_open_dashboard": true,
+  "publish": { "enabled": true, "branch": "main" },
+  "weights": {
+    "rule": { "engagement": 0.40, "velocity": 0.25, "relevance": 0.20, "recency": 0.15 },
+    "final": { "engagement": 0.40, "velocity": 0.25, "llm_relevance": 0.25, "llm_value": 0.10 }
+  },
+  "keywords": [
+    "AI", "LLM", "GPT", "ChatGPT", "OpenAI", "Anthropic", "Claude", "Gemini",
+    "DeepSeek", "Qwen", "Grok", "Copilot", "AI agent", "agentic", "MCP", "RAG",
+    "fine-tuning", "fine-tune", "Midjourney", "Stable Diffusion", "Sora",
+    "AI video", "prompt", "transformer", "open-source model", "open-weight",
+    "vibe coding", "machine learning", "deep learning", "neural network",
+    "AGI", "AI safety", "GenAI", "generative AI", "diffusion model", "LLaMA", "llama"
+  ],
+  "queries": {
+    "hn": ["AI", "LLM", "OpenAI", "Claude", "Gemini", "AI agent", "GPT", "DeepSeek"],
+    "reddit_searches": ["AI", "AI agents", "LLM"],
+    "twitter": ["AI OR LLM OR GPT min_faves:100", "OpenAI OR Anthropic OR \"AI agent\" min_faves:50"],
+    "tiktok_searches": ["AI", "AI tools"],
+    "tiktok_hashtags": ["ai", "aitools"],
+    "youtube": ["AI news", "OpenAI update", "AI agents"]
+  },
+  "platforms": {
+    "hn": true,
+    "producthunt": true,
+    "reddit": true,
+    "twitter": true,
+    "tiktok": true,
+    "youtube": true
+  }
+}

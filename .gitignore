@@ -1,0 +1,8 @@
+# 敏感与本地数据 —— 永不进仓库
+secrets.json
+data/
+logs/
+.zcode/
+__pycache__/
+*.pyc
+proxy_state.json
