@@ -1,6 +1,6 @@
 """defuddle 内容深挖：对入选的 YouTube（及可选其他）视频提取描述/字幕，充实日报摘要。
 
-用法：python -m pipeline.defuddle_extract <candidates.json路径> [--only youtube] [--top 10]
+用法：python src/fetchers/defuddle.py <candidates.json路径> [--only youtube] [--top 10]
 依赖 Node(npx) 与网络可达 youtube.com（需代理，自动探测）。失败静默降级，不阻塞主管线。
 """
 import json
@@ -10,7 +10,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from collectors.common import detect_proxy, log  # noqa: E402
+from http_util import detect_proxy  # noqa: E402
+from settings import load_config, log, setup_logging  # noqa: E402
 
 
 def extract(url: str, proxy: str | None, timeout: int = 90) -> dict | None:

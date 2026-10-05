@@ -3,7 +3,9 @@
 搜索结果先按播放量排序，再对头部视频取完整元数据（发布时间/点赞）做时间窗过滤。
 入选后的视频内容深挖（字幕/描述提取）由 finalize 阶段用 defuddle 完成。
 """
-from .common import log, to_iso_utc, detect_proxy
+from schema import to_iso_utc
+from http_util import detect_proxy
+from settings import log
 
 
 def collect(cfg: dict) -> list[dict]:

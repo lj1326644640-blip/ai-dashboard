@@ -1,133 +1,13 @@
-"""采集器共用工具：HTTP、代理探测、日期解析、互动合成、指纹。"""
+"""统一记录 schema 的公共逻辑：日期解析、互动合成、指纹、同名题判定。"""
 import hashlib
-import json
-import logging
 import re
-import time
 from datetime import datetime, timedelta, timezone
-from pathlib import Path
-from urllib.parse import urlsplit
 
-import requests
-
-ROOT = Path(__file__).resolve().parent.parent
-DATA = ROOT / "data"
-LOGS = ROOT / "logs"
-
-log = logging.getLogger("collector")
-
-UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
-
-
-def setup_logging():
-    LOGS.mkdir(exist_ok=True)
-    if log.handlers:
-        return
-    log.setLevel(logging.INFO)
-    fmt = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
-    fh = logging.FileHandler(LOGS / "collect.log", encoding="utf-8")
-    fh.setFormatter(fmt)
-    sh = logging.StreamHandler()
-    sh.setFormatter(fmt)
-    log.addHandler(fh)
-    log.addHandler(sh)
-
-
+# ---------------------------------------------------------------- 日期
 def now_utc() -> datetime:
     return datetime.now(timezone.utc)
 
 
-def _deep_merge(base: dict, override: dict) -> dict:
-    for k, v in override.items():
-        if isinstance(v, dict) and isinstance(base.get(k), dict):
-            _deep_merge(base[k], v)
-        else:
-            base[k] = v
-    return base
-
-
-def load_config() -> dict:
-    """config.json 为基础配置；secrets.json（密钥/端口等敏感项）存在时覆盖合并。"""
-    with open(ROOT / "config.json", encoding="utf-8") as f:
-        cfg = json.load(f)
-    sp = ROOT / "secrets.json"
-    if sp.exists():
-        try:
-            _deep_merge(cfg, json.loads(sp.read_text(encoding="utf-8")))
-        except Exception as e:  # noqa: BLE001
-            log.warning("secrets.json 解析失败，已忽略: %s", e)
-    return cfg
-
-
-def http_get(url, *, params=None, timeout=20, retries=2, proxies=None, headers=None):
-    hdrs = {"User-Agent": UA}
-    if headers:
-        hdrs.update(headers)
-    last_err = None
-    for attempt in range(retries + 1):
-        try:
-            r = requests.get(url, params=params, timeout=timeout,
-                             proxies=proxies, headers=hdrs)
-            r.raise_for_status()
-            return r
-        except Exception as e:  # noqa: BLE001 - 网络错误统一重试
-            last_err = e
-            if attempt < retries:
-                time.sleep(2 * (attempt + 1))
-    raise last_err
-
-
-# ---------------------------------------------------------------- 代理探测
-_PROXY_CACHE = DATA / "proxy_state.json"
-_PROBE_URL = "https://www.google.com/generate_204"
-_PROXY_TTL_HOURS = 12
-
-
-def _proxy_works(host: str, port: int) -> bool:
-    try:
-        r = requests.get(_PROBE_URL, timeout=6,
-                         proxies={"http": f"http://{host}:{port}",
-                                  "https": f"http://{host}:{port}"})
-        return r.status_code < 400
-    except Exception:  # noqa: BLE001
-        return False
-
-
-def detect_proxy(cfg: dict) -> str | None:
-    """返回可用的本地代理 http://host:port，探测结果缓存；找不到返回 None。"""
-    pcfg = cfg.get("proxy", {})
-    if pcfg.get("mode") == "off":
-        return None
-    host = pcfg.get("host", "127.0.0.1")
-
-    if _PROXY_CACHE.exists():
-        try:
-            state = json.loads(_PROXY_CACHE.read_text(encoding="utf-8"))
-            age_h = (now_utc() - datetime.fromisoformat(state["checked_at"])).total_seconds() / 3600
-            if age_h < _PROXY_TTL_HOURS:
-                return state.get("proxy")
-        except Exception:  # noqa: BLE001
-            pass
-
-    proxy = None
-    explicit = pcfg.get("port")
-    ports = [explicit] if explicit else pcfg.get("common_ports", [])
-    for port in ports:
-        if _proxy_works(host, int(port)):
-            proxy = f"http://{host}:{int(port)}"
-            break
-    _PROXY_CACHE.parent.mkdir(exist_ok=True)
-    _PROXY_CACHE.write_text(json.dumps(
-        {"proxy": proxy, "checked_at": now_utc().isoformat()}, ensure_ascii=False), encoding="utf-8")
-    if proxy:
-        log.info("检测到可用代理: %s", proxy)
-    else:
-        log.info("未检测到本地代理，走直连/跳过受限通道")
-    return proxy
-
-
-# ---------------------------------------------------------------- 日期
 def to_iso_utc(value) -> str | None:
     """把各种时间表示统一成 ISO UTC 字符串；解析失败返回 None。"""
     if value is None:
@@ -156,15 +36,7 @@ def to_iso_utc(value) -> str | None:
 
 def dateutil_parse(s: str) -> str:
     from email.utils import parsedate_to_datetime
-    from datetime import datetime as dt
-    try:
-        d = parsedate_to_datetime(s)  # RFC822 (RSS pubDate)
-        if d.tzinfo is None:
-            d = d.replace(tzinfo=timezone.utc)
-        return d.astimezone(timezone.utc).isoformat()
-    except Exception:  # noqa: BLE001
-        pass
-    d = dt.fromisoformat(s.replace("Z", "+00:00"))
+    d = parsedate_to_datetime(s)  # RFC822 (RSS pubDate)
     if d.tzinfo is None:
         d = d.replace(tzinfo=timezone.utc)
     return d.astimezone(timezone.utc).isoformat()
@@ -272,5 +144,5 @@ def title_similarity(a: str, b: str) -> float:
     return len(ta & tb) / len(ta | tb)
 
 
-def strip_html(html: str) -> str:
-    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html or "")).strip()
+def strip_html(html_s: str) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html_s or "")).strip()

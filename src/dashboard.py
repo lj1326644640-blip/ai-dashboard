@@ -1,16 +1,22 @@
-"""自包含 HTML 日报看板：暗色卡片风、日期切换、近14天趋势。每次 finalize 原地更新。
+"""自包含 HTML 日报看板：暗色卡片风、日期切换、近14天趋势、平台环形图、Top分数柱状图。
 
-零外部依赖（无CDN/无JS库），双击本地打开即可。数据源：reports/*/meta.json（富字段）。
+零外部依赖（无CDN/无JS库），双击本地打开即可。数据源：data/*/meta.json（富字段）。
+产出固定路径 dashboard/index.html（deploy.py 再复制到 docs/ 发布）。
 """
 import html
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
+
+from pipeline.classify import CTYPE_COLORS
+from settings import DASHBOARD
 
 PLATFORM_COLORS = {
     "Hacker News": "#ff6600", "Reddit": "#ff4500", "X/Twitter": "#1d9bf0",
     "TikTok": "#ee1d52", "YouTube": "#ff0033", "Product Hunt": "#da552f",
 }
+PLATFORM_SHORT = {"Hacker News": "HN", "Reddit": "RD", "X/Twitter": "X",
+                  "TikTok": "TT", "YouTube": "YT", "Product Hunt": "PH"}
 SCORE_COLORS = [(85, "#34d399"), (70, "#a3e635"), (55, "#fbbf24"), (0, "#f87171")]
 
 
@@ -63,12 +69,18 @@ def _item_card(r: dict) -> str:
     rank_html = ("🥇🥈🥉"[rank - 1] if 1 <= rank <= 3 else f"<span>#{rank}</span>")
     title = _esc(r.get("title", ""))
     why = r.get("why") or "—"
+    ctype = r.get("ctype") or ""
+    ctype_chip = ""
+    if ctype:
+        c = CTYPE_COLORS.get(ctype, "#8b93a7")
+        ctype_chip = (f'<span class="ctype" style="color:{c};border-color:{c}66;'
+                      f'background:{c}14">{_esc(ctype)}</span>')
     return f"""
     <article class="item">
       <div class="rankmedal rank{min(rank,4)}">{rank_html}</div>
       {_score_block(float(r.get('final_score') or 0))}
       <div class="body">
-        <div class="meta">{_badge(r.get('platform_name', r.get('platform', '?')))}
+        <div class="meta">{_badge(r.get('platform_name', r.get('platform', '?')))}{ctype_chip}
           <span class="eng">{_esc(r.get('engagement_summary') or '-')}</span>
           <span class="time">{_esc(r.get('published_local') or '')} · {_esc(r.get('hours_display') or '')}前</span>
           {_esc(r.get('author') or '') and f'<span class="author">@{_esc(r.get("author"))}</span>'}
@@ -78,6 +90,43 @@ def _item_card(r: dict) -> str:
         {_bars(r)}
       </div>
     </article>"""
+
+
+def _donut(items: list[dict]) -> str:
+    counts = {}
+    for r in items:
+        p = r.get("platform_name") or r.get("platform") or "?"
+        counts[p] = counts.get(p, 0) + 1
+    total = sum(counts.values()) or 1
+    segs, cum, legend = [], 0.0, []
+    for p, n in sorted(counts.items(), key=lambda x: -x[1]):
+        color = PLATFORM_COLORS.get(p, "#8b93a7")
+        pct = 100.0 * n / total
+        segs.append(f"{color} {cum:.2f}% {cum + pct:.2f}%")
+        cum += pct
+        legend.append(f'<div><i style="background:{color}"></i>'
+                      f'{_esc(PLATFORM_SHORT.get(p, p))} ×{n}（{pct:.0f}%）</div>')
+    return (f'<div class="panel"><div class="ptitle">本次爆款平台分布</div>'
+            f'<div class="donutwrap"><div class="donut" style="background:conic-gradient('
+            f'{", ".join(segs)})"><div class="hole"><b>{total}</b><span>Top {total}</span></div></div>'
+            f'<div class="legend">{"".join(legend)}</div></div></div>')
+
+
+def _hbars(items: list[dict]) -> str:
+    bars = []
+    for r in items[:10]:
+        color = PLATFORM_COLORS.get(r.get("platform_name") or "", "#7aa2ff")
+        short = PLATFORM_SHORT.get(r.get("platform_name") or "", "?")
+        score = float(r.get("final_score") or 0)
+        bars.append(f'<div class="hbar"><em>#{r.get("rank")} {short}</em>'
+                    f'<div class="track"><i style="width:{score:.1f}%;background:{color}"></i></div>'
+                    f'<b>{score:.1f}</b></div>')
+    return (f'<div class="panel"><div class="ptitle">Top 综合分排行（颜色=平台）</div>'
+            f'<div class="hbars">{"".join(bars)}</div></div>')
+
+
+def _charts(items: list[dict]) -> str:
+    return f'<div class="charts">{_donut(items)}{_hbars(items)}</div>'
 
 
 def _kpi(label: str, value: str, accent: str = "#7aa2ff") -> str:
@@ -117,7 +166,7 @@ def _day_section(idx: int, d: dict) -> str:
     )
     cards = "".join(_item_card(r) for r in items)
     return (f'<section class="day d{idx}">'
-            f'<div class="kpis">{kpis}</div><div class="cards">{cards}</div></section>')
+            f'<div class="kpis">{kpis}</div>{_charts(items)}<div class="cards">{cards}</div></section>')
 
 
 _CSS = """
@@ -161,6 +210,23 @@ header{margin-bottom:18px}
 .body{flex:1;min-width:0}
 .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;color:#8b93a7;margin-bottom:6px}
 .badge{padding:2px 9px;border-radius:999px;border:1px solid;font-size:11.5px;font-weight:600}
+.ctype{padding:2px 9px;border-radius:999px;border:1px solid;font-size:11.5px;font-weight:600}
+.charts{display:grid;grid-template-columns:320px 1fr;gap:12px;margin-bottom:14px}
+.panel{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 16px}
+.ptitle{font-size:12px;color:#8b93a7;margin-bottom:12px}
+.donutwrap{display:flex;align-items:center;gap:18px}
+.donut{width:150px;height:150px;border-radius:50%;position:relative;flex-shrink:0}
+.hole{position:absolute;inset:33px;background:#141d36;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hole b{font-size:20px}.hole span{font-size:10px;color:#8b93a7}
+.legend{display:flex;flex-direction:column;gap:7px;font-size:12px;color:#c7d0e8}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:7px}
+.hbars{display:flex;flex-direction:column;gap:7px}
+.hbar{display:flex;align-items:center;gap:10px;font-size:11.5px}
+.hbar em{font-style:normal;width:48px;color:#8b93a7;flex-shrink:0}
+.hbar .track{flex:1;height:14px;border-radius:4px;background:rgba(255,255,255,.06);overflow:hidden}
+.hbar .track i{display:block;height:100%;border-radius:4px}
+.hbar b{width:40px;text-align:right;color:#e6ebf8;font-weight:700}
+@media(max-width:760px){.charts{grid-template-columns:1fr}.donutwrap{justify-content:flex-start}}
 .eng{color:#c7d0e8}
 .author{color:#6d7690}
 .title{display:block;color:#f2f5ff;font-size:15.5px;font-weight:650;line-height:1.45;
@@ -183,9 +249,9 @@ footer a{color:#7aa2ff;text-decoration:none}
 """
 
 
-def generate(reports_dir: Path, cfg: dict) -> Path:
+def generate(data_dir: Path, cfg: dict) -> Path:
     days = []
-    for meta_path in sorted(reports_dir.glob("*/meta.json"), reverse=True):
+    for meta_path in sorted(data_dir.glob("*/meta.json"), reverse=True):
         try:
             meta = json.loads(meta_path.read_text(encoding="utf-8"))
             items = meta.get("items") or []
@@ -197,7 +263,7 @@ def generate(reports_dir: Path, cfg: dict) -> Path:
         except Exception:  # noqa: BLE001 - 单天坏数据不影响整体看板
             continue
     if not days:
-        return reports_dir / "dashboard.html"
+        return DASHBOARD
     days = days[:14]
 
     tabs, sections = [], []
@@ -215,12 +281,12 @@ def generate(reports_dir: Path, cfg: dict) -> Path:
     latest = days[0]
     gen = latest.get("generated_at") or ""
     try:
-        gen_str = (datetime.fromisoformat(gen) + __import__("datetime").timedelta(
-            hours=cfg["timezone_offset_hours"])).strftime("%Y-%m-%d %H:%M")
+        gen_str = (datetime.fromisoformat(gen)
+                   + timedelta(hours=cfg["timezone_offset_hours"])).strftime("%Y-%m-%d %H:%M")
     except Exception:  # noqa: BLE001
         gen_str = "-"
     foot = (f'数据截至 <b>{_esc(latest["date"])}</b> {len(days)} 天历史 · 生成于 {_esc(gen_str)} · '
-            f'每 finalize 自动更新本页 · 通道与排障见 PIPELINE.md<br>'
+            f'每 finalize 自动更新本页 · 通道与排障见 README.md<br>'
             f'通道：HN/PH 免key直连 · Reddit/X/TikTok 经 Apify · YouTube 经代理+yt-dlp · '
             f'打分=热度40%+速度25%+AI相关25%+价值10%')
 
@@ -236,6 +302,6 @@ def generate(reports_dir: Path, cfg: dict) -> Path:
 <main>{''.join(sections)}</main>
 <footer>{foot}</footer>
 </div></body></html>"""
-    out = reports_dir / "dashboard.html"
-    out.write_text(doc, encoding="utf-8")
-    return out
+    DASHBOARD.parent.mkdir(exist_ok=True)
+    DASHBOARD.write_text(doc, encoding="utf-8")
+    return DASHBOARD

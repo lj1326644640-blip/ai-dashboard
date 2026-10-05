@@ -9,7 +9,7 @@ import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+from settings import ROOT
 
 
 def _git(*args: str, timeout: int = 60) -> tuple[int, str]:
@@ -26,7 +26,7 @@ def publish(cfg: dict) -> str:
             return "skip: 未配置远程仓库（git remote add origin 后自动启用）"
 
         # 1) 看板副本 → docs/index.html（Pages 以 /docs 为根，访问首页即看板）
-        dash = ROOT / "reports" / "dashboard.html"
+        dash = ROOT / "dashboard" / "index.html"
         if not dash.exists():
             return "skip: dashboard.html 不存在"
         docs = ROOT / "docs"

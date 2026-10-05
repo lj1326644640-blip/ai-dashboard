@@ -4,8 +4,9 @@ from datetime import timedelta
 
 import feedparser
 
-from .common import (dateutil_parse, http_get, hours_since, log, now_utc,
-                     to_iso_utc)
+from schema import dateutil_parse, hours_since, now_utc, to_iso_utc
+from http_util import http_get
+from settings import log
 
 ALGOLIA = "https://hn.algolia.com/api/v1/search"
 

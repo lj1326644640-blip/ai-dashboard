@@ -3,7 +3,9 @@ import re
 
 import feedparser
 
-from .common import dateutil_parse, http_get, hours_since, log, strip_html
+from schema import dateutil_parse, hours_since, strip_html
+from http_util import http_get
+from settings import log
 
 FEED = "https://www.producthunt.com/feed"
 _POST_ID_RE = re.compile(r"Post/(\d+)")

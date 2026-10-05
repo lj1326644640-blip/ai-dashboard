@@ -2,7 +2,7 @@
 import re
 from datetime import datetime, timezone
 
-from collectors.common import hours_since, title_similarity
+from schema import hours_since, title_similarity
 
 # AI 短词用词边界匹配，避免 "AI" 命中 "said" 之类；长词用子串
 _WORD_RE = {}

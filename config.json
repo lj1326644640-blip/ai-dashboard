@@ -22,6 +22,14 @@
     "rule": { "engagement": 0.40, "velocity": 0.25, "relevance": 0.20, "recency": 0.15 },
     "final": { "engagement": 0.40, "velocity": 0.25, "llm_relevance": 0.25, "llm_value": 0.10 }
   },
+  "scoring_refs": {
+    "hn": { "engagement": 650, "velocity": 30 },
+    "reddit": { "engagement": 2000, "velocity": 100 },
+    "twitter": { "engagement": 2500, "velocity": 120 },
+    "tiktok": { "engagement": 20000, "velocity": 900 },
+    "youtube": { "engagement": 15000, "velocity": 700 }
+  },
+  "no_engagement_score": 25,
   "keywords": [
     "AI", "LLM", "GPT", "ChatGPT", "OpenAI", "Anthropic", "Claude", "Gemini",
     "DeepSeek", "Qwen", "Grok", "Copilot", "AI agent", "agentic", "MCP", "RAG",
