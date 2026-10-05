@@ -73,7 +73,21 @@ python run_daily.py all
 ```
 跨天去重保证不会重复推送前几天的内容。
 
-## 五、成本参考
+## 五、GitHub Pages 看板分享
+
+看板已上线：**https://lj1326644640-blip.github.io/ai-dashboard/**
+
+- 每次 finalize 自动把看板副本提交到 `docs/index.html` 并 git push（`pipeline/publish.py`，失败重试3次、
+  失败不阻塞主流程，未推成功的 commit 留在本地，下次运行自动补推）
+- git 已配置 github.com 走本地代理（`http.https://github.com.proxy`）——**推送前需开 Clash**；
+  不开代理时靠直连碰运气（间歇可用）
+- 敏感文件永不入库：`secrets.json`、`data/`、`logs/` 已在 .gitignore（首次提交前已验证）
+- 仓库：https://github.com/lj1326644640-blip/ai-dashboard（Public，Pages 源 = main 分支 /docs 目录）
+
+手动发布：`python -m pipeline.publish`
+手动改代理端口：`git config http.https://github.com.proxy http://127.0.0.1:端口`
+
+## 六、成本参考
 
 - HN / Product Hunt / 兜底搜索：免费
 - Apify 免费额度 $5/月：够小流量试跑（X actor 免费档限5次/月×10条，基本不可用）

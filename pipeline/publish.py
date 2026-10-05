@@ -5,6 +5,7 @@ finalize 末尾自动调用；无远程仓库/离线/推送失败都只记日志
 """
 import shutil
 import subprocess
+import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -42,10 +43,15 @@ def publish(cfg: dict) -> str:
         if "nothing to commit" in out:
             return "ok: 内容无变化，无需推送"
 
-        # 3) push（首次会弹 GCM 授权窗口，等待用户完成）
-        rc, out = _git("push", "origin", cfg["publish"]["branch"], timeout=300)
+        # 3) push（首次会弹 GCM 授权窗口，等待用户完成；网络间歇失败自动重试）
+        rc, out = 1, ""
+        for attempt in range(3):
+            rc, out = _git("push", "origin", cfg["publish"]["branch"], timeout=300)
+            if rc == 0:
+                break
+            time.sleep(10)
         if rc != 0:
-            return f"fail: push 失败 {out.strip()[:200]}"
+            return f"fail: push 失败(重试3次) {out.strip()[:200]}"
         return "ok: 已推送到 GitHub Pages"
     except Exception as e:  # noqa: BLE001
         return f"fail: {e}"
