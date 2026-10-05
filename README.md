@@ -56,13 +56,22 @@ data\
 ├── 2026-10-05\            # 按日归档
 │   ├── full.json          # 全量候选（23个统一字段，含LLM分回写）
 │   ├── llm_scores\        # 评审员分批打分（中间数据，不入库）
-│   ├── 日报.md             # 人读日报（Top20+为什么火）
-│   └── 榜单.xlsx           # 打分明细表（Top20+全部候选两个sheet）
+│   ├── 日报.md             # 人读日报（升温领域+Top20+为什么火）
+│   └── 榜单.xlsx           # 打分明细表（Top20+全部候选+升温领域 三个sheet）
+├── longterm_memory.jsonl  # 长期记忆表：历史+原始数据聚合（每行一条内容+话题标签）
+├── topic_heat.json        # 热度表：每话题每日条数/均分/最高分/首次出现/升温状态
 ├── history.jsonl          # 跨天去重指纹库（不入库）
 └── runs.log               # 运行流水（每次执行一行摘要）
 logs\collect.log           # 详细日志
 docs\index.html            # GitHub Pages 发布副本
 ```
+
+**升温领域识别**（每次 finalize 自动执行，`src/heat.py`）：
+- 聚合历史+当天数据 → `longterm_memory.jsonl` 长期记忆表（幂等重建）
+- 按话题（config.json `topic_lexicon` 词表 + 标题专名兜底）维护热度表 `topic_heat.json`
+- 判定升温：今日条数或均分 ≥ 近7天均值2倍且今日≥3条；或话题首次出现当天就进Top10
+- 标记到：看板"升温领域"面板、日报章节、Excel"升温领域"sheet
+- 判定规则单测：`python tests/test_heat.py`（7项）
 
 ## 目录总览
 
@@ -93,6 +102,8 @@ src\
     normalize.py          #   关键词过滤+跨天去重+同题合并
     classify.py           #   内容类型分类(工具/资讯/观点/争议)
     scorer.py             #   基准分规则 + LLM分 + 加权合成
+    topics.py             #   话题识别(词表+专名兜底)
+  heat.py                 # 长期记忆聚合 + 热度表 + 升温领域判定
 dashboard\
   index.html              # 在线/本地看板
 docs\

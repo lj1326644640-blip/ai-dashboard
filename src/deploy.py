@@ -34,7 +34,7 @@ def publish(cfg: dict) -> str:
         shutil.copy2(dash, docs / "index.html")
 
         # 2) commit（无变化则跳过）
-        _git("add", "docs", "reports")
+        _git("add", "docs", "data", "dashboard")
         stamp = (datetime.now(timezone.utc) + timedelta(hours=cfg["timezone_offset_hours"])
                  ).strftime("%Y-%m-%d %H:%M")
         rc, out = _git("commit", "-m", f"看板更新 {stamp}")

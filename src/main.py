@@ -131,10 +131,15 @@ def run_finalize():
     out_dir.mkdir(parents=True, exist_ok=True)
     set_tz(cfg["timezone_offset_hours"])
     channels = _channels_of(cf)
-    export_xlsx(top, ranked, out_dir / "榜单.xlsx", cfg)
+
+    # 长期记忆 + 话题热度（升温领域识别），供报告/看板/Excel标记
+    from heat import update as update_heat
+    hot = update_heat(cfg, ranked[:10])
+
+    export_xlsx(top, ranked, out_dir / "榜单.xlsx", cfg, hot=hot)
     export_md(top, out_dir / "日报.md", cfg,
-              {"kept": len(ranked), "channels": channels}, local_date_str(cfg))
-    write_meta(out_dir / "meta.json", top, {"kept": len(ranked), "channels": channels})
+              {"kept": len(ranked), "channels": channels}, local_date_str(cfg), hot=hot)
+    write_meta(out_dir / "meta.json", top, {"kept": len(ranked), "channels": channels}, hot=hot)
 
     from dashboard import generate as generate_dashboard
     dash_path = generate_dashboard(DATA, cfg)

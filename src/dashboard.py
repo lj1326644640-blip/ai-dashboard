@@ -147,6 +147,21 @@ def _trend(days: list[dict]) -> str:
             f'</div><div class="tchart">{"".join(bars)}</div></div>')
 
 
+def _hot_panel(hot: list[dict]) -> str:
+    if not hot:
+        return ""
+    chips = []
+    for h in hot:
+        chip = (f'<div class="hotchip"><b>🔥 {_esc(h["topic"])}</b>'
+                f'<span>今日 {_esc(h["today_count"])} 条 · 均分 {_esc(h["today_avg"])} · '
+                f'{_esc(h["reason"])}</span>')
+        if h.get("sample_title"):
+            chip += f'<em>代表：《{_esc(str(h["sample_title"])[:56])}》</em>'
+        chips.append(chip + "</div>")
+    return (f'<div class="panel hotpanel"><div class="ptitle">升温领域（相对近7天基线）</div>'
+            f'<div class="hots">{"".join(chips)}</div></div>')
+
+
 def _day_section(idx: int, d: dict) -> str:
     items = d["items"]
     stats = d.get("stats") or {}
@@ -166,7 +181,8 @@ def _day_section(idx: int, d: dict) -> str:
     )
     cards = "".join(_item_card(r) for r in items)
     return (f'<section class="day d{idx}">'
-            f'<div class="kpis">{kpis}</div>{_charts(items)}<div class="cards">{cards}</div></section>')
+            f'<div class="kpis">{kpis}</div>{_charts(items)}'
+            f'{_hot_panel(d.get("hot") or [])}<div class="cards">{cards}</div></section>')
 
 
 _CSS = """
@@ -244,6 +260,12 @@ header{margin-bottom:18px}
 .chip{font-size:11px;color:#c4b5fd;background:rgba(196,181,253,.1);border:1px solid rgba(196,181,253,.25);
   padding:2px 8px;border-radius:999px}
 .chip.warn{color:#fbbf24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.3)}
+.hotpanel{border-color:rgba(245,158,11,.4);margin-bottom:14px;background:rgba(245,158,11,.05)}
+.hots{display:flex;flex-direction:column;gap:8px}
+.hotchip{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.28);border-radius:10px;padding:9px 13px;font-size:13px}
+.hotchip b{color:#fbbf24;margin-right:10px}
+.hotchip span{color:#e6ebf8}
+.hotchip em{display:block;font-style:normal;color:#8b93a7;font-size:12px;margin-top:4px;overflow-wrap:anywhere}
 footer{margin-top:26px;color:#5d6580;font-size:12px;line-height:1.8}
 footer a{color:#7aa2ff;text-decoration:none}
 """
@@ -259,6 +281,7 @@ def generate(data_dir: Path, cfg: dict) -> Path:
             if not items or len(date) != 10:
                 continue
             days.append({"date": date, "items": items, "stats": meta.get("stats") or {},
+                         "hot": meta.get("hot_topics") or [],
                          "generated_at": meta.get("generated_at", "")})
         except Exception:  # noqa: BLE001 - 单天坏数据不影响整体看板
             continue

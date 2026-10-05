@@ -24,7 +24,8 @@ COLS = [
 ]
 
 
-def export_xlsx(ranked: list[dict], all_candidates: list[dict], out: Path, cfg: dict):
+def export_xlsx(ranked: list[dict], all_candidates: list[dict], out: Path, cfg: dict,
+                hot: list[dict] | None = None):
     wb = Workbook()
     ws = wb.active
     ws.title = f"Top{cfg['top_n']}"
@@ -79,10 +80,32 @@ def export_xlsx(ranked: list[dict], all_candidates: list[dict], out: Path, cfg: 
         for c, v in enumerate(row, 1):
             ws2.cell(row=i, column=c, value=v)
     ws2.freeze_panes = "A2"
+
+    if hot:
+        ws3 = wb.create_sheet("升温领域")
+        hot_cols = [("话题", 18), ("今日条数", 9), ("今日均分", 9), ("今日最高分", 10),
+                    ("近7天均值条数", 13), ("判定依据", 48), ("代表内容", 50), ("链接", 40)]
+        for c, (name, width) in enumerate(hot_cols, 1):
+            cell = ws3.cell(row=1, column=c, value=name)
+            cell.fill = header_fill
+            cell.font = header_font
+            ws3.column_dimensions[get_column_letter(c)].width = width
+        for i, h in enumerate(hot, 2):
+            for c, v in enumerate([h["topic"], h["today_count"], h["today_avg"],
+                                   h["today_max"], h["last7_avg_count"], h["reason"],
+                                   h["sample_title"], h["sample_url"]], 1):
+                cell = ws3.cell(row=i, column=c, value=v)
+                cell.alignment = Alignment(vertical="top", wrap_text=c in (6, 7))
+            link = ws3.cell(row=i, column=8)
+            if h["sample_url"]:
+                link.hyperlink = h["sample_url"]
+                link.font = Font(color="2563EB", underline="single")
+        ws3.freeze_panes = "A2"
     wb.save(out)
 
 
-def export_md(ranked: list[dict], out: Path, cfg: dict, stats: dict, date_str: str):
+def export_md(ranked: list[dict], out: Path, cfg: dict, stats: dict, date_str: str,
+              hot: list[dict] | None = None):
     by_platform = {}
     for r in ranked:
         by_platform[r["platform_name"]] = by_platform.get(r["platform_name"], 0) + 1
@@ -96,6 +119,14 @@ def export_md(ranked: list[dict], out: Path, cfg: dict, stats: dict, date_str: s
         f"> 打分：热度40% + 速度25% + AI相关25% + 价值10%（0-100）",
         "",
     ]
+    if hot:
+        lines += ["## 🔥 今日升温领域", ""]
+        for h in hot:
+            lines.append(f"- **{h['topic']}**：今日 {h['today_count']} 条，"
+                         f"均分 {h['today_avg']}，最高 {h['today_max']} —— {h['reason']}")
+            if h.get("sample_title"):
+                lines.append(f"  - 代表：《{h['sample_title'][:60]}》")
+        lines.append("")
     medals = ["🥇", "🥈", "🥉"]
     for i, r in enumerate(ranked):
         medal = medals[i] if i < 3 else f"**{i + 1}.**"
@@ -112,12 +143,13 @@ def export_md(ranked: list[dict], out: Path, cfg: dict, stats: dict, date_str: s
     out.write_text("\n".join(lines), encoding="utf-8")
 
 
-def write_meta(out: Path, ranked: list[dict], stats: dict):
+def write_meta(out: Path, ranked: list[dict], stats: dict, hot: list[dict] | None = None):
     """看板数据源：富字段（含发布时间本地串、分项分、why），够 dashboard 直接渲染。"""
     meta = {
         "top_n": len(ranked),
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "stats": stats,
+        "hot_topics": hot or [],
         "items": [{
             "rank": i,
             "id": r["id"],

@@ -71,6 +71,23 @@ print(f"环形图: {'✅' if 'conic-gradient' in html else '❌'} | 分数柱状
 print(f"最新日期在页面: {'✅' if DATE in html else '❌'}")
 
 print()
+print("====== 测试4: 长期记忆与热度表 ======")
+mem_lines = [l for l in open("data/longterm_memory.jsonl", encoding="utf-8") if l.strip()]
+print(f"记忆表 {len(mem_lines)} 行（≥当日候选 {len(cand)}）:",
+      "✅" if len(mem_lines) >= len(cand) else "❌")
+import json as _json  # noqa: E402
+heat = _json.loads(open("data/topic_heat.json", encoding="utf-8").read())
+bad_t = [t for t, h in heat["topics"].items()
+         if not h.get("first_seen") or "status" not in h or "daily" not in h]
+print(f"热度表 {len(heat['topics'])} 话题 | 字段缺失: {len(bad_t)}",
+      "✅" if not bad_t else bad_t[:3])
+hot = meta.get("hot_topics", [])
+hot_ok = all({"topic", "today_count", "reason"} <= set(h) for h in hot)
+print(f"升温领域标记 {len(hot)} 条，结构完整: {'✅' if hot_ok else '❌'}")
+hot_in_dash = hot and hot[0]["topic"] in html
+print(f"看板含升温面板: {'✅' if hot_in_dash else ('—今日无升温' if not hot else '❌')}")
+
+print()
 print("====== 测试3c: 线上页面与本地一致 ======")
 import urllib.request  # noqa: E402
 req = urllib.request.Request(
