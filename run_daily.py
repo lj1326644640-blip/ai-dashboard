@@ -108,6 +108,8 @@ def run_finalize():
     llm = load_llm_scores(cfg)
     ranked = rule_score.apply_llm_and_rank(candidates, llm, cfg)
     top = ranked[:cfg["top_n"]]
+    # 统一字段闭环：把 final_score/why/LLM分 回写候选文件，保证每条记录字段齐全
+    cf.write_text(json.dumps(ranked, ensure_ascii=False, indent=1), encoding="utf-8")
 
     out_dir = REPORTS / local_date_str(cfg)
     out_dir.mkdir(parents=True, exist_ok=True)
