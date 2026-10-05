@@ -1,10 +1,92 @@
 {
  "top_n": 20,
- "generated_at": "2026-10-05T10:05:08.007649+00:00",
+ "generated_at": "2026-10-05T10:40:50.753299+00:00",
  "stats": {
   "kept": 74,
   "channels": "hn+producthunt+reddit+tiktok+twitter"
  },
+ "hot_topics": [
+  {
+   "topic": "Anthropic/Claude",
+   "today_count": 16,
+   "today_avg": 55.9,
+   "today_max": 95.5,
+   "last7_avg_count": 0.0,
+   "reason": "首次出现当天即进Top10",
+   "sample_title": "🚨 REVERSE ENGINEER ANY APP, THEN HAND IT TO YOUR AGENT\n\nREA is an open-source toolkit that plugs reverse engineering int",
+   "sample_url": "https://www.tiktok.com/@whitewhoadie/video/7692856072624770318"
+  },
+  {
+   "topic": "OpenAI",
+   "today_count": 9,
+   "today_avg": 61.0,
+   "today_max": 91.7,
+   "last7_avg_count": 0.0,
+   "reason": "首次出现当天即进Top10",
+   "sample_title": "I quit OpenAI because its culture is broken",
+   "sample_url": "https://www.theatlantic.com/technology/2026/10/openai-safety-team-resignation/688881/?gift=v5U_UzUTothfWXsPxtvNVAh7esWToMRD6XnbXmc5WgA"
+  },
+  {
+   "topic": "AI编程",
+   "today_count": 9,
+   "today_avg": 41.9,
+   "today_max": 80.0,
+   "last7_avg_count": 0.0,
+   "reason": "首次出现当天即进Top10",
+   "sample_title": "Getting the most out of Opus 5.5 in Claude and Claude Code",
+   "sample_url": "https://claude.dev/blog/getting-the-most-out-of-opus-5-5/"
+  },
+  {
+   "topic": "AI Agent",
+   "today_count": 7,
+   "today_avg": 52.5,
+   "today_max": 95.5,
+   "last7_avg_count": 0.0,
+   "reason": "首次出现当天即进Top10",
+   "sample_title": "🚨 REVERSE ENGINEER ANY APP, THEN HAND IT TO YOUR AGENT\n\nREA is an open-source toolkit that plugs reverse engineering int",
+   "sample_url": "https://www.tiktok.com/@whitewhoadie/video/7692856072624770318"
+  },
+  {
+   "topic": "Google/Gemini",
+   "today_count": 4,
+   "today_avg": 61.7,
+   "today_max": 95.5,
+   "last7_avg_count": 0.0,
+   "reason": "首次出现当天即进Top10",
+   "sample_title": "🚨 REVERSE ENGINEER ANY APP, THEN HAND IT TO YOUR AGENT\n\nREA is an open-source toolkit that plugs reverse engineering int",
+   "sample_url": "https://www.tiktok.com/@whitewhoadie/video/7692856072624770318"
+  },
+  {
+   "topic": "AI视频生成",
+   "today_count": 4,
+   "today_avg": 61.0,
+   "today_max": 79.4,
+   "last7_avg_count": 0.0,
+   "reason": "首次出现当天即进Top10",
+   "sample_title": "Wait until the end 🤯 LTX 2.5 AI Video Generator is changing AI video generation with cinematic text-to-video! #LTX25 #LT",
+   "sample_url": "https://www.tiktok.com/@benkimball.ai/video/7692264115812732190"
+  },
+  {
+   "topic": "开源模型",
+   "today_count": 3,
+   "today_avg": 65.9,
+   "today_max": 88.2,
+   "last7_avg_count": 0.0,
+   "reason": "首次出现当天即进Top10",
+   "sample_title": "Aleph Alpha Kolibri: How the sovereign German LLM works",
+   "sample_url": "https://tej.as/blog/aleph-alpha-kolibri"
+  },
+  {
+   "topic": "Qwen/阿里",
+   "today_count": 3,
+   "today_avg": 64.3,
+   "today_max": 96.5,
+   "last7_avg_count": 0.0,
+   "reason": "首次出现当天即进Top10",
+   "sample_title": "Run Qwen 3.8 Flash Next (125B) on consumer hardware (RTX 4090) at 100T/s",
+   "sample_url": "https://github.com/Niko1221/Strata"
+  }
+ ],
  "items": [
   {
    "rank": 1,
