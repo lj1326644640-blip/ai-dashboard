@@ -1,16 +1,16 @@
 {
- "updated_at": "2026-10-05T10:40:50.659915Z",
- "today": "2026-10-05",
+ "updated_at": "2026-10-06T06:01:50.577243Z",
+ "today": "2026-10-06",
  "topics": {
   "Qwen/阿里": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 3,
-    "avg": 64.3,
-    "max": 96.5
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.43,
+   "last7_avg_score": 64.3,
    "daily": {
     "2026-10-05": {
      "count": 3,
@@ -18,18 +18,18 @@
      "max": 96.5
     }
    },
-   "status": "升温",
-   "reason": "首次出现当天即进Top10"
+   "status": "-",
+   "reason": ""
   },
   "本地推理/端侧": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 2,
-    "avg": 90.8,
-    "max": 96.5
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.29,
+   "last7_avg_score": 90.8,
    "daily": {
     "2026-10-05": {
      "count": 2,
@@ -37,113 +37,138 @@
      "max": 96.5
     }
    },
-   "status": "升温",
-   "reason": "首次出现当天即进Top10"
+   "status": "-",
+   "reason": ""
   },
   "Anthropic/Claude": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 16,
-    "avg": 55.9,
+    "count": 14,
+    "avg": 67.3,
     "max": 95.5
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 2.29,
+   "last7_avg_score": 55.9,
    "daily": {
     "2026-10-05": {
      "count": 16,
      "avg": 55.9,
      "max": 95.5
+    },
+    "2026-10-06": {
+     "count": 14,
+     "avg": 67.3,
+     "max": 95.5
     }
    },
    "status": "升温",
-   "reason": "首次出现当天即进Top10"
+   "reason": "今日14条 vs 近7天均值2.3条（6.1×）"
   },
   "Google/Gemini": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 4,
-    "avg": 61.7,
-    "max": 95.5
+    "count": 9,
+    "avg": 71.2,
+    "max": 81.5
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.57,
+   "last7_avg_score": 61.7,
    "daily": {
     "2026-10-05": {
      "count": 4,
      "avg": 61.7,
      "max": 95.5
+    },
+    "2026-10-06": {
+     "count": 9,
+     "avg": 71.2,
+     "max": 81.5
     }
    },
    "status": "升温",
-   "reason": "首次出现当天即进Top10"
+   "reason": "今日9条 vs 近7天均值0.6条（15.8×）"
   },
   "AI Agent": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 7,
-    "avg": 52.5,
-    "max": 95.5
+    "count": 18,
+    "avg": 68.8,
+    "max": 80.5
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 1.0,
+   "last7_avg_score": 52.5,
    "daily": {
     "2026-10-05": {
      "count": 7,
      "avg": 52.5,
      "max": 95.5
+    },
+    "2026-10-06": {
+     "count": 18,
+     "avg": 68.8,
+     "max": 80.5
     }
    },
    "status": "升温",
-   "reason": "首次出现当天即进Top10"
+   "reason": "今日18条 vs 近7天均值1.0条（18.0×）"
   },
   "MCP": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 95.5,
-    "max": 95.5
+    "count": 4,
+    "avg": 48.4,
+    "max": 78.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 95.5,
    "daily": {
     "2026-10-05": {
      "count": 1,
      "avg": 95.5,
      "max": 95.5
+    },
+    "2026-10-06": {
+     "count": 4,
+     "avg": 48.4,
+     "max": 78.0
     }
    },
    "status": "升温",
-   "reason": "首次出现当天即进Top10"
+   "reason": "今日4条 vs 近7天均值0.1条（28.0×）"
   },
   "OpenAI": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 9,
-    "avg": 61.0,
-    "max": 91.7
+    "count": 31,
+    "avg": 66.9,
+    "max": 94.4
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 1.29,
+   "last7_avg_score": 61.0,
    "daily": {
     "2026-10-05": {
      "count": 9,
      "avg": 61.0,
      "max": 91.7
+    },
+    "2026-10-06": {
+     "count": 31,
+     "avg": 66.9,
+     "max": 94.4
     }
    },
    "status": "升温",
-   "reason": "首次出现当天即进Top10"
+   "reason": "今日31条 vs 近7天均值1.3条（24.1×）"
   },
   "开源模型": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 3,
-    "avg": 65.9,
-    "max": 88.2
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.43,
+   "last7_avg_score": 65.9,
    "daily": {
     "2026-10-05": {
      "count": 3,
@@ -151,56 +176,66 @@
      "max": 88.2
     }
    },
-   "status": "升温",
-   "reason": "首次出现当天即进Top10"
+   "status": "-",
+   "reason": ""
   },
   "AI编程": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 9,
-    "avg": 41.9,
-    "max": 80.0
+    "count": 6,
+    "avg": 65.9,
+    "max": 95.5
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 1.29,
+   "last7_avg_score": 41.9,
    "daily": {
     "2026-10-05": {
      "count": 9,
      "avg": 41.9,
      "max": 80.0
+    },
+    "2026-10-06": {
+     "count": 6,
+     "avg": 65.9,
+     "max": 95.5
     }
    },
    "status": "升温",
-   "reason": "首次出现当天即进Top10"
+   "reason": "今日6条 vs 近7天均值1.3条（4.7×）"
   },
   "AI视频生成": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 4,
-    "avg": 61.0,
-    "max": 79.4
+    "count": 1,
+    "avg": 71.5,
+    "max": 71.5
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.57,
+   "last7_avg_score": 61.0,
    "daily": {
     "2026-10-05": {
      "count": 4,
      "avg": 61.0,
      "max": 79.4
+    },
+    "2026-10-06": {
+     "count": 1,
+     "avg": 71.5,
+     "max": 71.5
     }
    },
-   "status": "升温",
-   "reason": "首次出现当天即进Top10"
+   "status": "-",
+   "reason": ""
   },
   "n:stratego": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 77.8,
-    "max": 77.8
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 77.8,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -208,37 +243,42 @@
      "max": 77.8
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "AI安全/对齐": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 2,
-    "avg": 57.2,
-    "max": 76.6
+    "count": 1,
+    "avg": 72.4,
+    "max": 72.4
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.29,
+   "last7_avg_score": 57.2,
    "daily": {
     "2026-10-05": {
      "count": 2,
      "avg": 57.2,
      "max": 76.6
+    },
+    "2026-10-06": {
+     "count": 1,
+     "avg": 72.4,
+     "max": 72.4
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:ai-generated": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 71.6,
-    "max": 71.6
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 71.6,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -246,18 +286,18 @@
      "max": 71.6
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:sad": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 70.5,
-    "max": 70.5
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 70.5,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -265,94 +305,114 @@
      "max": 70.5
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "提示工程": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 2,
-    "avg": 58.4,
-    "max": 67.8
+    "count": 11,
+    "avg": 63.5,
+    "max": 95.5
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.29,
+   "last7_avg_score": 58.4,
    "daily": {
     "2026-10-05": {
      "count": 2,
      "avg": 58.4,
      "max": 67.8
+    },
+    "2026-10-06": {
+     "count": 11,
+     "avg": 63.5,
+     "max": 95.5
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "升温",
+   "reason": "今日11条 vs 近7天均值0.3条（38.5×）"
   },
   "语音/音乐AI": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 2,
-    "avg": 66.1,
-    "max": 67.5
+    "count": 1,
+    "avg": 70.0,
+    "max": 70.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.29,
+   "last7_avg_score": 66.1,
    "daily": {
     "2026-10-05": {
      "count": 2,
      "avg": 66.1,
      "max": 67.5
+    },
+    "2026-10-06": {
+     "count": 1,
+     "avg": 70.0,
+     "max": 70.0
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "xAI/Grok": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 4,
-    "avg": 54.4,
-    "max": 67.0
+    "count": 1,
+    "avg": 41.1,
+    "max": 41.1
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.57,
+   "last7_avg_score": 54.4,
    "daily": {
     "2026-10-05": {
      "count": 4,
      "avg": 54.4,
      "max": 67.0
+    },
+    "2026-10-06": {
+     "count": 1,
+     "avg": 41.1,
+     "max": 41.1
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "AI科学/科研": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 5,
-    "avg": 49.0,
-    "max": 62.7
+    "count": 6,
+    "avg": 71.8,
+    "max": 81.5
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.71,
+   "last7_avg_score": 49.0,
    "daily": {
     "2026-10-05": {
      "count": 5,
      "avg": 49.0,
      "max": 62.7
+    },
+    "2026-10-06": {
+     "count": 6,
+     "avg": 71.8,
+     "max": 81.5
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "升温",
+   "reason": "今日6条 vs 近7天均值0.7条（8.4×）"
   },
   "n:fictional": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 59.8,
-    "max": 59.8
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 59.8,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -360,18 +420,18 @@
      "max": 59.8
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:fruit": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 59.8,
-    "max": 59.8
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 59.8,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -379,18 +439,18 @@
      "max": 59.8
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "机器人/具身": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 59.4,
-    "max": 59.4
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 59.4,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -398,18 +458,18 @@
      "max": 59.4
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:midwife": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 52.9,
-    "max": 52.9
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 52.9,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -417,18 +477,18 @@
      "max": 52.9
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:private": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 49.0,
-    "max": 49.0
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 49.0,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -436,18 +496,18 @@
      "max": 49.0
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:soon": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 49.0,
-    "max": 49.0
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 49.0,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -455,18 +515,18 @@
      "max": 49.0
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "DeepSeek": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 45.5,
-    "max": 45.5
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 45.5,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -474,37 +534,42 @@
      "max": 45.5
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "RAG/检索": {
    "first_seen": "2026-10-05",
    "today": {
     "count": 1,
-    "avg": 45.2,
-    "max": 45.2
+    "avg": 78.0,
+    "max": 78.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 45.2,
    "daily": {
     "2026-10-05": {
      "count": 1,
      "avg": 45.2,
      "max": 45.2
+    },
+    "2026-10-06": {
+     "count": 1,
+     "avg": 78.0,
+     "max": 78.0
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:position": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 44.0,
-    "max": 44.0
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 44.0,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -512,18 +577,18 @@
      "max": 44.0
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:gen": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 44.0,
-    "max": 44.0
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 44.0,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -531,18 +596,18 @@
      "max": 44.0
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:solo": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 40.3,
-    "max": 40.3
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 40.3,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -550,18 +615,18 @@
      "max": 40.3
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:jev": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 38.4,
-    "max": 38.4
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 38.4,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -569,18 +634,18 @@
      "max": 38.4
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:llm-as-a-judge": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 38.4,
-    "max": 38.4
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 38.4,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -588,37 +653,42 @@
      "max": 38.4
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "AI芯片/算力": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 2,
-    "avg": 34.6,
-    "max": 37.6
+    "count": 1,
+    "avg": 73.5,
+    "max": 73.5
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.29,
+   "last7_avg_score": 34.6,
    "daily": {
     "2026-10-05": {
      "count": 2,
      "avg": 34.6,
      "max": 37.6
+    },
+    "2026-10-06": {
+     "count": 1,
+     "avg": 73.5,
+     "max": 73.5
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "多模态": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 35.1,
-    "max": 35.1
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 35.1,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -626,18 +696,18 @@
      "max": 35.1
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:muse": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 26.1,
-    "max": 26.1
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 26.1,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -645,18 +715,18 @@
      "max": 26.1
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:gpt-2": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 25.0,
-    "max": 25.0
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 25.0,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -664,18 +734,18 @@
      "max": 25.0
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:legal": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 20.0,
-    "max": 20.0
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 20.0,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -683,37 +753,42 @@
      "max": 20.0
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:tools": {
    "first_seen": "2026-10-05",
    "today": {
     "count": 1,
-    "avg": 13.5,
-    "max": 13.5
+    "avg": 30.6,
+    "max": 30.6
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 13.5,
    "daily": {
     "2026-10-05": {
      "count": 1,
      "avg": 13.5,
      "max": 13.5
+    },
+    "2026-10-06": {
+     "count": 1,
+     "avg": 30.6,
+     "max": 30.6
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:wars": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 11.0,
-    "max": 11.0
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 11.0,
    "daily": {
     "2026-10-05": {
      "count": 1,
@@ -721,23 +796,479 @@
      "max": 11.0
     }
    },
-   "status": "新话题",
-   "reason": "今日首次出现"
+   "status": "-",
+   "reason": ""
   },
   "n:round": {
    "first_seen": "2026-10-05",
    "today": {
-    "count": 1,
-    "avg": 11.0,
-    "max": 11.0
+    "count": 0,
+    "avg": 0.0,
+    "max": 0.0
    },
-   "last7_avg_count": 0.0,
-   "last7_avg_score": null,
+   "last7_avg_count": 0.14,
+   "last7_avg_score": 11.0,
    "daily": {
     "2026-10-05": {
      "count": 1,
      "avg": 11.0,
      "max": 11.0
+    }
+   },
+   "status": "-",
+   "reason": ""
+  },
+  "AI监管/诉讼": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 2,
+    "avg": 64.5,
+    "max": 93.0
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 2,
+     "avg": 64.5,
+     "max": 93.0
+    }
+   },
+   "status": "升温",
+   "reason": "首次出现当天即进Top10"
+  },
+  "n:aispreadsheet": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 81.9,
+    "max": 81.9
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 81.9,
+     "max": 81.9
+    }
+   },
+   "status": "升温",
+   "reason": "首次出现当天即进Top10"
+  },
+  "n:aitools": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 81.9,
+    "max": 81.9
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 81.9,
+     "max": 81.9
+    }
+   },
+   "status": "升温",
+   "reason": "首次出现当天即进Top10"
+  },
+  "AI图像生成": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 2,
+    "avg": 68.5,
+    "max": 79.5
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 2,
+     "avg": 68.5,
+     "max": 79.5
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:donald": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 78.5,
+    "max": 78.5
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 78.5,
+     "max": 78.5
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:trump": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 2,
+    "avg": 75.2,
+    "max": 78.5
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 2,
+     "avg": 75.2,
+     "max": 78.5
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:story": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 77.0,
+    "max": 77.0
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 77.0,
+     "max": 77.0
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:bitcoins": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 77.0,
+    "max": 77.0
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 77.0,
+     "max": 77.0
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:khanmigo": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 73.9,
+    "max": 73.9
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 73.9,
+     "max": 73.9
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "Meta/LLaMA": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 2,
+    "avg": 72.2,
+    "max": 72.3
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 2,
+     "avg": 72.2,
+     "max": 72.3
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:white": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 72.0,
+    "max": 72.0
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 72.0,
+     "max": 72.0
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "模型评测/跑分": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 2,
+    "avg": 61.8,
+    "max": 71.5
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 2,
+     "avg": 61.8,
+     "max": 71.5
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:parasites": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 71.4,
+    "max": 71.4
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 71.4,
+     "max": 71.4
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "裁员/就业冲击": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 2,
+    "avg": 55.5,
+    "max": 70.0
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 2,
+     "avg": 55.5,
+     "max": 70.0
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:haidt": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 64.8,
+    "max": 64.8
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 64.8,
+     "max": 64.8
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:neutron": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 64.8,
+    "max": 64.8
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 64.8,
+     "max": 64.8
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:house": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 62.5,
+    "max": 62.5
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 62.5,
+     "max": 62.5
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:website": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 62.5,
+    "max": 62.5
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 62.5,
+     "max": 62.5
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:dune": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 53.0,
+    "max": 53.0
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 53.0,
+     "max": 53.0
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:millionviews": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 41.3,
+    "max": 41.3
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 41.3,
+     "max": 41.3
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:created": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 33.5,
+    "max": 33.5
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 33.5,
+     "max": 33.5
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:watch": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 33.5,
+    "max": 33.5
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 33.5,
+     "max": 33.5
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:feel": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 30.6,
+    "max": 30.6
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 30.6,
+     "max": 30.6
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "n:videoaitools": {
+   "first_seen": "2026-10-06",
+   "today": {
+    "count": 1,
+    "avg": 18.8,
+    "max": 18.8
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-06": {
+     "count": 1,
+     "avg": 18.8,
+     "max": 18.8
     }
    },
    "status": "新话题",
