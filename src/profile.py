@@ -29,16 +29,26 @@ def _inject_secrets(cfg: dict):
 
 
 def load(topic: str | None = None) -> dict:
-    """加载主题配置；缺省 ai-hot（兼容现有行为）。"""
+    """加载主题配置；缺省 ai-hot（兼容现有行为）。主题文件支持 .yaml/.yml/.json。"""
     topic = (topic or "ai-hot").strip()
     base_p = ROOT / "configs" / "base.json"
     cfg = json.loads(base_p.read_text(encoding="utf-8")) if base_p.exists() else {}
-    tpath = ROOT / "configs" / f"{topic}.yaml"
-    if tpath.exists():
-        t = yaml.safe_load(tpath.read_text(encoding="utf-8")) or {}
-        _deep_merge(cfg, t)
+    tcfg = None
+    for ext in (".yaml", ".yml", ".json"):
+        tpath = ROOT / "configs" / f"{topic}{ext}"
+        if tpath.exists():
+            try:
+                if ext == ".json":
+                    tcfg = json.loads(tpath.read_text(encoding="utf-8"))
+                else:
+                    tcfg = yaml.safe_load(tpath.read_text(encoding="utf-8"))
+                break
+            except Exception as e:  # noqa: BLE001
+                log.error("主题配置 %s 解析失败: %s", tpath.name, e)
+    if tcfg:
+        _deep_merge(cfg, tcfg)
     elif topic != "ai-hot":
-        log.warning("主题配置 %s 不存在，仅用 base 配置", tpath.name)
+        log.warning("主题配置 configs/%s.(yaml|json) 不存在，仅用 base 配置", topic)
     _inject_secrets(cfg)
     cfg["topic"] = topic
     return cfg
