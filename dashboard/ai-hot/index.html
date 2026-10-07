@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI 爆款日报看板</title><style>#t0:checked ~ main .d0{display:block}#t0:checked ~ label[for="t0"]{color:#0b1020;background:linear-gradient(90deg,#ffd166,#ffb86b);border-color:transparent;font-weight:700}#t1:checked ~ main .d1{display:block}#t1:checked ~ label[for="t1"]{color:#0b1020;background:linear-gradient(90deg,#ffd166,#ffb86b);border-color:transparent;font-weight:700}
+<title>AI 爆款日报看板</title><style>#t0:checked ~ main .d0{display:block}#t0:checked ~ label[for="t0"]{color:#0b1020;background:linear-gradient(90deg,#ffd166,#ffb86b);border-color:transparent;font-weight:700}#t1:checked ~ main .d1{display:block}#t1:checked ~ label[for="t1"]{color:#0b1020;background:linear-gradient(90deg,#ffd166,#ffb86b);border-color:transparent;font-weight:700}#t2:checked ~ main .d2{display:block}#t2:checked ~ label[for="t2"]{color:#0b1020;background:linear-gradient(90deg,#ffd166,#ffb86b);border-color:transparent;font-weight:700}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;min-height:100vh;
   background:linear-gradient(160deg,#0b1020 0%,#101a33 55%,#0d1226 100%);color:#e6ebf8}
@@ -88,9 +88,289 @@ footer a{color:#7aa2ff;text-decoration:none}
 <body><div class="wrap">
 <header><div class="logo">🔥 AI 爆款看板</div>
 <div class="sub">海外社媒 AI 内容热度追踪 · 每日 12:00 自动抓取打分更新</div></header>
-<div class="trend"><div class="tlabel">每日候选量（近2天）</div><div class="tchart"><div class="tcol" title="10-05: 20条"><i style="height:56px"></i><em>20</em><span>10-05</span></div><div class="tcol" title="10-06: 20条"><i style="height:56px"></i><em>20</em><span>10-06</span></div></div></div>
-<input type="radio" name="day" id="t0" class="tabhit" checked><label for="t0">2026-10-06（最新）</label><input type="radio" name="day" id="t1" class="tabhit"><label for="t1">2026-10-05</label>
-<main><section class="day d0"><div class="kpis"><div class="kpi"><b style="color:#7aa2ff">20</b><span>精选条数</span></div><div class="kpi"><b style="color:#34d399">95.5</b><span>最高分</span></div><div class="kpi"><b style="color:#9ee7ff">YouTube×8 · TikTok×7 · X/Twitter×4 · Hacker News×1</b><span>来源分布</span></div><div class="kpi"><b style="color:#c4b5fd">20/20</b><span>LLM评审覆盖</span></div><div class="kpi"><b style="color:#fda4af">hn+producthunt+reddit+tiktok+twitter+youtube</b><span>采集通道</span></div></div><div class="charts"><div class="panel"><div class="ptitle">本次爆款平台分布</div><div class="donutwrap"><div class="donut" style="background:conic-gradient(#ff0033 0.00% 40.00%, #ee1d52 40.00% 75.00%, #1d9bf0 75.00% 95.00%, #ff6600 95.00% 100.00%)"><div class="hole"><b>20</b><span>Top 20</span></div></div><div class="legend"><div><i style="background:#ff0033"></i>YT ×8（40%）</div><div><i style="background:#ee1d52"></i>TT ×7（35%）</div><div><i style="background:#1d9bf0"></i>X ×4（20%）</div><div><i style="background:#ff6600"></i>HN ×1（5%）</div></div></div></div><div class="panel"><div class="ptitle">Top 综合分排行（颜色=平台）</div><div class="hbars"><div class="hbar"><em>#1 X</em><div class="track"><i style="width:95.5%;background:#1d9bf0"></i></div><b>95.5</b></div><div class="hbar"><em>#2 X</em><div class="track"><i style="width:94.4%;background:#1d9bf0"></i></div><b>94.4</b></div><div class="hbar"><em>#3 X</em><div class="track"><i style="width:93.0%;background:#1d9bf0"></i></div><b>93.0</b></div><div class="hbar"><em>#4 HN</em><div class="track"><i style="width:91.9%;background:#ff6600"></i></div><b>91.9</b></div><div class="hbar"><em>#5 TT</em><div class="track"><i style="width:89.5%;background:#ee1d52"></i></div><b>89.5</b></div><div class="hbar"><em>#6 TT</em><div class="track"><i style="width:88.5%;background:#ee1d52"></i></div><b>88.5</b></div><div class="hbar"><em>#7 TT</em><div class="track"><i style="width:86.6%;background:#ee1d52"></i></div><b>86.6</b></div><div class="hbar"><em>#8 TT</em><div class="track"><i style="width:82.2%;background:#ee1d52"></i></div><b>82.2</b></div><div class="hbar"><em>#9 TT</em><div class="track"><i style="width:81.9%;background:#ee1d52"></i></div><b>81.9</b></div><div class="hbar"><em>#10 YT</em><div class="track"><i style="width:81.5%;background:#ff0033"></i></div><b>81.5</b></div></div></div></div><div class="panel hotpanel"><div class="ptitle">升温领域（相对近7天基线）</div><div class="hots"><div class="hotchip"><b>🔥 OpenAI</b><span>今日 31 条 · 均分 66.9 · 今日31条 vs 近7天均值1.3条（24.1×）</span><em>代表：《Introducing flow-1, our new model trained with RL to fin》</em></div><div class="hotchip"><b>🔥 AI Agent</b><span>今日 18 条 · 均分 68.8 · 今日18条 vs 近7天均值1.0条（18.0×）</span><em>代表：《OpenAI Dev Day 2026: Everything Announced in 15 Minutes》</em></div><div class="hotchip"><b>🔥 Anthropic/Claude</b><span>今日 14 条 · 均分 67.3 · 今日14条 vs 近7天均值2.3条（6.1×）</span><em>代表：《L’ingénieur qui a construit Claude Code vient de publier》</em></div><div class="hotchip"><b>🔥 提示工程</b><span>今日 11 条 · 均分 63.5 · 今日11条 vs 近7天均值0.3条（38.5×）</span><em>代表：《L’ingénieur qui a construit Claude Code vient de publier》</em></div><div class="hotchip"><b>🔥 Google/Gemini</b><span>今日 9 条 · 均分 71.2 · 今日9条 vs 近7天均值0.6条（15.8×）</span><em>代表：《OpenAI Security: Controlling Models is Now ‘Hell’》</em></div><div class="hotchip"><b>🔥 AI科学/科研</b><span>今日 6 条 · 均分 71.8 · 今日6条 vs 近7天均值0.7条（8.4×）</span><em>代表：《OpenAI Security: Controlling Models is Now ‘Hell’》</em></div><div class="hotchip"><b>🔥 AI编程</b><span>今日 6 条 · 均分 65.9 · 今日6条 vs 近7天均值1.3条（4.7×）</span><em>代表：《L’ingénieur qui a construit Claude Code vient de publier》</em></div><div class="hotchip"><b>🔥 MCP</b><span>今日 4 条 · 均分 48.4 · 今日4条 vs 近7天均值0.1条（28.0×）</span><em>代表：《Building AI Agents that actually work (Full Course)》</em></div></div></div><div class="cards">
+<div class="trend"><div class="tlabel">每日候选量（近3天）</div><div class="tchart"><div class="tcol" title="10-05: 20条"><i style="height:56px"></i><em>20</em><span>10-05</span></div><div class="tcol" title="10-06: 20条"><i style="height:56px"></i><em>20</em><span>10-06</span></div><div class="tcol" title="10-07: 20条"><i style="height:56px"></i><em>20</em><span>10-07</span></div></div></div>
+<input type="radio" name="day" id="t0" class="tabhit" checked><label for="t0">2026-10-07（最新）</label><input type="radio" name="day" id="t1" class="tabhit"><label for="t1">2026-10-06</label><input type="radio" name="day" id="t2" class="tabhit"><label for="t2">2026-10-05</label>
+<main><section class="day d0"><div class="kpis"><div class="kpi"><b style="color:#7aa2ff">20</b><span>精选条数</span></div><div class="kpi"><b style="color:#34d399">96.5</b><span>最高分</span></div><div class="kpi"><b style="color:#9ee7ff">YouTube×11 · Hacker News×9</b><span>来源分布</span></div><div class="kpi"><b style="color:#c4b5fd">20/20</b><span>LLM评审覆盖</span></div><div class="kpi"><b style="color:#fda4af">hn+producthunt+youtube</b><span>采集通道</span></div></div><div class="charts"><div class="panel"><div class="ptitle">本次爆款平台分布</div><div class="donutwrap"><div class="donut" style="background:conic-gradient(#ff0033 0.00% 55.00%, #ff6600 55.00% 100.00%)"><div class="hole"><b>20</b><span>Top 20</span></div></div><div class="legend"><div><i style="background:#ff0033"></i>YT ×11（55%）</div><div><i style="background:#ff6600"></i>HN ×9（45%）</div></div></div></div><div class="panel"><div class="ptitle">Top 综合分排行（颜色=平台）</div><div class="hbars"><div class="hbar"><em>#1 HN</em><div class="track"><i style="width:96.5%;background:#ff6600"></i></div><b>96.5</b></div><div class="hbar"><em>#2 HN</em><div class="track"><i style="width:92.6%;background:#ff6600"></i></div><b>92.6</b></div><div class="hbar"><em>#3 HN</em><div class="track"><i style="width:81.9%;background:#ff6600"></i></div><b>81.9</b></div><div class="hbar"><em>#4 YT</em><div class="track"><i style="width:81.5%;background:#ff0033"></i></div><b>81.5</b></div><div class="hbar"><em>#5 YT</em><div class="track"><i style="width:79.9%;background:#ff0033"></i></div><b>79.9</b></div><div class="hbar"><em>#6 HN</em><div class="track"><i style="width:79.5%;background:#ff6600"></i></div><b>79.5</b></div><div class="hbar"><em>#7 YT</em><div class="track"><i style="width:78.0%;background:#ff0033"></i></div><b>78.0</b></div><div class="hbar"><em>#8 YT</em><div class="track"><i style="width:78.0%;background:#ff0033"></i></div><b>78.0</b></div><div class="hbar"><em>#9 YT</em><div class="track"><i style="width:75.5%;background:#ff0033"></i></div><b>75.5</b></div><div class="hbar"><em>#10 HN</em><div class="track"><i style="width:74.4%;background:#ff6600"></i></div><b>74.4</b></div></div></div></div><div class="panel hotpanel"><div class="ptitle">升温领域（相对近7天基线）</div><div class="hots"><div class="hotchip"><b>🔥 AI Agent</b><span>今日 14 条 · 均分 61.0 · 今日14条 vs 近7天均值3.6条（3.9×）</span><em>代表：《Andrej Karpathy: From Vibe Coding to Agentic Engineering》</em></div><div class="hotchip"><b>🔥 AI编程</b><span>今日 5 条 · 均分 61.2 · 今日5条 vs 近7天均值2.1条（2.3×）</span><em>代表：《Andrej Karpathy: From Vibe Coding to Agentic Engineering》</em></div><div class="hotchip"><b>🔥 开源模型</b><span>今日 4 条 · 均分 59.8 · 今日4条 vs 近7天均值0.4条（9.3×）</span><em>代表：《OpenTPU – An open-source AI accelerator, developed by AI》</em></div><div class="hotchip"><b>🔥 MCP</b><span>今日 3 条 · 均分 49.8 · 今日3条 vs 近7天均值0.7条（4.2×）</span><em>代表：《Skills vs MCP vs RAG vs Memory: What AI Agents Need to K》</em></div></div></div><div class="cards">
+    <article class="item">
+      <div class="rankmedal rank1">🥇</div>
+      <div class="score" style="color:#34d399;border-color:#34d39955"><b>96.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">555 points · 487 comments</span>
+          <span class="time">10-07 06:17 · 6h前</span>
+          <span class="author">@OfficialTurkey</span>
+        </div>
+        <a class="title" href="https://openai.com/index/sharing-ai-progress-in-mathematics/" target="_blank" rel="noopener">Sharing AI progress in mathematics</a>
+        <div class="why">OpenAI官网发布AI数学进展文章，HN 555分487条评论，与700篇预印本同日引爆讨论</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:92%;background:#34d399"></i></div><b>92</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 9/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank2">🥈</div>
+      <div class="score" style="color:#34d399;border-color:#34d39955"><b>92.6</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span><span class="ctype" style="color:#34d399;border-color:#34d39966;background:#34d39914">工具</span>
+          <span class="eng">252 points · 311 comments</span>
+          <span class="time">10-07 00:23 · 12h前</span>
+          <span class="author">@fsbonetto</span>
+        </div>
+        <a class="title" href="https://github.com/FeSens/openTPU" target="_blank" rel="noopener">OpenTPU – An open-source AI accelerator, developed by AI</a>
+        <div class="why">开源TPU加速器号称由AI自行设计开发，HN 252分311条评论，AI造芯片话题吸睛</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:93%;background:#34d399"></i></div><b>93</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:84%;background:#a3e635"></i></div><b>84</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank3">🥉</div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>81.9</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">97 points · 108 comments</span>
+          <span class="time">10-07 01:01 · 11h前</span>
+          <span class="author">@healsdata</span>
+        </div>
+        <a class="title" href="https://www.techspot.com/news/114111-utah-become-first-state-ai-examine-patients-prescribe.html" target="_blank" rel="noopener">Utah to let AI examine patients and prescribe medication without human oversight</a>
+        <div class="why">犹他州拟允许AI无人类监督问诊开药，108条评论激辩医疗安全与监管边界</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:78%;background:#a3e635"></i></div><b>78</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:78%;background:#a3e635"></i></div><b>78</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:84%;background:#a3e635"></i></div><b>84</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 9/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#4</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>81.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff0033;border-color:#ff003366;background:#ff003314">YouTube</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">1,625,461 views · 0 likes</span>
+          <span class="time">未知 · 未知前</span>
+          <span class="author">@Sequoia Capital</span>
+        </div>
+        <a class="title" href="https://www.youtube.com/watch?v=96jN2OCOfLs" target="_blank" rel="noopener">Andrej Karpathy: From Vibe Coding to Agentic Engineering w/ Stephanie Zhan</a>
+        <div class="why">Karpathy做客红杉提出从Vibe Coding转向Agentic Engineering，162万播放刷屏</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:30%;background:#f87171"></i></div><b>30</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:50%;background:#f87171"></i></div><b>50</b></div></div><div class="chips"><span class="chip">AI相关 10/10</span><span class="chip">内容价值 9/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#5</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>79.9</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff0033;border-color:#ff003366;background:#ff003314">YouTube</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">655,039 views · 0 likes</span>
+          <span class="time">未知 · 未知前</span>
+          <span class="author">@OpenAI</span>
+        </div>
+        <a class="title" href="https://www.youtube.com/watch?v=Fls_onRviPM" target="_blank" rel="noopener">OpenAI DevDay 2026 Keynote (FULL)</a>
+        <div class="why">OpenAI DevDay 2026主题演讲官方完整版，65万播放，新品发布一手信源</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:99%;background:#34d399"></i></div><b>99</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:30%;background:#f87171"></i></div><b>30</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:50%;background:#f87171"></i></div><b>50</b></div></div><div class="chips"><span class="chip">AI相关 10/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#6</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>79.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span><span class="ctype" style="color:#c4b5fd;border-color:#c4b5fd66;background:#c4b5fd14">观点</span>
+          <span class="eng">133 points · 70 comments</span>
+          <span class="time">10-07 02:00 · 10h前</span>
+          <span class="author">@zed_labs_dev</span>
+        </div>
+        <a class="title" href="https://www.zohaib.cc/blog/smartest-claude-code-feature" target="_blank" rel="noopener">Claude Code’s suggested message feature: I think the real customer is the model</a>
+        <div class="why">博主拆解Claude Code建议消息功能，称真正服务对象是模型而非人，观点新颖</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:79%;background:#a3e635"></i></div><b>79</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:83%;background:#a3e635"></i></div><b>83</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:86%;background:#34d399"></i></div><b>86</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 7/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#7</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>78.0</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff0033;border-color:#ff003366;background:#ff003314">YouTube</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">2,496,602 views · 0 likes</span>
+          <span class="time">未知 · 未知前</span>
+          <span class="author">@Hannah Fry</span>
+        </div>
+        <a class="title" href="https://www.youtube.com/watch?v=WnzR5aOElvw" target="_blank" rel="noopener">Why AI Agents are either the best or worst thing we’ve ever built</a>
+        <div class="why">数学家Hannah Fry辩论AI Agent是人类最好还是最坏造物，249万播放情绪张力强</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:30%;background:#f87171"></i></div><b>30</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:50%;background:#f87171"></i></div><b>50</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#8</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>78.0</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff0033;border-color:#ff003366;background:#ff003314">YouTube</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">842,024 views · 0 likes</span>
+          <span class="time">未知 · 未知前</span>
+          <span class="author">@Fireship</span>
+        </div>
+        <a class="title" href="https://www.youtube.com/watch?v=URKml8lgw8Y" target="_blank" rel="noopener">OpenAI is so back... GPT 5.6 Sol first look</a>
+        <div class="why">Fireship快评OpenAI GPT 5.6 Sol首发，84万播放，吐槽式解读自带爆款体质</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:30%;background:#f87171"></i></div><b>30</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:50%;background:#f87171"></i></div><b>50</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#9</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>75.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff0033;border-color:#ff003366;background:#ff003314">YouTube</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">1,249,781 views · 0 likes</span>
+          <span class="time">未知 · 未知前</span>
+          <span class="author">@The Daily Show</span>
+        </div>
+        <a class="title" href="https://www.youtube.com/watch?v=lnLDjXy2kRA" target="_blank" rel="noopener">Jacob Coxon On Witnessing the Existential Threat of AI from the Inside | The Daily Show</a>
+        <div class="why">Anthropic前员工Jacob Coxon上每日秀自述目睹AI生存威胁，125万播放独家口述</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:30%;background:#f87171"></i></div><b>30</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:50%;background:#f87171"></i></div><b>50</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#10</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>74.4</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">79 points · 90 comments</span>
+          <span class="time">10-06 15:29 · 21h前</span>
+          <span class="author">@nsoonhui</span>
+        </div>
+        <a class="title" href="https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x" target="_blank" rel="noopener">Anthropic Subscriptions Offer 5x+ More Value Than OpenAI</a>
+        <div class="why">SemiAnalysis测算Anthropic订阅价值超OpenAI五倍，HN 90条评论激辩计费与用量</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:74%;background:#a3e635"></i></div><b>74</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:56%;background:#fbbf24"></i></div><b>56</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:71%;background:#a3e635"></i></div><b>71</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#11</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>74.3</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff0033;border-color:#ff003366;background:#ff003314">YouTube</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">708,833 views · 0 likes</span>
+          <span class="time">未知 · 未知前</span>
+          <span class="author">@Tina Huang</span>
+        </div>
+        <a class="title" href="https://www.youtube.com/watch?v=M-NTwkM3VwM" target="_blank" rel="noopener">Local AI Agents In 26 Minutes</a>
+        <div class="why">Tina Huang 26分钟手把手搭本地AI Agent，71万播放，步骤可复刻主打隐私</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:99%;background:#34d399"></i></div><b>99</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:30%;background:#f87171"></i></div><b>30</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:50%;background:#f87171"></i></div><b>50</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 7/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#12</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>74.1</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">49 points · 11 comments</span>
+          <span class="time">10-07 07:50 · 4h前</span>
+          <span class="author">@thoughtpeddler</span>
+        </div>
+        <a class="title" href="https://www.reuters.com/world/south-koreas-lee-says-ai-appears-have-been-used-bank-hacks-2026-10-06/" target="_blank" rel="noopener">South Korea says AI agents appear to have been used to hack the country&#x27;s banks</a>
+        <div class="why">路透报道韩国称银行遭黑入侵疑似动用AI代理，AI武器化安全事件，讨论快速升温</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:62%;background:#fbbf24"></i></div><b>62</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:75%;background:#a3e635"></i></div><b>75</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:94%;background:#34d399"></i></div><b>94</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#13</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>73.0</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff0033;border-color:#ff003366;background:#ff003314">YouTube</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">3,745,989 views · 0 likes</span>
+          <span class="time">未知 · 未知前</span>
+          <span class="author">@The Daily Show</span>
+        </div>
+        <a class="title" href="https://www.youtube.com/watch?v=S18jxWZntUo" target="_blank" rel="noopener">Jon Stewart Unpacks AI’s Dubious Promise of a &quot;Better Future&quot; | The Daily Show</a>
+        <div class="why">Jon Stewart讽刺AI描绘的美好未来，375万播放，反AI情绪的舆论风向标</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:30%;background:#f87171"></i></div><b>30</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:50%;background:#f87171"></i></div><b>50</b></div></div><div class="chips"><span class="chip">AI相关 7/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#14</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>72.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span><span class="ctype" style="color:#34d399;border-color:#34d39966;background:#34d39914">工具</span>
+          <span class="eng">98 points · 44 comments</span>
+          <span class="time">10-07 05:59 · 6h前</span>
+          <span class="author">@kavourias</span>
+        </div>
+        <a class="title" href="https://penguin-mail.com/" target="_blank" rel="noopener">Penguin Mail – open-source Rust email client for Linux with AI</a>
+        <div class="why">开源Rust邮件客户端主打内置AI，Linux向发布获HN 98分，AI仅属附加卖点</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:74%;background:#a3e635"></i></div><b>74</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:87%;background:#34d399"></i></div><b>87</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:91%;background:#34d399"></i></div><b>91</b></div></div><div class="chips"><span class="chip">AI相关 6/10</span><span class="chip">内容价值 6/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#15</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>72.1</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">97 points · 39 comments</span>
+          <span class="time">10-06 20:53 · 15h前</span>
+          <span class="author">@pfdietz</span>
+        </div>
+        <a class="title" href="https://www.erdosproblems.com/forum/thread/blog:9" target="_blank" rel="noopener">Erdosproblems.com Succumbs to the AI Onslaught</a>
+        <div class="why">Erdős问题网站发博称遭AI解答冲击，HN 97分，数学社区讨论开放协作受损</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:74%;background:#a3e635"></i></div><b>74</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:63%;background:#fbbf24"></i></div><b>63</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:79%;background:#a3e635"></i></div><b>79</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 7/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#16</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>71.9</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff0033;border-color:#ff003366;background:#ff003314">YouTube</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">504,445 views · 0 likes</span>
+          <span class="time">未知 · 未知前</span>
+          <span class="author">@ezCommit</span>
+        </div>
+        <a class="title" href="https://www.youtube.com/watch?v=_R_d3ibfttY" target="_blank" rel="noopener">Generative AI vs AI Agents vs Agentic AI Explained | Complete Beginner&#x27;s Guide (2026)</a>
+        <div class="why">50万播放的AI概念入门视频，厘清生成式AI、Agent与Agentic AI术语差异</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:96%;background:#34d399"></i></div><b>96</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:30%;background:#f87171"></i></div><b>30</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:50%;background:#f87171"></i></div><b>50</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 6/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#17</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>71.7</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff0033;border-color:#ff003366;background:#ff003314">YouTube</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">489,172 views · 0 likes</span>
+          <span class="time">未知 · 未知前</span>
+          <span class="author">@IBM Technology</span>
+        </div>
+        <a class="title" href="https://www.youtube.com/watch?v=Lg-meK5IU8Q" target="_blank" rel="noopener">What AI Agent Skills Are and How They Work</a>
+        <div class="why">IBM频道科普AI Agent Skills机制，49万播放，讲解清晰但深度一般</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:96%;background:#34d399"></i></div><b>96</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:30%;background:#f87171"></i></div><b>30</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:90%;background:#34d399"></i></div><b>90</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:50%;background:#f87171"></i></div><b>50</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 6/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#18</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>71.6</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff0033;border-color:#ff003366;background:#ff003314">YouTube</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">373,398 views · 0 likes</span>
+          <span class="time">未知 · 未知前</span>
+          <span class="author">@Forbes Breaking News</span>
+        </div>
+        <a class="title" href="https://www.youtube.com/watch?v=veP6jdvy7j8" target="_blank" rel="noopener">BREAKING: Anthropic Whistleblower Jacob Coxon Warns Of ‘Human Extinction’ At NYC Council Hearing</a>
+        <div class="why">Jacob Coxon在纽约市议会听证会警告AI或致人类灭绝，37万播放，Forbes转播</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:93%;background:#34d399"></i></div><b>93</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:30%;background:#f87171"></i></div><b>30</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:50%;background:#f87171"></i></div><b>50</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 7/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#19</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>71.4</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff0033;border-color:#ff003366;background:#ff003314">YouTube</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">196,826 views · 0 likes</span>
+          <span class="time">未知 · 未知前</span>
+          <span class="author">@IBM Technology</span>
+        </div>
+        <a class="title" href="https://www.youtube.com/watch?v=X4FVEEegCbk" target="_blank" rel="noopener">Skills vs MCP vs RAG vs Memory: What AI Agents Need to Know</a>
+        <div class="why">对比Skills、MCP、RAG与Memory四种Agent增强路径，20万播放，选型实用</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:86%;background:#34d399"></i></div><b>86</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:30%;background:#f87171"></i></div><b>30</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:50%;background:#f87171"></i></div><b>50</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 7/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#20</span></div>
+      <div class="score" style="color:#a3e635;border-color:#a3e63555"><b>70.2</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#ff6600;border-color:#ff660066;background:#ff660014">Hacker News</span><span class="ctype" style="color:#34d399;border-color:#34d39966;background:#34d39914">工具</span>
+          <span class="eng">40 points · 2 comments</span>
+          <span class="time">10-07 07:37 · 5h前</span>
+          <span class="author">@tootie</span>
+        </div>
+        <a class="title" href="https://github.com/openai/math/tree/main/preprints" target="_blank" rel="noopener">OpenAI just dropped 700 preprints of mathematical proofs and counterexamples</a>
+        <div class="why">OpenAI一口气开源700篇数学证明与反例预印本，发布仅5小时，含金量待验证</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:58%;background:#fbbf24"></i></div><b>58</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:66%;background:#fbbf24"></i></div><b>66</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:94%;background:#34d399"></i></div><b>94</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 8/10</span></div>
+      </div>
+    </article></div></section><section class="day d1"><div class="kpis"><div class="kpi"><b style="color:#7aa2ff">20</b><span>精选条数</span></div><div class="kpi"><b style="color:#34d399">95.5</b><span>最高分</span></div><div class="kpi"><b style="color:#9ee7ff">YouTube×8 · TikTok×7 · X/Twitter×4 · Hacker News×1</b><span>来源分布</span></div><div class="kpi"><b style="color:#c4b5fd">20/20</b><span>LLM评审覆盖</span></div><div class="kpi"><b style="color:#fda4af">hn+producthunt+reddit+tiktok+twitter+youtube</b><span>采集通道</span></div></div><div class="charts"><div class="panel"><div class="ptitle">本次爆款平台分布</div><div class="donutwrap"><div class="donut" style="background:conic-gradient(#ff0033 0.00% 40.00%, #ee1d52 40.00% 75.00%, #1d9bf0 75.00% 95.00%, #ff6600 95.00% 100.00%)"><div class="hole"><b>20</b><span>Top 20</span></div></div><div class="legend"><div><i style="background:#ff0033"></i>YT ×8（40%）</div><div><i style="background:#ee1d52"></i>TT ×7（35%）</div><div><i style="background:#1d9bf0"></i>X ×4（20%）</div><div><i style="background:#ff6600"></i>HN ×1（5%）</div></div></div></div><div class="panel"><div class="ptitle">Top 综合分排行（颜色=平台）</div><div class="hbars"><div class="hbar"><em>#1 X</em><div class="track"><i style="width:95.5%;background:#1d9bf0"></i></div><b>95.5</b></div><div class="hbar"><em>#2 X</em><div class="track"><i style="width:94.4%;background:#1d9bf0"></i></div><b>94.4</b></div><div class="hbar"><em>#3 X</em><div class="track"><i style="width:93.0%;background:#1d9bf0"></i></div><b>93.0</b></div><div class="hbar"><em>#4 HN</em><div class="track"><i style="width:91.9%;background:#ff6600"></i></div><b>91.9</b></div><div class="hbar"><em>#5 TT</em><div class="track"><i style="width:89.5%;background:#ee1d52"></i></div><b>89.5</b></div><div class="hbar"><em>#6 TT</em><div class="track"><i style="width:88.5%;background:#ee1d52"></i></div><b>88.5</b></div><div class="hbar"><em>#7 TT</em><div class="track"><i style="width:86.6%;background:#ee1d52"></i></div><b>86.6</b></div><div class="hbar"><em>#8 TT</em><div class="track"><i style="width:82.2%;background:#ee1d52"></i></div><b>82.2</b></div><div class="hbar"><em>#9 TT</em><div class="track"><i style="width:81.9%;background:#ee1d52"></i></div><b>81.9</b></div><div class="hbar"><em>#10 YT</em><div class="track"><i style="width:81.5%;background:#ff0033"></i></div><b>81.5</b></div></div></div></div><div class="panel hotpanel"><div class="ptitle">升温领域（相对近7天基线）</div><div class="hots"><div class="hotchip"><b>🔥 OpenAI</b><span>今日 31 条 · 均分 66.9 · 今日31条 vs 近7天均值1.3条（24.1×）</span><em>代表：《Introducing flow-1, our new model trained with RL to fin》</em></div><div class="hotchip"><b>🔥 AI Agent</b><span>今日 18 条 · 均分 68.8 · 今日18条 vs 近7天均值1.0条（18.0×）</span><em>代表：《OpenAI Dev Day 2026: Everything Announced in 15 Minutes》</em></div><div class="hotchip"><b>🔥 Anthropic/Claude</b><span>今日 14 条 · 均分 67.3 · 今日14条 vs 近7天均值2.3条（6.1×）</span><em>代表：《L’ingénieur qui a construit Claude Code vient de publier》</em></div><div class="hotchip"><b>🔥 提示工程</b><span>今日 11 条 · 均分 63.5 · 今日11条 vs 近7天均值0.3条（38.5×）</span><em>代表：《L’ingénieur qui a construit Claude Code vient de publier》</em></div><div class="hotchip"><b>🔥 Google/Gemini</b><span>今日 9 条 · 均分 71.2 · 今日9条 vs 近7天均值0.6条（15.8×）</span><em>代表：《OpenAI Security: Controlling Models is Now ‘Hell’》</em></div><div class="hotchip"><b>🔥 AI科学/科研</b><span>今日 6 条 · 均分 71.8 · 今日6条 vs 近7天均值0.7条（8.4×）</span><em>代表：《OpenAI Security: Controlling Models is Now ‘Hell’》</em></div><div class="hotchip"><b>🔥 AI编程</b><span>今日 6 条 · 均分 65.9 · 今日6条 vs 近7天均值1.3条（4.7×）</span><em>代表：《L’ingénieur qui a construit Claude Code vient de publier》</em></div><div class="hotchip"><b>🔥 MCP</b><span>今日 4 条 · 均分 48.4 · 今日4条 vs 近7天均值0.1条（28.0×）</span><em>代表：《Building AI Agents that actually work (Full Course)》</em></div></div></div><div class="cards">
     <article class="item">
       <div class="rankmedal rank1">🥇</div>
       <div class="score" style="color:#34d399;border-color:#34d39955"><b>95.5</b><span>总分</span></div>
@@ -386,7 +666,7 @@ AI-generated comedy </a>
         <div class="why">AI生成的比特币悬念短剧第一集，23.4万播放1.5万赞，标题党剧情号无信息增量，仅沾AI制作边</div>
         <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:77%;background:#a3e635"></i></div><b>77</b></div></div><div class="chips"><span class="chip">AI相关 4/10</span><span class="chip">内容价值 2/10</span></div>
       </div>
-    </article></div></section><section class="day d1"><div class="kpis"><div class="kpi"><b style="color:#7aa2ff">20</b><span>精选条数</span></div><div class="kpi"><b style="color:#34d399">96.5</b><span>最高分</span></div><div class="kpi"><b style="color:#9ee7ff">Hacker News×13 · TikTok×4 · X/Twitter×3</b><span>来源分布</span></div><div class="kpi"><b style="color:#c4b5fd">20/20</b><span>LLM评审覆盖</span></div><div class="kpi"><b style="color:#fda4af">hn+producthunt+reddit+tiktok+twitter</b><span>采集通道</span></div></div><div class="charts"><div class="panel"><div class="ptitle">本次爆款平台分布</div><div class="donutwrap"><div class="donut" style="background:conic-gradient(#ff6600 0.00% 65.00%, #ee1d52 65.00% 85.00%, #1d9bf0 85.00% 100.00%)"><div class="hole"><b>20</b><span>Top 20</span></div></div><div class="legend"><div><i style="background:#ff6600"></i>HN ×13（65%）</div><div><i style="background:#ee1d52"></i>TT ×4（20%）</div><div><i style="background:#1d9bf0"></i>X ×3（15%）</div></div></div></div><div class="panel"><div class="ptitle">Top 综合分排行（颜色=平台）</div><div class="hbars"><div class="hbar"><em>#1 HN</em><div class="track"><i style="width:96.5%;background:#ff6600"></i></div><b>96.5</b></div><div class="hbar"><em>#2 TT</em><div class="track"><i style="width:95.5%;background:#ee1d52"></i></div><b>95.5</b></div><div class="hbar"><em>#3 HN</em><div class="track"><i style="width:91.7%;background:#ff6600"></i></div><b>91.7</b></div><div class="hbar"><em>#4 HN</em><div class="track"><i style="width:89.0%;background:#ff6600"></i></div><b>89.0</b></div><div class="hbar"><em>#5 HN</em><div class="track"><i style="width:88.2%;background:#ff6600"></i></div><b>88.2</b></div><div class="hbar"><em>#6 HN</em><div class="track"><i style="width:85.0%;background:#ff6600"></i></div><b>85.0</b></div><div class="hbar"><em>#7 HN</em><div class="track"><i style="width:81.8%;background:#ff6600"></i></div><b>81.8</b></div><div class="hbar"><em>#8 HN</em><div class="track"><i style="width:80.0%;background:#ff6600"></i></div><b>80.0</b></div><div class="hbar"><em>#9 TT</em><div class="track"><i style="width:79.4%;background:#ee1d52"></i></div><b>79.4</b></div><div class="hbar"><em>#10 X</em><div class="track"><i style="width:78.0%;background:#1d9bf0"></i></div><b>78.0</b></div></div></div></div><div class="panel hotpanel"><div class="ptitle">升温领域（相对近7天基线）</div><div class="hots"><div class="hotchip"><b>🔥 Anthropic/Claude</b><span>今日 16 条 · 均分 55.9 · 首次出现当天即进Top10</span><em>代表：《🚨 REVERSE ENGINEER ANY APP, THEN HAND IT TO YOUR AGENT
+    </article></div></section><section class="day d2"><div class="kpis"><div class="kpi"><b style="color:#7aa2ff">20</b><span>精选条数</span></div><div class="kpi"><b style="color:#34d399">96.5</b><span>最高分</span></div><div class="kpi"><b style="color:#9ee7ff">Hacker News×13 · TikTok×4 · X/Twitter×3</b><span>来源分布</span></div><div class="kpi"><b style="color:#c4b5fd">20/20</b><span>LLM评审覆盖</span></div><div class="kpi"><b style="color:#fda4af">hn+producthunt+reddit+tiktok+twitter</b><span>采集通道</span></div></div><div class="charts"><div class="panel"><div class="ptitle">本次爆款平台分布</div><div class="donutwrap"><div class="donut" style="background:conic-gradient(#ff6600 0.00% 65.00%, #ee1d52 65.00% 85.00%, #1d9bf0 85.00% 100.00%)"><div class="hole"><b>20</b><span>Top 20</span></div></div><div class="legend"><div><i style="background:#ff6600"></i>HN ×13（65%）</div><div><i style="background:#ee1d52"></i>TT ×4（20%）</div><div><i style="background:#1d9bf0"></i>X ×3（15%）</div></div></div></div><div class="panel"><div class="ptitle">Top 综合分排行（颜色=平台）</div><div class="hbars"><div class="hbar"><em>#1 HN</em><div class="track"><i style="width:96.5%;background:#ff6600"></i></div><b>96.5</b></div><div class="hbar"><em>#2 TT</em><div class="track"><i style="width:95.5%;background:#ee1d52"></i></div><b>95.5</b></div><div class="hbar"><em>#3 HN</em><div class="track"><i style="width:91.7%;background:#ff6600"></i></div><b>91.7</b></div><div class="hbar"><em>#4 HN</em><div class="track"><i style="width:89.0%;background:#ff6600"></i></div><b>89.0</b></div><div class="hbar"><em>#5 HN</em><div class="track"><i style="width:88.2%;background:#ff6600"></i></div><b>88.2</b></div><div class="hbar"><em>#6 HN</em><div class="track"><i style="width:85.0%;background:#ff6600"></i></div><b>85.0</b></div><div class="hbar"><em>#7 HN</em><div class="track"><i style="width:81.8%;background:#ff6600"></i></div><b>81.8</b></div><div class="hbar"><em>#8 HN</em><div class="track"><i style="width:80.0%;background:#ff6600"></i></div><b>80.0</b></div><div class="hbar"><em>#9 TT</em><div class="track"><i style="width:79.4%;background:#ee1d52"></i></div><b>79.4</b></div><div class="hbar"><em>#10 X</em><div class="track"><i style="width:78.0%;background:#1d9bf0"></i></div><b>78.0</b></div></div></div></div><div class="panel hotpanel"><div class="ptitle">升温领域（相对近7天基线）</div><div class="hots"><div class="hotchip"><b>🔥 Anthropic/Claude</b><span>今日 16 条 · 均分 55.9 · 首次出现当天即进Top10</span><em>代表：《🚨 REVERSE ENGINEER ANY APP, THEN HAND IT TO YOUR AGENT
 
 》</em></div><div class="hotchip"><b>🔥 OpenAI</b><span>今日 9 条 · 均分 61.0 · 首次出现当天即进Top10</span><em>代表：《I quit OpenAI because its culture is broken》</em></div><div class="hotchip"><b>🔥 AI编程</b><span>今日 9 条 · 均分 41.9 · 首次出现当天即进Top10</span><em>代表：《Getting the most out of Opus 5.5 in Claude and Claude Co》</em></div><div class="hotchip"><b>🔥 AI Agent</b><span>今日 7 条 · 均分 52.5 · 首次出现当天即进Top10</span><em>代表：《🚨 REVERSE ENGINEER ANY APP, THEN HAND IT TO YOUR AGENT
 
@@ -687,5 +967,5 @@ I wrote a script of everything an AI voice &quot;can&#x27;t do.&quot; Then made 
         <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:60%;background:#fbbf24"></i></div><b>60</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:96%;background:#34d399"></i></div><b>96</b></div></div><div class="chips"><span class="chip">AI相关 6/10</span><span class="chip">内容价值 3/10</span></div>
       </div>
     </article></div></section></main>
-<footer>数据截至 <b>2026-10-06</b> 2 天历史 · 生成于 2026-10-06 14:01 · 每 finalize 自动更新本页 · 通道与排障见 README.md<br>通道：HN/PH 免key直连 · Reddit/X/TikTok 经 Apify · YouTube 经代理+yt-dlp · 打分=热度40%+速度25%+AI相关25%+价值10%</footer>
+<footer>数据截至 <b>2026-10-07</b> 3 天历史 · 生成于 2026-10-07 12:23 · 每 finalize 自动更新本页 · 通道与排障见 README.md<br>通道：HN/PH 免key直连 · Reddit/X/TikTok 经 Apify · YouTube 经代理+yt-dlp · 打分=热度40%+速度25%+AI相关25%+价值10%</footer>
 </div></body></html>
