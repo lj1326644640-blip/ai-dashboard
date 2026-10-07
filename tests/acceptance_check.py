@@ -64,8 +64,8 @@ cards = len(re.findall(r'<article class="item">', html))
 links = html.count('target="_blank"')
 whys = len(re.findall(r'class="why"', html))
 tabs = len(re.findall('name="day"', html))
-print(f"占位残留: {len(bad)} | 卡片: {cards} | 外链: {links} | why: {whys} | 日期tab: {tabs}",
-      "✅" if not bad and cards == 20 and whys == 20 else "❌")
+print(f"占位残留: {len(bad)} | 卡片: {cards}(应={20 * max(tabs, 1)}) | 外链: {links} | why: {whys} | 日期tab: {tabs}",
+      "✅" if not bad and cards == 20 * max(tabs, 1) and whys == cards else "❌")
 print(f"环形图: {'✅' if 'conic-gradient' in html else '❌'} | 分数柱状图: "
       f"{'✅' if 'Top 综合分排行' in html else '❌'}")
 print(f"最新日期在页面: {'✅' if DATE in html else '❌'}")

@@ -119,8 +119,8 @@ tests\acceptance_check.py # 验收测试（python tests/acceptance_check.py）
 |---|---|---|
 | Reddit/X/TikTok 无产出 | Apify token 失效或免费额度($5/月)耗尽 | `python src/check_secrets.py` 查token；额度月底重置或升 Starter |
 | X 只有10条 | Apify免费档限5次/月×10条 | 预期内；要上量需 Starter $19/月 |
-| YouTube 无产出 | 本机无可用代理 | 开 Clash；或把端口填入 secrets.json 的 `proxy.port` |
-| 推送失败 push fail | github.com 间歇被阻断 | publish 已自动重试3次；失败的commit留本地，下次运行自动补推 |
+| YouTube 无产出 | 本机无可用代理 | 代理=**飞鸟(FlyingBird) `127.0.0.1:7892`**（已写入secrets.json）；确保中午12点时飞鸟在运行；Clash Verge 的 7897 未接通节点不可用 |
+| 推送失败 push fail | github.com 间歇被阻断 | git 已配置走飞鸟7892代理（`http.https://github.com.proxy`）；飞鸟没开时自动重试3次+留本地补推 |
 | 当天没生成日报 | 12点时电脑关机/容器未运行 | 开机后 `python src/main.py all` 补跑（去重保证不重复推送）|
 | LLM打分缺失 | 评审步骤未跑 | finalize 会自动降级为纯规则分；手动补：按 docs/llm_rubric.md 打分写入 data/当天/llm_scores/ |
 | 看板分数和昨天比变化大 | 打分是绝对基准分，与当日样本无关 | 检查 scoring_refs 是否被改动；对照 打分机制.md |
