@@ -9,7 +9,7 @@ import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from settings import ROOT
+from settings import ROOT, dashboard_file, docs_file
 
 
 def _git(*args: str, timeout: int = 60) -> tuple[int, str]:
@@ -25,13 +25,13 @@ def publish(cfg: dict) -> str:
         if rc != 0:
             return "skip: 未配置远程仓库（git remote add origin 后自动启用）"
 
-        # 1) 看板副本 → docs/index.html（Pages 以 /docs 为根，访问首页即看板）
-        dash = ROOT / "dashboard" / "index.html"
+        # 1) 看板副本 → docs/<topic>/index.html（Pages 子路径，同仓库托管全部主题）
+        dash = dashboard_file(cfg)
+        doc_out = docs_file(cfg)
         if not dash.exists():
             return "skip: dashboard.html 不存在"
-        docs = ROOT / "docs"
-        docs.mkdir(exist_ok=True)
-        shutil.copy2(dash, docs / "index.html")
+        doc_out.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(dash, doc_out)
 
         # 2) commit（无变化则跳过）
         _git("add", "docs", "data", "dashboard")

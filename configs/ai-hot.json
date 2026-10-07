@@ -1,0 +1,75 @@
+{
+  "label": "AI爆款综合（海外）",
+  "schedule_hint": "12:00",
+  "apify": {
+    "reddit_actor": "trudax/reddit-scraper-lite",
+    "twitter_actor": "apidojo/tweet-scraper",
+    "tiktok_actor": "clockworks/tiktok-scraper",
+    "max_items": { "reddit": 100, "twitter": 100, "tiktok": 100 }
+  },
+  "window_hours": 72,
+  "candidates_per_platform": 50,
+  "top_n": 20,
+  "keywords": [
+    "AI", "LLM", "GPT", "ChatGPT", "OpenAI", "Anthropic", "Claude", "Gemini",
+    "DeepSeek", "Qwen", "Grok", "Copilot", "AI agent", "agentic", "MCP", "RAG",
+    "fine-tuning", "fine-tune", "Midjourney", "Stable Diffusion", "Sora",
+    "AI video", "prompt", "transformer", "open-source model", "open-weight",
+    "vibe coding", "machine learning", "deep learning", "neural network",
+    "AGI", "AI safety", "GenAI", "generative AI", "diffusion model", "LLaMA", "llama"
+  ],
+  "queries": {
+    "hn": ["AI", "LLM", "OpenAI", "Claude", "Gemini", "AI agent", "GPT", "DeepSeek"],
+    "reddit_searches": ["AI", "AI agents", "LLM"],
+    "twitter": ["AI OR LLM OR GPT min_faves:100", "OpenAI OR Anthropic OR \"AI agent\" min_faves:50"],
+    "tiktok_searches": ["AI", "AI tools"],
+    "tiktok_hashtags": ["ai", "aitools"],
+    "youtube": ["AI news", "OpenAI update", "AI agents"]
+  },
+  "topic_lexicon": {
+    "OpenAI": ["openai", "chatgpt", "sam altman", "gpt-5", "gpt-4", "gpt-6"],
+    "Anthropic/Claude": ["anthropic", "claude", "dario amodei", "opus 5", "sonnet"],
+    "Google/Gemini": ["google ", "gemini", "deepmind", "veo "],
+    "Meta/LLaMA": ["meta ", "llama", "facebook "],
+    "Qwen/阿里": ["qwen", "通义", "alibaba", "阿里"],
+    "DeepSeek": ["deepseek"],
+    "xAI/Grok": ["grok", "xai", "马斯克", "elon musk"],
+    "Mistral": ["mistral"],
+    "AI视频生成": ["ai video", "text-to-video", "video generator", "文生视频", "视频生成", "kling", "可灵", "runway", "ltx", "sora"],
+    "AI图像生成": ["midjourney", "stable diffusion", "image generator", "文生图", "图像生成", "flux ", "dall-e", "nano banana"],
+    "AI Agent": ["ai agent", "agent framework", "agentic", "智能体", "agent hub"],
+    "MCP": ["mcp", "model context protocol"],
+    "RAG/检索": ["rag", "retrieval", "检索增强", "向量库", "vector db"],
+    "本地推理/端侧": ["local llm", "run locally", "locally", "on-device", "consumer hardware", "本地", "端侧", "ollama", "llama.cpp", "量化", "quantiz", "rtx 4090", "rtx 5090"],
+    "开源模型": ["open-source model", "open-source", "open-weight", "开源模型", "开源了", "权重"],
+    "AI编程": ["coding agent", "claude code", "copilot", "cursor", "vibe coding", "编程", "code generation", "ai coding", "codex"],
+    "AI安全/对齐": ["ai safety", "alignment", "existential", "对齐", "安全团队", "超级对齐"],
+    "AI监管/诉讼": ["regulation", "lawsuit", "sued", "ban ", "banned", "监管", "法案", "政策", "禁令", "诉讼", "起诉"],
+    "AI芯片/算力": ["gpu", "nvidia", "tpu", "chip", "算力", "芯片", "hbm", "datacenter", "数据中心"],
+    "模型评测/跑分": ["benchmark", "跑分", "评测", "leaderboard", "sota", "arena"],
+    "机器人/具身": ["robot", "机器人", "embodied", "humanoid", "具身"],
+    "语音/音乐AI": ["voice", "audio", "music ai", "语音", "音乐", "song"],
+    "AI硬件": ["ai device", "wearable", "ai pin", "硬件", "智能眼镜", "glasses"],
+    "裁员/就业冲击": ["layoff", "fired", "job", "裁员", "失业", "取代", "就业"],
+    "多模态": ["multimodal", "多模态", "omni"],
+    "推理模型": ["reasoning model", "thinking", "推理模型", "思维链", "chain-of-thought", "o1", "o3", "r1"],
+    "训练/微调": ["fine-tun", "training", "训练", "微调", "rlhf", "distill", "蒸馏"],
+    "提示工程": ["prompt", "提示词"],
+    "AI科学/科研": ["research", "paper", "论文", "科研", "science", "数学", "math"]
+  },
+  "scoring_refs": {
+    "hn": { "engagement": 650, "velocity": 30 },
+    "reddit": { "engagement": 2000, "velocity": 100 },
+    "twitter": { "engagement": 2500, "velocity": 120 },
+    "tiktok": { "engagement": 20000, "velocity": 900 },
+    "youtube": { "engagement": 15000, "velocity": 700 }
+  },
+  "platforms": {
+    "hn": true,
+    "producthunt": true,
+    "reddit": true,
+    "twitter": true,
+    "tiktok": true,
+    "youtube": true
+  }
+}

@@ -13,17 +13,16 @@ import statistics
 from datetime import date, datetime, timedelta
 
 from pipeline.topics import extract_topics
-from settings import DATA, log
-
-MEMORY = DATA / "longterm_memory.jsonl"
-HEAT = DATA / "topic_heat.json"
+from settings import log, topic_data_dir
 
 
 def build_memory(cfg: dict) -> list[dict]:
-    """扫描全部按日归档，聚合成一张长期记忆表（全量重建，幂等）。"""
+    """扫描本主题全部按日归档，聚合成一张长期记忆表（全量重建，幂等）。"""
     lexicon = cfg.get("topic_lexicon", {})
+    tdir = topic_data_dir(cfg)
+    memory_path = tdir / "longterm_memory.jsonl"
     rows = []
-    for full in sorted(DATA.glob("*/full.json")):
+    for full in sorted(tdir.glob("*/full.json")):
         day = full.parent.name
         if len(day) != 10:
             continue
@@ -43,8 +42,8 @@ def build_memory(cfg: dict) -> list[dict]:
                 "engagement": it.get("engagement_summary", ""),
                 "topics": extract_topics(it, lexicon),
             })
-    DATA.mkdir(exist_ok=True)
-    with open(MEMORY, "w", encoding="utf-8") as f:
+    tdir.mkdir(parents=True, exist_ok=True)
+    with open(memory_path, "w", encoding="utf-8") as f:
         for r in rows:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
     log.info("长期记忆表: %d 行 ← %d 天归档", len(rows), len({r['date'] for r in rows}))
@@ -111,6 +110,7 @@ def compute_heat(rows: list[dict], today: str, top10_topics: set[str]) -> dict:
 def update(cfg: dict, top10_items: list[dict]) -> list[dict]:
     """finalize 调用：重建记忆表 → 更新热度表 → 返回升温领域列表（给报告/看板标记）。"""
     lexicon = cfg.get("topic_lexicon", {})
+    tdir = topic_data_dir(cfg)
     rows = build_memory(cfg)
     if not rows:
         return []
@@ -120,9 +120,10 @@ def update(cfg: dict, top10_items: list[dict]) -> list[dict]:
         top10_topics.update(extract_topics(r, lexicon))
 
     heat = compute_heat(rows, today, top10_topics)
-    HEAT.write_text(json.dumps({"updated_at": datetime.utcnow().isoformat() + "Z",
-                                "today": today, "topics": heat},
-                               ensure_ascii=False, indent=1), encoding="utf-8")
+    (tdir / "topic_heat.json").write_text(
+        json.dumps({"updated_at": datetime.utcnow().isoformat() + "Z",
+                    "today": today, "topics": heat},
+                   ensure_ascii=False, indent=1), encoding="utf-8")
 
     hot = []
     for topic, h in heat.items():
@@ -145,11 +146,12 @@ def update(cfg: dict, top10_items: list[dict]) -> list[dict]:
     return hot
 
 
-def load() -> dict:
-    """读取热度表（供 status/外部查询）。"""
-    if not HEAT.exists():
+def load(cfg: dict) -> dict:
+    """读取本主题热度表（供 status/外部查询）。"""
+    p = topic_data_dir(cfg) / "topic_heat.json"
+    if not p.exists():
         return {}
     try:
-        return json.loads(HEAT.read_text(encoding="utf-8"))
+        return json.loads(p.read_text(encoding="utf-8"))
     except Exception:  # noqa: BLE001
         return {}

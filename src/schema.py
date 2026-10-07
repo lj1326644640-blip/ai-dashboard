@@ -84,12 +84,17 @@ def composite_engagement(platform: str, eng: dict) -> float:
         return 0.02 * _g(eng, "plays") + _g(eng, "likes") + 2 * _g(eng, "shares") + _g(eng, "comments")
     if platform == "youtube":
         return 0.02 * _g(eng, "views") + 2 * _g(eng, "likes") + 3 * _g(eng, "comments")
+    if platform == "xhs":
+        # CES思路（非官方，从业共识）：评论/转发/深度互动权重高，收藏是攻略型核心信号
+        return (_g(eng, "likes") + 2 * _g(eng, "collects")
+                + 4 * _g(eng, "comments") + 4 * _g(eng, "shares"))
     return 0.0  # producthunt 无互动数据，靠LLM分补偿
 
 
 PLATFORM_NAMES = {
     "hn": "Hacker News", "producthunt": "Product Hunt", "reddit": "Reddit",
     "twitter": "X/Twitter", "tiktok": "TikTok", "youtube": "YouTube",
+    "xhs": "小红书",
 }
 
 
@@ -105,6 +110,8 @@ def engagement_summary(platform: str, eng: dict) -> str:
         return f"{p('plays')} plays · {p('likes')} likes · {p('comments')} comments"
     if platform == "youtube":
         return f"{p('views')} views · {p('likes')} likes"
+    if platform == "xhs":
+        return f"{p('likes')} 赞 · {p('collects')} 藏 · {p('comments')} 评"
     return "-"
 
 

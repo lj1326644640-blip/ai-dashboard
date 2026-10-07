@@ -12,8 +12,11 @@ ALGOLIA = "https://hn.algolia.com/api/v1/search"
 
 
 def collect(cfg: dict) -> list[dict]:
+    if not cfg.get("platforms", {}).get("hn", False):
+        return []
+    queries = cfg.get("queries", {}).get("hn", [])
     try:
-        records = _collect_algolia(cfg)
+        records = _collect_algolia(cfg, queries)
         if records:
             log.info("HN: Algolia 拿到 %d 条", len(records))
             return records
@@ -21,7 +24,7 @@ def collect(cfg: dict) -> list[dict]:
     except Exception as e:  # noqa: BLE001
         log.warning("HN Algolia 失败(%s)，降级 hnrss.org", e)
         try:
-            records = _collect_hnrss(cfg)
+            records = _collect_hnrss(cfg, queries)
             log.info("HN: hnrss 兜底拿到 %d 条", len(records))
             return records
         except Exception as e2:  # noqa: BLE001
@@ -29,7 +32,7 @@ def collect(cfg: dict) -> list[dict]:
             return []
 
 
-def _collect_algolia(cfg: dict) -> list[dict]:
+def _collect_algolia(cfg: dict, queries: list[str]) -> list[dict]:
     min_ts = int((now_utc() - timedelta(hours=cfg["window_hours"])).timestamp())
     seen: dict[str, dict] = {}
 
@@ -70,11 +73,11 @@ _POINTS_RE = re.compile(r"Points:\s*(\d+)")
 _COMMENTS_RE = re.compile(r"#\s*Comments:\s*(\d+)")
 
 
-def _collect_hnrss(cfg: dict) -> list[dict]:
+def _collect_hnrss(cfg: dict, queries: list[str]) -> list[dict]:
     """hnrss 慢且偶发502：长超时+多次重试；points/评论数埋在description文本里。"""
     records = []
     seen_ids = set()
-    for q in cfg["queries"].get("hn", [])[:4]:  # 兜底少抓几个词，控制耗时
+    for q in queries[:4]:  # 兜底少抓几个词，控制耗时
         url = f"https://hnrss.org/newest?q={q.replace(' ', '+')}&points=20"
         try:
             feed = feedparser.parse(http_get(url, timeout=30, retries=2).text)

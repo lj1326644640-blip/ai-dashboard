@@ -12,6 +12,8 @@ _POST_ID_RE = re.compile(r"Post/(\d+)")
 
 
 def collect(cfg: dict) -> list[dict]:
+    if not cfg.get("platforms", {}).get("producthunt", False):
+        return []
     try:
         resp = http_get(FEED, timeout=25, retries=2)
     except Exception as e:  # noqa: BLE001

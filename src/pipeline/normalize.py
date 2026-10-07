@@ -52,7 +52,7 @@ def apply(records: list[dict], cfg: dict, history_fp: set[str],
     prior_fps = prior_fps or set()
     stats = {"input": len(records), "dup_history": 0, "dup_run": 0, "out_window": 0,
              "no_keyword": 0, "dup_title": 0, "kept": 0}
-    keywords = cfg["keywords"]
+    keywords = cfg.get("keywords", [])
     window = cfg["window_hours"]
     k_per_platform = cfg["candidates_per_platform"]
 
@@ -83,15 +83,20 @@ def apply(records: list[dict], cfg: dict, history_fp: set[str],
         r["_hours"] = h
         stage2.append(r)
 
-    # 3) AI关键词（标题+正文+平台名）
-    stage3 = []
-    for r in stage2:
-        hits = keyword_hits(f"{r['title']} {r.get('text', '')}", keywords)
-        if not hits:
-            stats["no_keyword"] += 1
-            continue
-        r["keyword_hits"] = hits
-        stage3.append(r)
+    # 3) AI关键词（标题+正文+平台名）；关键词搜索型主题(xhs等)跳过——内容本就来自词表搜索
+    if cfg.get("skip_keyword_filter"):
+        for r in stage2:
+            r["keyword_hits"] = []
+        stage3 = stage2
+    else:
+        stage3 = []
+        for r in stage2:
+            hits = keyword_hits(f"{r['title']} {r.get('text', '')}", keywords)
+            if not hits:
+                stats["no_keyword"] += 1
+                continue
+            r["keyword_hits"] = hits
+            stage3.append(r)
 
     # 4) 跨平台同题合并（保留互动更高的那条，标记同题）
     stage3.sort(key=lambda r: r["engagement_total"], reverse=True)

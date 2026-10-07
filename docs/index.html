@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>信息流看板 · 主题导航</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;min-height:100vh;
+  background:linear-gradient(160deg,#0b1020,#101a33 55%,#0d1226);color:#e6ebf8;
+  display:flex;align-items:center;justify-content:center}
+.wrap{max-width:760px;padding:40px 24px;width:100%}
+h1{font-size:26px;background:linear-gradient(90deg,#ffd166,#ff6b6b 40%,#7aa2ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:6px}
+.sub{color:#8b93a7;font-size:13px;margin-bottom:26px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+a.card{display:block;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
+  border-radius:14px;padding:18px 20px;text-decoration:none;color:#e6ebf8;transition:.15s}
+a.card:hover{transform:translateY(-2px);border-color:#7aa2ff66}
+a.card b{font-size:17px;display:block;margin-bottom:6px}
+a.card span{font-size:12.5px;color:#8b93a7;line-height:1.6}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+</style></head>
+<body><div class="wrap">
+<h1>📊 信息流看板</h1>
+<div class="sub">多主题自动化日报 · 每日定时更新</div>
+<div class="grid">
+  <a class="card" href="ai-hot/">
+    <b>🔥 AI爆款综合（海外）</b>
+    <span>Hacker News / Product Hunt / Reddit / X / TikTok / YouTube<br>每天 12:00 更新</span>
+  </a>
+  <a class="card" href="xhs-stacato/">
+    <b>👠 思加图小红书爆款笔记</b>
+    <span>品牌声量 / 竞品动态 / 品类爆文样本<br>试点期 · 手工更新（14:00 定时待挂）</span>
+  </a>
+</div>
+</div></body></html>

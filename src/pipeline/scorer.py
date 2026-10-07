@@ -60,6 +60,10 @@ def apply_llm_and_rank(candidates: list[dict], llm_scores: dict, cfg: dict) -> l
             r["llm_relevance"] = ls.get("ai_relevance")
             r["llm_value"] = ls.get("value")
             r["why"] = ls.get("why", "")
+            # 主题专属的LLM附加字段（如xhs的brand_rel/note_type/deconstruct）透传
+            for k, v in ls.items():
+                if k not in ("id", "ai_relevance", "value", "why") and v is not None:
+                    r[k] = v
             r["final_score"] = round(
                 w["engagement"] * r["s_engagement"] + w["velocity"] * r["s_velocity"]
                 + w["llm_relevance"] * (ls.get("ai_relevance") or 0) * 10

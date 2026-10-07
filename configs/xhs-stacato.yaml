@@ -1,0 +1,86 @@
+# 思加图小红书爆款笔记监控（品牌/竞品/品类三池）
+label: 思加图小红书爆款笔记
+schedule_hint: "14:00"
+
+# XHS笔记生命周期长（7天爆发+数月搜索长尾），时间窗放宽到30天
+window_hours: 720
+# 内容来自关键词搜索本身，跳过AI关键词过滤（各条已带所属池和命中词）
+skip_keyword_filter: true
+candidates_per_platform: 400
+top_n: 30
+
+platforms:
+  xhs: true
+
+xhs:
+  # 供应商：apify(zen-studio，已验证) / tikhub(待用户提供api_key，可精确翻页更省)
+  provider: apify
+  apify_actor: zen-studio/rednote-search-scraper
+  tikhub:
+    api_base: "https://api.tikhub.io"
+    search_path: "/api/v1/xhs/search/notes"
+  # 单关键词抓取条数（zen-studio的maxResults；27词×15≈405条/日≈$2.4）
+  max_results: 15
+  sort_type: popularity_descending   # 抓爆款
+  time_filter: "6mo"                 # 近半年，品牌舆情+长尾爆文
+  pools:
+    brand:
+      - 思加图
+      - STACCATO
+      - 思加图穿搭
+      - 思加图短靴
+      - 杨幂同款鞋
+    competitor:
+      - 他她鞋
+      - 百丽鞋
+      - 真美诗
+      - 73hours
+      - 接吻猫
+      - 哈森鞋
+      - 千百度鞋
+      - 迪芙斯
+    category:
+      - 西部靴
+      - 骑士靴
+      - 德训鞋
+      - 勃肯鞋
+      - 乐福鞋
+      - 短靴
+      - 玛丽珍
+      - 切尔西靴
+      - 雪地靴
+      - 通勤鞋
+      - 秋冬穿搭女鞋
+
+# XHS互动合成走CES思路：赞1 + 藏2 + 评4 + 转4（见 src/schema.py）
+# 基准线待试点数据定标后调整（当前为预估值）
+scoring_refs:
+  xhs: { engagement: 8000, velocity: 400 }
+
+# LLM评审规则（中文笔记/品牌关联/可拆解价值）
+llm_rubric: docs/rubrics/xhs-stacato.md
+# LLM精评配额：品牌池全评 + 其余池取互动TopN
+llm_quota:
+  brand: all
+  others_top: 60
+
+# 话题词表（升温识别用=三池关键词本身）
+topic_lexicon:
+  西部靴: ["西部靴"]
+  骑士靴: ["骑士靴"]
+  德训鞋: ["德训鞋"]
+  勃肯鞋: ["勃肯鞋"]
+  乐福鞋: ["乐福鞋"]
+  短靴: ["短靴"]
+  玛丽珍: ["玛丽珍"]
+  切尔西靴: ["切尔西靴"]
+  雪地靴: ["雪地靴"]
+  通勤鞋: ["通勤鞋"]
+  秋冬穿搭: ["秋冬穿搭"]
+  思加图: ["思加图", "staccato"]
+  他她: ["他她"]
+  百丽: ["百丽"]
+  接吻猫: ["接吻猫"]
+  哈森: ["哈森"]
+  千百度: ["千百度"]
+  迪芙斯: ["迪芙斯"]

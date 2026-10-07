@@ -9,7 +9,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from pipeline.classify import CTYPE_COLORS
-from settings import DASHBOARD
+from settings import dashboard_file
 
 PLATFORM_COLORS = {
     "Hacker News": "#ff6600", "Reddit": "#ff4500", "X/Twitter": "#1d9bf0",
@@ -271,7 +271,7 @@ footer a{color:#7aa2ff;text-decoration:none}
 """
 
 
-def generate(data_dir: Path, cfg: dict) -> Path:
+def generate(data_dir: Path, cfg: dict, out_path: Path | None = None) -> Path:
     days = []
     for meta_path in sorted(data_dir.glob("*/meta.json"), reverse=True):
         try:
@@ -286,7 +286,7 @@ def generate(data_dir: Path, cfg: dict) -> Path:
         except Exception:  # noqa: BLE001 - 单天坏数据不影响整体看板
             continue
     if not days:
-        return DASHBOARD
+        return out_path or dashboard_file(cfg)
     days = days[:14]
 
     tabs, sections = [], []
@@ -325,6 +325,7 @@ def generate(data_dir: Path, cfg: dict) -> Path:
 <main>{''.join(sections)}</main>
 <footer>{foot}</footer>
 </div></body></html>"""
-    DASHBOARD.parent.mkdir(exist_ok=True)
-    DASHBOARD.write_text(doc, encoding="utf-8")
-    return DASHBOARD
+    out = out_path or dashboard_file(cfg)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(doc, encoding="utf-8")
+    return out
