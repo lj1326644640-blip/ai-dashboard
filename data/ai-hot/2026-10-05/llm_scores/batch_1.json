@@ -1,0 +1,92 @@
+[
+  {
+    "id": "tiktok_7692856072624770318",
+    "ai_relevance": 9,
+    "value": 8,
+    "why": "开源工具REA经MCP把逆向工程接入AI Agent，反编译任意App交给Claude/Codex复刻，14.5万播放"
+  },
+  {
+    "id": "tiktok_7692971056365178126",
+    "ai_relevance": 6,
+    "value": 4,
+    "why": "Dreamina 2.0画布式AI视频功能宣传，附缅甸语教学引流话术，5.5万播放但仅26条评论，营销属性重"
+  },
+  {
+    "id": "hn_49944227",
+    "ai_relevance": 8,
+    "value": 9,
+    "why": "OpenAI安全团队负责人出走并公开称公司文化已坏，大西洋月刊深度爆料，HN 473分790条评论激辩"
+  },
+  {
+    "id": "hn_49953495",
+    "ai_relevance": 9,
+    "value": 9,
+    "why": "自称RTX 4090跑Qwen 3.8 125B达每秒100 token，HN 784分352评论热议跑分真实性"
+  },
+  {
+    "id": "tiktok_7692264115812732190",
+    "ai_relevance": 6,
+    "value": 5,
+    "why": "LTX 2.5文生视频电影级效果演示，6.6万播放4260赞，但属达人推广且用看到最后式标题党"
+  },
+  {
+    "id": "twitter_2106036907155272065",
+    "ai_relevance": 6,
+    "value": 3,
+    "why": "AMA Hub号召开发者晒Agent链接，4541条回复远超60条引用，疑似互刷引流的营销贴，无实质内容"
+  },
+  {
+    "id": "hn_49948332",
+    "ai_relevance": 8,
+    "value": 6,
+    "why": "卫报版OpenAI安全负责人离职报道，与同日大西洋月刊版同题重复，267分仅3条评论，信息增量少"
+  },
+  {
+    "id": "hn_49943034",
+    "ai_relevance": 9,
+    "value": 7,
+    "why": "德国主权LLM Kolibri开放权重的技术拆解，419分但仅12条评论，欧洲AI自主路线议题少见"
+  },
+  {
+    "id": "hn_49946228",
+    "ai_relevance": 8,
+    "value": 8,
+    "why": "LeCun称对AI灭绝人类零担忧并暗讽Amodei被迷惑，HN 399分754条评论激辩AI风险立场"
+  },
+  {
+    "id": "tiktok_7692791735973350678",
+    "ai_relevance": 7,
+    "value": 4,
+    "why": "30个ChatGPT斜杠快捷指令教学如/human /eli5，2.65万播放仅456赞，实用但内容浅且同质化"
+  },
+  {
+    "id": "hn_49950052",
+    "ai_relevance": 7,
+    "value": 7,
+    "why": "纽约时报曝Anthropic与宗教学者会面讨论AI道德，159分却有412条评论，争议讨论比极高"
+  },
+  {
+    "id": "twitter_2106982949832774039",
+    "ai_relevance": 6,
+    "value": 3,
+    "why": "马斯克只发Grok Imagine三词预告AI新品，3小时3761赞832回复，纯悬念营销无实质信息"
+  },
+  {
+    "id": "hn_49946567",
+    "ai_relevance": 8,
+    "value": 7,
+    "why": "Opus 5.5在Claude与Claude Code中的最佳实践指南，234分156评论，开发者可直接复用的调优技巧"
+  },
+  {
+    "id": "tiktok_7692478405383687438",
+    "ai_relevance": 2,
+    "value": 2,
+    "why": "AI虚构水果3D动画短剧，纯娱乐内容农场产物，与AI技术主题无关，疑似噪音"
+  },
+  {
+    "id": "hn_49952111",
+    "ai_relevance": 7,
+    "value": 6,
+    "why": "开源macOS工具对本地照片和视频逐帧做AI语义搜索，151分67评论，Show HN反响良好可自部署"
+  }
+]

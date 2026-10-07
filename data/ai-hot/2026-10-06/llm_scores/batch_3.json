@@ -1,0 +1,92 @@
+[
+  {
+    "id": "youtube_4McMxLrom2M",
+    "ai_relevance": 10,
+    "value": 8,
+    "why": "BBC报道OpenAI因安全不达标撤回GPT-6.1 Astra自主模型，23万播放，AI安全争议升温"
+  },
+  {
+    "id": "youtube_6DjIjjE3doo",
+    "ai_relevance": 9,
+    "value": 7,
+    "why": "DevDay前夜爆料：ChatGPT代码现神秘'o'常驻Agent，Sonnet 5.5跑分反超GPT-6，15万播放"
+  },
+  {
+    "id": "hn_49968964",
+    "ai_relevance": 8,
+    "value": 7,
+    "why": "HN讨论向AI意识信徒提的六个追问，42分却引199条评论，质疑派占上风的争议帖"
+  },
+  {
+    "id": "youtube_cro5EDMlcTY",
+    "ai_relevance": 9,
+    "value": 7,
+    "why": "博主实测DevDay：ChatGPT Dots获好评并梳理GPT-6 Astra等发布，10.8万播放含课程推广"
+  },
+  {
+    "id": "youtube_dk-hx4_cqpk",
+    "ai_relevance": 9,
+    "value": 6,
+    "why": "爆料向汇总：GPT-7底座模型BEL泄露、GPT-6 Astra疑跑出99% AGI成绩，标题党味浓"
+  },
+  {
+    "id": "youtube_1a5HxU52vCQ",
+    "ai_relevance": 8,
+    "value": 7,
+    "why": "访谈拆解FDE靠给企业部署AI agent年入百万美元的路径，案例具体可复刻，8.7万播放"
+  },
+  {
+    "id": "youtube_MS5VMqyuwjU",
+    "ai_relevance": 9,
+    "value": 7,
+    "why": "一周盘点覆盖DevDay、GPT-6.1 Sol、Gemini 4 Argon、Claude 5.5等十余条AI动态"
+  },
+  {
+    "id": "hn_49972419",
+    "ai_relevance": 8,
+    "value": 7,
+    "why": "Khanmigo AI家教进校两年实验研究报告上HN，58分46评，真实课堂数据少见"
+  },
+  {
+    "id": "youtube_uO127euWCow",
+    "ai_relevance": 9,
+    "value": 6,
+    "why": "再讲Agent O泄露：常驻后台、用户离开ChatGPT仍持续干活，与同批其他视频内容重复"
+  },
+  {
+    "id": "youtube_2hRC2XrnNgY",
+    "ai_relevance": 9,
+    "value": 7,
+    "why": "参议院'失控AI'听证会上Apollo Research CEO称现在只是警告枪，12万播放317条评论"
+  },
+  {
+    "id": "youtube_bcm-Ilhq-jo",
+    "ai_relevance": 9,
+    "value": 6,
+    "why": "谷歌、Anthropic、OpenAI、Meta在纽约市议会就AI风险作证，24.5万播放为批次热度最高"
+  },
+  {
+    "id": "tiktok_7692927865070816525",
+    "ai_relevance": 4,
+    "value": 2,
+    "why": "TikTok营销号第36期卖ChatGPT提示词模板，正文只有标签堆砌无干货，疑似噪音"
+  },
+  {
+    "id": "youtube_fSilBzYdHUw",
+    "ai_relevance": 9,
+    "value": 7,
+    "why": "逐条过DevDay 20项更新：Dot个人代理跑在独立虚拟机上可管邮件日历Slack，实操向"
+  },
+  {
+    "id": "hn_49963895",
+    "ai_relevance": 9,
+    "value": 4,
+    "why": "Anthropic官网上线'你对AI的想法'意见征集页，HN 28分64评，内容本身信息量有限"
+  },
+  {
+    "id": "hn_49964248",
+    "ai_relevance": 9,
+    "value": 7,
+    "why": "奥特曼称应接受AI带来的'坏事'换取其收益，卫报报道HN引113条评论争议激烈"
+  }
+]

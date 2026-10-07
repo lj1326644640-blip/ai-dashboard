@@ -1,0 +1,177 @@
+{
+ "updated_at": "2026-10-07T03:45:18.885457Z",
+ "today": "2026-10-07",
+ "topics": {
+  "思加图": {
+   "first_seen": "2026-10-07",
+   "today": {
+    "count": 45,
+    "avg": 40.1,
+    "max": 57.8
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-07": {
+     "count": 45,
+     "avg": 40.1,
+     "max": 57.8
+    }
+   },
+   "status": "升温",
+   "reason": "首次出现当天即进Top10"
+  },
+  "骑士靴": {
+   "first_seen": "2026-10-07",
+   "today": {
+    "count": 9,
+    "avg": 45.0,
+    "max": 56.0
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-07": {
+     "count": 9,
+     "avg": 45.0,
+     "max": 56.0
+    }
+   },
+   "status": "升温",
+   "reason": "首次出现当天即进Top10"
+  },
+  "乐福鞋": {
+   "first_seen": "2026-10-07",
+   "today": {
+    "count": 5,
+    "avg": 41.6,
+    "max": 55.4
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-07": {
+     "count": 5,
+     "avg": 41.6,
+     "max": 55.4
+    }
+   },
+   "status": "升温",
+   "reason": "首次出现当天即进Top10"
+  },
+  "玛丽珍": {
+   "first_seen": "2026-10-07",
+   "today": {
+    "count": 3,
+    "avg": 39.6,
+    "max": 54.6
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-07": {
+     "count": 3,
+     "avg": 39.6,
+     "max": 54.6
+    }
+   },
+   "status": "升温",
+   "reason": "首次出现当天即进Top10"
+  },
+  "西部靴": {
+   "first_seen": "2026-10-07",
+   "today": {
+    "count": 4,
+    "avg": 43.5,
+    "max": 46.7
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-07": {
+     "count": 4,
+     "avg": 43.5,
+     "max": 46.7
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "短靴": {
+   "first_seen": "2026-10-07",
+   "today": {
+    "count": 4,
+    "avg": 34.2,
+    "max": 45.5
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-07": {
+     "count": 4,
+     "avg": 34.2,
+     "max": 45.5
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "百丽": {
+   "first_seen": "2026-10-07",
+   "today": {
+    "count": 2,
+    "avg": 37.0,
+    "max": 41.8
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-07": {
+     "count": 2,
+     "avg": 37.0,
+     "max": 41.8
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "切尔西靴": {
+   "first_seen": "2026-10-07",
+   "today": {
+    "count": 1,
+    "avg": 34.3,
+    "max": 34.3
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-07": {
+     "count": 1,
+     "avg": 34.3,
+     "max": 34.3
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  },
+  "德训鞋": {
+   "first_seen": "2026-10-07",
+   "today": {
+    "count": 1,
+    "avg": 26.5,
+    "max": 26.5
+   },
+   "last7_avg_count": 0.0,
+   "last7_avg_score": null,
+   "daily": {
+    "2026-10-07": {
+     "count": 1,
+     "avg": 26.5,
+     "max": 26.5
+    }
+   },
+   "status": "新话题",
+   "reason": "今日首次出现"
+  }
+ }
+}

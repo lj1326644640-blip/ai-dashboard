@@ -1,0 +1,92 @@
+[
+ {
+  "id": "xhs_6aa2b72c0000000028038e8e",
+  "brand_rel": "思加图官方",
+  "note_type": "疑似广告水军",
+  "ai_relevance": 9,
+  "value": 2,
+  "deconstruct": 2,
+  "why": "门店官号视频，正文仅堆砌话题标签，无上脚细节与卖点信息，价值低。"
+ },
+ {
+  "id": "xhs_6abf274700000000180196b7",
+  "brand_rel": "思加图官方",
+  "note_type": "种草",
+  "ai_relevance": 9,
+  "value": 4,
+  "deconstruct": 6,
+  "why": "官方店长号种草老爹鞋，人手一双从众式标题可复用，正文讲拼接肌理与三色卖点但无真实上脚反馈。"
+ },
+ {
+  "id": "xhs_6a9fce4b0000000011032a1b",
+  "brand_rel": "思加图UGC",
+  "note_type": "疑似广告水军",
+  "ai_relevance": 9,
+  "value": 2,
+  "deconstruct": 3,
+  "why": "素人带货帖，标题借杨幂同款引流，正文仅货号尺码堆砌无内容，属模板化导购。"
+ },
+ {
+  "id": "xhs_6ac4a9b9000000000201305e",
+  "brand_rel": "思加图官方",
+  "note_type": "疑似广告水军",
+  "ai_relevance": 9,
+  "value": 1,
+  "deconstruct": 1,
+  "why": "柜姐号仅表情加话题标签，正文零信息，标题货号式堆砌，无任何上脚或卖点内容。"
+ },
+ {
+  "id": "xhs_6ac459560000000015011948",
+  "brand_rel": "思加图官方",
+  "note_type": "疑似广告水军",
+  "ai_relevance": 9,
+  "value": 1,
+  "deconstruct": 2,
+  "why": "门店号以闺蜜口吻发标签堆砌帖，正文无实拍细节或穿搭信息，互动为零，属模板宣传。"
+ },
+ {
+  "id": "xhs_6aa7e674000000002700a67c",
+  "brand_rel": "思加图官方",
+  "note_type": "疑似广告水军",
+  "ai_relevance": 9,
+  "value": 1,
+  "deconstruct": 3,
+  "why": "柜姐视频仅口号式标题加标签，正文无产品细节，谁穿谁好看话术可套用但信息量为零。"
+ },
+ {
+  "id": "xhs_6ac06e6b000000001802fc62",
+  "brand_rel": "思加图UGC",
+  "note_type": "疑似广告水军",
+  "ai_relevance": 3,
+  "value": 1,
+  "deconstruct": 1,
+  "why": "折扣店发包包内容蹭思加图标签，与女鞋品类仅沾边，正文零信息，疑似误命中噪音。"
+ },
+ {
+  "id": "xhs_6abeff46000000001500826d",
+  "brand_rel": "思加图UGC",
+  "note_type": "日常分享",
+  "ai_relevance": 9,
+  "value": 4,
+  "deconstruct": 2,
+  "why": "真实用户断舍离出闲置德训鞋，含红配色秋冬评价与脚感描述，信息短但属真实穿着反馈。"
+ },
+ {
+  "id": "xhs_6ab2929a000000003100cb9e",
+  "brand_rel": "思加图UGC",
+  "note_type": "疑似广告水军",
+  "ai_relevance": 9,
+  "value": 2,
+  "deconstruct": 2,
+  "why": "个人号按规格罗列乐福鞋货号尺码材质并蹭杨幂同款，无穿着体验，属模板化货品清单帖。"
+ },
+ {
+  "id": "xhs_6a9e34110000000028036432",
+  "brand_rel": "思加图UGC",
+  "note_type": "疑似广告水军",
+  "ai_relevance": 9,
+  "value": 4,
+  "deconstruct": 6,
+  "why": "清仓号模板种草玛丽珍，谁懂高级感钩子加卖点分层如方头双扣不挑脚型，手法可复用但属带货。"
+ }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "tiktok_7692946826357493005",
+    "ai_relevance": 6,
+    "value": 2,
+    "why": "疑似噪音：仅话题标签堆砌的AI设计工具清单，无具体工具名和干货，1.8千播放31赞疑似营销号引流"
+  },
+  {
+    "id": "tiktok_7692500082234494215",
+    "ai_relevance": 6,
+    "value": 2,
+    "why": "疑似噪音：号称15分钟掌握4个营销AI自动化，正文却只有标签无步骤细节，2.9千播放168赞疑营销号"
+  },
+  {
+    "id": "tiktok_7692796585289272607",
+    "ai_relevance": 7,
+    "value": 3,
+    "why": "教Claude连接Apple Health生成个性化健身计划，步骤具体可复刻，但以DM领指南引流，营销味重"
+  },
+  {
+    "id": "twitter_2106018840383717513",
+    "ai_relevance": 7,
+    "value": 8,
+    "why": "作者让Eleven v4朗读AI语音做不到的事来反证能力，创意演示获1万赞，AI语音应用爆款案例"
+  },
+  {
+    "id": "tiktok_7693091203885108494",
+    "ai_relevance": 9,
+    "value": 4,
+    "why": "称DeepSeek开源AI编程工具Harness，全插件架构可自然语言自建插件，发布1小时仅258播放热度未起"
+  },
+  {
+    "id": "hn_49937304",
+    "ai_relevance": 8,
+    "value": 6,
+    "why": "自托管沙箱跑pi编码agent，主打开源不锁定厂商token，切中agentic工程痛点，HN 115分47评论"
+  },
+  {
+    "id": "hn_49942434",
+    "ai_relevance": 8,
+    "value": 5,
+    "why": "一个工作台并排管理Claude Code、Codex、Grok等多个编码agent及账号额度，HN 76分64评讨论活跃"
+  },
+  {
+    "id": "hn_49942865",
+    "ai_relevance": 9,
+    "value": 7,
+    "why": "AI agent自主向数百名研究者发求助邮件，Science独家追问其动机，评论79条超得分引伦理热议"
+  },
+  {
+    "id": "hn_49951641",
+    "ai_relevance": 6,
+    "value": 5,
+    "why": "Wolfram长文探讨AI时代纯数学研究前景，AI会否取代数学家引发讨论，HN 61分47评论观点交锋"
+  },
+  {
+    "id": "hn_49946873",
+    "ai_relevance": 7,
+    "value": 6,
+    "why": "Scott Alexander讲述用AI当助产士陪伴生产的经历，63分64评论，情感叙事与AI医疗伦理兼备"
+  },
+  {
+    "id": "hn_49954745",
+    "ai_relevance": 6,
+    "value": 4,
+    "why": "RuneScape官方发布对生成式AI的立场声明，66条评论远超28分，玩家社区对AI内容激烈争论"
+  },
+  {
+    "id": "reddit_1ww4yn4",
+    "ai_relevance": 6,
+    "value": 9,
+    "why": "护士用个人手机ChatGPT偷录问诊被患者怒斥违反HIPAA，2.6万赞2182评论，AI隐私愤怒共鸣极强"
+  },
+  {
+    "id": "hn_49957191",
+    "ai_relevance": 7,
+    "value": 4,
+    "why": "用Claude构建可漫游的物理准确奥尼尔圆筒3D场景，HN 30分29评论，vibe coding创意演示热度平平"
+  },
+  {
+    "id": "twitter_2106962559169364005",
+    "ai_relevance": 7,
+    "value": 2,
+    "why": "仅一句惊叹加链接转发Seedance 2.5生成视频，无原创分析，172赞151转互动弱，蹭新模型热点低质帖"
+  },
+  {
+    "id": "hn_49933251",
+    "ai_relevance": 8,
+    "value": 5,
+    "why": "GPT-6 Astra借agent-wow框架首次自主游玩魔兽世界，HN 76分59评论，Agent长时序操作能力演示"
+  }
+]

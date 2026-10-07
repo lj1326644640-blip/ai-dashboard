@@ -1,0 +1,92 @@
+[
+  {
+    "id": "hn_49961057",
+    "ai_relevance": 8,
+    "value": 8,
+    "why": "Anthropic将用户Claude日记上报警方致其被控重罪，隐私与安全审查争议激烈，发布3小时HN已58条评论"
+  },
+  {
+    "id": "tiktok_7692785866309225760",
+    "ai_relevance": 7,
+    "value": 5,
+    "why": "推荐Qwen Chat一行生成视频与ToolFK聚合200+免费AI工具，典型收藏型工具清单，互动中等带引流话术"
+  },
+  {
+    "id": "hn_49936575",
+    "ai_relevance": 9,
+    "value": 8,
+    "why": "Redis作者antirez推出本地LLM运行器ds4，HN 359分102条评论，名家开源新作首发引关注"
+  },
+  {
+    "id": "hn_49946321",
+    "ai_relevance": 7,
+    "value": 7,
+    "why": "System76在Pop!_OS与COSMIC多数代码库禁用AI生成代码，166条评论超116分，开源社区激辩代码质量"
+  },
+  {
+    "id": "hn_49933740",
+    "ai_relevance": 8,
+    "value": 6,
+    "why": "AI低成本击败史上最强Stratego玩家并登Nature论文，HN 287分148条评论，但发布近3天热度已退"
+  },
+  {
+    "id": "tiktok_7692474813486566678",
+    "ai_relevance": 2,
+    "value": 2,
+    "why": "AI水果虚构短剧第3部，标题正文全靠标签堆砌无信息量，疑似噪音，属AI生成娱乐灌水刷屏"
+  },
+  {
+    "id": "hn_49947050",
+    "ai_relevance": 7,
+    "value": 6,
+    "why": "电讯报曝Anthropic游说教皇称AI或有意识，57分91条评论争议大，话题离奇但信源单一存疑"
+  },
+  {
+    "id": "hn_49934487",
+    "ai_relevance": 6,
+    "value": 6,
+    "why": "作者控诉AI让编程与创作失去乐趣的情感随笔，引发强烈共鸣，HN 195分243条评论热议"
+  },
+  {
+    "id": "hn_49937916",
+    "ai_relevance": 7,
+    "value": 6,
+    "why": "开源Lego生成器让ChatGPT与Claude编写LDraw拼装指令，HN 154分，创意可复刻但已发布61小时"
+  },
+  {
+    "id": "hn_49944127",
+    "ai_relevance": 7,
+    "value": 7,
+    "why": "BBC报道AI生成受害者视频出庭致杀人罪判决被撤销，AI介入司法的现实后果，HN 76分60条评论"
+  },
+  {
+    "id": "tiktok_7692240026242911501",
+    "ai_relevance": 6,
+    "value": 4,
+    "why": "推荐Arena一站试用对比ChatGPT、Claude、Gemini等模型，标题党式安利，仅478赞且已发56小时"
+  },
+  {
+    "id": "hn_49957117",
+    "ai_relevance": 8,
+    "value": 6,
+    "why": "USENIX论文视频称Homa传输协议将取代TCP服务AI集群，13小时获HN 71分37条评论，AI基础设施硬核内容"
+  },
+  {
+    "id": "hn_49951891",
+    "ai_relevance": 5,
+    "value": 4,
+    "why": "YouTube演讲谈用AI规模化意图质量与艺术性，标题空泛且无正文摘要，HN 82分29条评论信息量存疑"
+  },
+  {
+    "id": "hn_49951684",
+    "ai_relevance": 7,
+    "value": 6,
+    "why": "404 Media评机器人监狱折磨LLM引发的AI福祉争论，46分101条评论，猎奇争议话题讨论热烈"
+  },
+  {
+    "id": "twitter_2106868985677349001",
+    "ai_relevance": 6,
+    "value": 3,
+    "why": "Shadows预告私密无审查AI即将上线，纯悬念营销无产品细节，682赞互动平平，疑似广告"
+  }
+]

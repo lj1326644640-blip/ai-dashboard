@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 爆款日报看板</title><style>#t0:checked ~ main .d0{display:block}#t0:checked ~ label[for="t0"]{color:#0b1020;background:linear-gradient(90deg,#ffd166,#ffb86b);border-color:transparent;font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;min-height:100vh;
+  background:linear-gradient(160deg,#0b1020 0%,#101a33 55%,#0d1226 100%);color:#e6ebf8}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 20px 60px}
+header{margin-bottom:18px}
+.logo{font-size:30px;font-weight:800;background:linear-gradient(90deg,#ffd166,#ff6b6b 40%,#7aa2ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+.sub{color:#8b93a7;font-size:13px;margin-top:4px}
+.trend{margin-top:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:12px 16px}
+.tlabel{font-size:12px;color:#8b93a7;margin-bottom:8px}
+.tchart{display:flex;gap:10px;align-items:flex-end;min-height:96px}
+.tcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;max-width:80px}
+.tcol i{width:70%;max-width:46px;border-radius:6px 6px 2px 2px;
+  background:linear-gradient(180deg,#7aa2ff,#4c6ef5);min-height:4px}
+.tcol em{font-style:normal;font-size:11px;color:#c7d0e8;margin-top:4px}
+.tcol span{font-size:10px;color:#5d6580;margin-top:1px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 14px}
+.tabs label{cursor:pointer;padding:7px 16px;border-radius:999px;font-size:13px;color:#aeb8d0;
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);transition:.15s}
+.tabs label:hover{color:#fff;border-color:#7aa2ff66}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.kpi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;
+  padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.kpi b{font-size:17px}
+.kpi span{font-size:11.5px;color:#8b93a7;line-height:1.5;word-break:break-all}
+.day{display:none}
+.cards{display:flex;flex-direction:column;gap:10px}
+.item{display:flex;gap:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:14px 16px;transition:.15s}
+.item:hover{transform:translateY(-1px);border-color:rgba(122,162,255,.35);background:rgba(255,255,255,.05)}
+.rankmedal{font-size:22px;width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  color:#5d6580;font-weight:800}
+.score{flex-shrink:0;width:64px;height:64px;border-radius:14px;border:1.5px solid;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,.25)}
+.score b{font-size:19px;line-height:1.1}
+.score span{font-size:10px;color:#8b93a7}
+.body{flex:1;min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;color:#8b93a7;margin-bottom:6px}
+.badge{padding:2px 9px;border-radius:999px;border:1px solid;font-size:11.5px;font-weight:600}
+.ctype{padding:2px 9px;border-radius:999px;border:1px solid;font-size:11.5px;font-weight:600}
+.charts{display:grid;grid-template-columns:320px 1fr;gap:12px;margin-bottom:14px}
+.panel{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 16px}
+.ptitle{font-size:12px;color:#8b93a7;margin-bottom:12px}
+.donutwrap{display:flex;align-items:center;gap:18px}
+.donut{width:150px;height:150px;border-radius:50%;position:relative;flex-shrink:0}
+.hole{position:absolute;inset:33px;background:#141d36;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hole b{font-size:20px}.hole span{font-size:10px;color:#8b93a7}
+.legend{display:flex;flex-direction:column;gap:7px;font-size:12px;color:#c7d0e8}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:7px}
+.hbars{display:flex;flex-direction:column;gap:7px}
+.hbar{display:flex;align-items:center;gap:10px;font-size:11.5px}
+.hbar em{font-style:normal;width:48px;color:#8b93a7;flex-shrink:0}
+.hbar .track{flex:1;height:14px;border-radius:4px;background:rgba(255,255,255,.06);overflow:hidden}
+.hbar .track i{display:block;height:100%;border-radius:4px}
+.hbar b{width:40px;text-align:right;color:#e6ebf8;font-weight:700}
+@media(max-width:760px){.charts{grid-template-columns:1fr}.donutwrap{justify-content:flex-start}}
+.eng{color:#c7d0e8}
+.author{color:#6d7690}
+.title{display:block;color:#f2f5ff;font-size:15.5px;font-weight:650;line-height:1.45;
+  text-decoration:none;margin-bottom:6px;overflow-wrap:anywhere}
+.title:hover{color:#9cc0ff}
+.why{font-size:13px;color:#b9c2da;background:rgba(122,162,255,.07);border-left:3px solid #7aa2ff66;
+  padding:7px 10px;border-radius:0 8px 8px 0;margin-bottom:9px;line-height:1.6;overflow-wrap:anywhere}
+.bars{display:grid;grid-template-columns:1fr 1fr;gap:5px 18px;max-width:560px}
+.bar{display:flex;align-items:center;gap:8px;font-size:11px;color:#8b93a7}
+.bar em{font-style:normal;width:26px;flex-shrink:0}
+.bar .track{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar .track i{display:block;height:100%;border-radius:3px}
+.bar b{width:24px;text-align:right;color:#c7d0e8;font-weight:600}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chip{font-size:11px;color:#c4b5fd;background:rgba(196,181,253,.1);border:1px solid rgba(196,181,253,.25);
+  padding:2px 8px;border-radius:999px}
+.chip.warn{color:#fbbf24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.3)}
+.hotpanel{border-color:rgba(245,158,11,.4);margin-bottom:14px;background:rgba(245,158,11,.05)}
+.hots{display:flex;flex-direction:column;gap:8px}
+.hotchip{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.28);border-radius:10px;padding:9px 13px;font-size:13px}
+.hotchip b{color:#fbbf24;margin-right:10px}
+.hotchip span{color:#e6ebf8}
+.hotchip em{display:block;font-style:normal;color:#8b93a7;font-size:12px;margin-top:4px;overflow-wrap:anywhere}
+footer{margin-top:26px;color:#5d6580;font-size:12px;line-height:1.8}
+footer a{color:#7aa2ff;text-decoration:none}
+</style></head>
+<body><div class="wrap">
+<header><div class="logo">🔥 AI 爆款看板</div>
+<div class="sub">海外社媒 AI 内容热度追踪 · 每日 12:00 自动抓取打分更新</div></header>
+<div class="trend"><div class="tlabel">每日候选量（近1天）</div><div class="tchart"><div class="tcol" title="10-07: 30条"><i style="height:56px"></i><em>30</em><span>10-07</span></div></div></div>
+<input type="radio" name="day" id="t0" class="tabhit" checked><label for="t0">2026-10-07（最新）</label>
+<main><section class="day d0"><div class="kpis"><div class="kpi"><b style="color:#7aa2ff">30</b><span>精选条数</span></div><div class="kpi"><b style="color:#fbbf24">57.8</b><span>最高分</span></div><div class="kpi"><b style="color:#9ee7ff">小红书×30</b><span>来源分布</span></div><div class="kpi"><b style="color:#c4b5fd">30/30</b><span>LLM评审覆盖</span></div><div class="kpi"><b style="color:#fda4af">xhs</b><span>采集通道</span></div></div><div class="charts"><div class="panel"><div class="ptitle">本次爆款平台分布</div><div class="donutwrap"><div class="donut" style="background:conic-gradient(#8b93a7 0.00% 100.00%)"><div class="hole"><b>30</b><span>Top 30</span></div></div><div class="legend"><div><i style="background:#8b93a7"></i>小红书 ×30（100%）</div></div></div></div><div class="panel"><div class="ptitle">Top 综合分排行（颜色=平台）</div><div class="hbars"><div class="hbar"><em>#1 ?</em><div class="track"><i style="width:57.8%;background:#7aa2ff"></i></div><b>57.8</b></div><div class="hbar"><em>#2 ?</em><div class="track"><i style="width:56.0%;background:#7aa2ff"></i></div><b>56.0</b></div><div class="hbar"><em>#3 ?</em><div class="track"><i style="width:55.4%;background:#7aa2ff"></i></div><b>55.4</b></div><div class="hbar"><em>#4 ?</em><div class="track"><i style="width:54.6%;background:#7aa2ff"></i></div><b>54.6</b></div><div class="hbar"><em>#5 ?</em><div class="track"><i style="width:53.7%;background:#7aa2ff"></i></div><b>53.7</b></div><div class="hbar"><em>#6 ?</em><div class="track"><i style="width:53.3%;background:#7aa2ff"></i></div><b>53.3</b></div><div class="hbar"><em>#7 ?</em><div class="track"><i style="width:51.4%;background:#7aa2ff"></i></div><b>51.4</b></div><div class="hbar"><em>#8 ?</em><div class="track"><i style="width:50.8%;background:#7aa2ff"></i></div><b>50.8</b></div><div class="hbar"><em>#9 ?</em><div class="track"><i style="width:48.6%;background:#7aa2ff"></i></div><b>48.6</b></div><div class="hbar"><em>#10 ?</em><div class="track"><i style="width:48.5%;background:#7aa2ff"></i></div><b>48.5</b></div></div></div></div><div class="panel hotpanel"><div class="ptitle">升温领域（相对近7天基线）</div><div class="hots"><div class="hotchip"><b>🔥 思加图</b><span>今日 45 条 · 均分 40.1 · 首次出现当天即进Top10</span><em>代表：《STACCATO|思加图26年秋冬新款上新早秋穿搭》</em></div><div class="hotchip"><b>🔥 骑士靴</b><span>今日 9 条 · 均分 45.0 · 首次出现当天即进Top10</span><em>代表：《国庆‼️STACCATO思加图26秋款好折》</em></div><div class="hotchip"><b>🔥 乐福鞋</b><span>今日 5 条 · 均分 41.6 · 首次出现当天即进Top10</span><em>代表：《姐妹们这两款哪个好看，快帮我选选#思加图 #乐福鞋》</em></div><div class="hotchip"><b>🔥 玛丽珍</b><span>今日 3 条 · 均分 39.6 · 首次出现当天即进Top10</span><em>代表：《STACCATO|思加图26年秋冬新款专柜好折》</em></div></div></div><div class="cards">
+    <article class="item">
+      <div class="rankmedal rank1">🥇</div>
+      <div class="score" style="color:#fbbf24;border-color:#fbbf2455"><b>57.8</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#f87171;border-color:#f8717166;background:#f8717114">争议</span>
+          <span class="eng">60 赞 · 9 藏 · 70 评</span>
+          <span class="time">09-22 08:31 · 363h前</span>
+          <span class="author">@思加图专柜</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6ab1cc7d0000000031025e98?xsec_token=YB5cvOjHln0U-ql5NBGKZN70zcdUpuyVJne2xpVkSEoPA%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">STACCATO|思加图26年秋冬新款上新早秋穿搭</a>
+        <div class="why">秋天的穿搭灵魂是一双好鞋开场，西部堆堆长靴等按风格给搭配建议，结构清晰可仿写。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:66%;background:#fbbf24"></i></div><b>66</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:12%;background:#f87171"></i></div><b>12</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:50%;background:#f87171"></i></div><b>50</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 6/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank2">🥈</div>
+      <div class="score" style="color:#fbbf24;border-color:#fbbf2455"><b>56.0</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">11 赞 · 7 藏 · 56 评</span>
+          <span class="time">10-02 20:12 · 111h前</span>
+          <span class="author">@思加图专柜xf</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6abf9fa100000000130184b4?xsec_token=YB9NM6AnHDQxD0FOzjhuNdR0Ka5__2AdWNhOXs28CxIis%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">国庆‼️STACCATO思加图26秋款好折</a>
+        <div class="why">专柜实拍26秋冬长靴上新，黑骑士棕咖筒型修饰腿型，国庆好折钩子带56条评论到店引流。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:61%;background:#fbbf24"></i></div><b>61</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:20%;background:#f87171"></i></div><b>20</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:84%;background:#a3e635"></i></div><b>84</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 4/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank3">🥉</div>
+      <div class="score" style="color:#fbbf24;border-color:#fbbf2455"><b>55.4</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#f87171;border-color:#f8717166;background:#f8717114">争议</span>
+          <span class="eng">28 赞 · 8 藏 · 83 评</span>
+          <span class="time">09-10 19:24 · 640h前</span>
+          <span class="author">@周小暄妞</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6aa29373000000002502eb83?xsec_token=YBDC7wnMtMjOI36AMSFbeUUqjLa4UJowjAuI9wQYXPxyY%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">姐妹们这两款哪个好看，快帮我选选#思加图 #乐福鞋</a>
+        <div class="why">两款思加图乐福鞋求姐妹投票，83条评论验证帮选式互动公式，但正文无鞋款细节</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:67%;background:#fbbf24"></i></div><b>67</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:8%;background:#f87171"></i></div><b>8</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:11%;background:#f87171"></i></div><b>11</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 4/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#4</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>54.6</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#f87171;border-color:#f8717166;background:#f8717114">争议</span>
+          <span class="eng">23 赞 · 2 藏 · 44 评</span>
+          <span class="time">09-30 21:45 · 158h前</span>
+          <span class="author">@思加图专柜xf</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6abd128f000000001203e790?xsec_token=YBLCdl1dff-HEc4z9bk2N3zorSiuJuMnHSMPQJfjIWm84%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">STACCATO|思加图26年秋冬新款专柜好折</a>
+        <div class="why">一次集合樱桃繁星玛丽珍烟花鞋等爆款，国庆出行选鞋场景切入，多款打卡合集结构易复制。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:59%;background:#fbbf24"></i></div><b>59</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:14%;background:#f87171"></i></div><b>14</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:78%;background:#a3e635"></i></div><b>78</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 5/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#5</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>53.7</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#f87171;border-color:#f8717166;background:#f8717114">争议</span>
+          <span class="eng">28 赞 · 14 藏 · 29 评</span>
+          <span class="time">09-21 19:53 · 376h前</span>
+          <span class="author">@Ai Lay</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6ab11a9e00000000330116f0?xsec_token=YB5cvOjHln0U-ql5NBGKZN7yOBq0tBwFK9oqfW-8fhgZ8%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">33鞋号的思加图</a>
+        <div class="why">自嘲脚小吐槽单鞋偏大要穿33码，尺码实况信息实用，共鸣开场带来29条评论讨论。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:59%;background:#fbbf24"></i></div><b>59</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:7%;background:#f87171"></i></div><b>7</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:48%;background:#f87171"></i></div><b>48</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 6/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#6</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>53.3</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">36 赞 · 9 藏 · 5 评</span>
+          <span class="time">09-11 17:49 · 618h前</span>
+          <span class="author">@fRushEd</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6aa3ceb5000000000d024b98?xsec_token=YB0V7JPf--lHSYy9q1hjHmpBtrsaV2AOiPb971p43ah7Y%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">好优雅好美丽👠 但是和蕾丝款比舒适度一般可以做为婚鞋#思加图verawang联名</a>
+        <div class="why">真实试穿对比VeraWang联名与蕾丝款舒适度，直言一般并建议当婚鞋，评价客观可信</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:57%;background:#fbbf24"></i></div><b>57</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:4%;background:#f87171"></i></div><b>4</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:14%;background:#f87171"></i></div><b>14</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 7/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#7</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>51.4</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">44 赞 · 19 藏 · 32 评</span>
+          <span class="time">09-24 15:04 · 308h前</span>
+          <span class="author">@皮皮虾终结者🦐</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6ab4cb6c00000000150153e4?xsec_token=YBwRZZW2H-6ePw07NzYeoNeshzdE3TLsVDdeoyu5JRWR0%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">今年大热的靴子</a>
+        <div class="why">晒靴求搭配引32条评论互动，蹭今年大热趋势词加提问式结尾，UGC互动设计可借鉴。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:62%;background:#fbbf24"></i></div><b>62</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:10%;background:#f87171"></i></div><b>10</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:57%;background:#fbbf24"></i></div><b>57</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 4/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#8</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>50.8</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">19 赞 · 2 藏 · 23 评</span>
+          <span class="time">09-30 09:15 · 170h前</span>
+          <span class="author">@思加图专柜xf</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6abc62b200000000130181d9?xsec_token=YBiykbvnSDutvR5-1f3Drdms9LveCk2nHiwdNvrfpm1F8%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图秋款 烟花鞋太好看了</a>
+        <div class="why">主打无滤镜实拍反滤镜卖点，逐款讲烟花鞋流苏闪钻与乐福皮质，质感话术可复用。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:53%;background:#f87171"></i></div><b>53</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:9%;background:#f87171"></i></div><b>9</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:76%;background:#a3e635"></i></div><b>76</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 5/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#9</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>48.6</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">18 赞 · 13 藏 · 15 评</span>
+          <span class="time">09-17 20:10 · 471h前</span>
+          <span class="author">@宁波环球银泰百货</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6aabd8ce000000002901bf66?xsec_token=YBaGAYpu5HjhxG9frOcPCKKb5NvC8nU64JedeDYd_baAs%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">杨幂就是穿骑士靴的神❗️</a>
+        <div class="why">银泰百货号发杨幂骑士靴软文，胎牛皮郁金香靴口等卖点堆叠，明星钩子标题可借鉴</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:53%;background:#f87171"></i></div><b>53</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:4%;background:#f87171"></i></div><b>4</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:34%;background:#f87171"></i></div><b>34</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 4/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#10</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>48.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">21 赞 · 8 藏 · 5 评</span>
+          <span class="time">09-15 14:09 · 525h前</span>
+          <span class="author">@大卫城思加图～平平</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6aa8e130000000002900e288?xsec_token=YB8C1aKYdAz1pVXtCfBLJktjM8Qn02Mrei_BnBkxeW6hU%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">小个子显高神靴✨比例绝了</a>
+        <div class="why">柜姐视频抓小个子怕压个子痛点，6cm厚底防滑贴合等卖点递进，结构可复用</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:2%;background:#f87171"></i></div><b>2</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:27%;background:#f87171"></i></div><b>27</b></div></div><div class="chips"><span class="chip">AI相关 10/10</span><span class="chip">内容价值 5/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#11</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>47.8</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">12 赞 · 2 藏 · 12 评</span>
+          <span class="time">10-02 07:48 · 124h前</span>
+          <span class="author">@思加图专柜xf</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6abef153000000001802fa03?xsec_token=YBx0ATqEgBg_oP-GmvOr9TSLNuS4L95X0HbX2JLcWQ3W4%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">王微微联名|思加图26年秋款上新太好看了‼</a>
+        <div class="why">VeraWang联名婚鞋陈列实拍，借联名热度做上新内容，联名加新品标题公式可复用。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:46%;background:#f87171"></i></div><b>46</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:7%;background:#f87171"></i></div><b>7</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:83%;background:#a3e635"></i></div><b>83</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 5/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#12</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>47.6</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">29 赞 · 6 藏 · 0 评</span>
+          <span class="time">09-12 00:14 · 611h前</span>
+          <span class="author">@艾泠</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6aa428c8000000000b034fc5?xsec_token=YBnf7ukqh56w54QPQHHBJk7KBLLT4CogRljBNBTnEkwA8%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图金标系列夜神使者</a>
+        <div class="why">真实试穿记：柜台一眼看中试杏紫两色，理性买杏回家仍惦记紫，意难平叙事代入强。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:44%;background:#f87171"></i></div><b>44</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:1%;background:#f87171"></i></div><b>1</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:15%;background:#f87171"></i></div><b>15</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 7/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#13</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>46.8</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">0 赞 · 0 藏 · 10 评</span>
+          <span class="time">10-06 16:33 · 19h前</span>
+          <span class="author">@秋天来了</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6ac4b25d000000000a022dc7?xsec_token=YBwYwP9kR09_C34kcwtl4n6J57Nb_CR162XOF7PrDB-Zs%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图繁星</a>
+        <div class="why">口播夸不闷汗又比价百元鞋催推荐，0赞10评互动倒挂，话术模板化疑似软文投放。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:41%;background:#f87171"></i></div><b>41</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:19%;background:#f87171"></i></div><b>19</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:97%;background:#34d399"></i></div><b>97</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 3/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#14</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>46.7</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">0 赞 · 0 藏 · 5 评</span>
+          <span class="time">10-07 07:36 · 4h前</span>
+          <span class="author">@思加图专柜xf</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6ac5861a000000001802ece7?xsec_token=YBlZwCmrlWRogoL1NgGiVQZ2Pxptj_fOzlGbEWfogxVN4%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">STACCATO|思加图26冬靴上新‼️早秋搭配</a>
+        <div class="why">冬靴例行上新集合帖，秋日尾声季节情绪开场，信息薄互动弱，可借鉴点仅季节钩子。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:34%;background:#f87171"></i></div><b>34</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:30%;background:#f87171"></i></div><b>30</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:100%;background:#34d399"></i></div><b>100</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 3/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#15</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>45.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">18 赞 · 20 藏 · 2 评</span>
+          <span class="time">09-09 20:13 · 663h前</span>
+          <span class="author">@思加图36k</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6aa14d620000000029011bc0?xsec_token=YBFpH8Qo8b_AI55QDHm46BTbJfRAUF9vwurn229fNWK60%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图新款#漂亮的鞋子才配最美的你 #小猫跟短靴 #好事成双靴子 #美鞋分享</a>
+        <div class="why">员工号视频仅堆话题标签，无卖点无上脚信息，663小时仅98互动，模板化铺量。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:51%;background:#f87171"></i></div><b>51</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:2%;background:#f87171"></i></div><b>2</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:8%;background:#f87171"></i></div><b>8</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 2/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#16</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>45.1</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">7 赞 · 3 藏 · 1 评</span>
+          <span class="time">09-26 19:22 · 256h前</span>
+          <span class="author">@思加图专柜-静静</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6ab7aae8000000001b01d80a?xsec_token=YBGtoQvyLbW152osSbfmg9_aJ5hzhRA3OcHnRDfRN4Bjs%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图长靴合集｜秋冬靴子清单</a>
+        <div class="why">专柜号按骑士靴西部靴翻边靴分风格列清单并给搭配，痛点开场清单结构清晰可仿写</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:34%;background:#f87171"></i></div><b>34</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:1%;background:#f87171"></i></div><b>1</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:64%;background:#fbbf24"></i></div><b>64</b></div></div><div class="chips"><span class="chip">AI相关 10/10</span><span class="chip">内容价值 6/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#17</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>44.9</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">19 赞 · 14 藏 · 1 评</span>
+          <span class="time">09-08 17:11 · 690h前</span>
+          <span class="author">@🍊橙子爱美丽</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6a9fd1470000000025037c1f?xsec_token=YBovlZoxQWUHs8OW6S0j2COTPiR2VLLl6cM2B1NQT_YMU%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图26年冬季新款</a>
+        <div class="why">同作者又一模板SKU帖，罗列骑士靴货号与全尺码，连续铺量特征明显，疑似经销商号。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:48%;background:#f87171"></i></div><b>48</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:2%;background:#f87171"></i></div><b>2</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:4%;background:#f87171"></i></div><b>4</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 3/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#18</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>44.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">7 赞 · 1 藏 · 12 评</span>
+          <span class="time">09-27 22:06 · 229h前</span>
+          <span class="author">@小药爱吃小龙虾＿</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6ab922f7000000001b020fe7?xsec_token=YBwU-rKmDkPSwgvUSZYxnOx8QsOLnZdXJckLn99N_CPh0%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图</a>
+        <div class="why">用户公开找柜姐问最低折扣，暴露真实购买意图与比价需求，正文本身无信息量</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:4%;background:#f87171"></i></div><b>4</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:68%;background:#fbbf24"></i></div><b>68</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 3/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#19</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>43.5</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">14 赞 · 13 藏 · 0 评</span>
+          <span class="time">09-13 13:17 · 574h前</span>
+          <span class="author">@🍊橙子爱美丽</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6aa631df000000002802d499?xsec_token=YBwzFzI_IZnx61CPfSVqdPlzyFJykZDtip3oadPvEM2Q8%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图26年秋季新款</a>
+        <div class="why">同作者模板化SKU带货帖，仅罗列乐福鞋货号尺码颜色，无上脚反馈无穿搭信息。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:44%;background:#f87171"></i></div><b>44</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:1%;background:#f87171"></i></div><b>1</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:20%;background:#f87171"></i></div><b>20</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 3/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#20</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>42.0</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">2 赞 · 1 藏 · 4 评</span>
+          <span class="time">09-12 10:51 · 601h前</span>
+          <span class="author">@成都群光STACCATO丫丫</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6aa4be44000000002b011e48?xsec_token=YB6iloRlz-uXEoXLPufhI-dTIf4LvCEKqtFU0jQEPxLkY%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">秋日第一双靴👢冷雾玫瑰绝美</a>
+        <div class="why">成都专柜号推冷雾玫瑰靴，进口羊绒加手工捏褶卖点具体，4条评论疑似到店咨询。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:36%;background:#f87171"></i></div><b>36</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:1%;background:#f87171"></i></div><b>1</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:17%;background:#f87171"></i></div><b>17</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 5/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#21</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>41.8</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">12 赞 · 2 藏 · 0 评</span>
+          <span class="time">09-08 19:06 · 688h前</span>
+          <span class="author">@万象思加图</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6a9fec5000000000270093a9?xsec_token=YBoWaOW3U8BtADCNJH8DJJvYA01TwTCbwqL4ApZG23PEA%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图‼️流浪牧歌‼️西部靴</a>
+        <div class="why">专柜号双感叹号标题堆话题标签推流浪牧歌西部靴，蹭西部风但正文空无卖点。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:40%;background:#f87171"></i></div><b>40</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:1%;background:#f87171"></i></div><b>1</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:4%;background:#f87171"></i></div><b>4</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 3/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#22</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>41.4</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">16 赞 · 7 藏 · 0 评</span>
+          <span class="time">10-06 10:10 · 25h前</span>
+          <span class="author">@南京珠江金鹰思加图双双</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6ac458aa00000000180141cc?xsec_token=YBwYwP9kR09_C34kcwtl4n6JJ393wS8r25KT2H5EKZqYk%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">骑士靴谁不爱</a>
+        <div class="why">门店号纯标签堆砌无正文信息，仅情绪标题骑士靴谁不爱，属低质例行内容。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:40%;background:#f87171"></i></div><b>40</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:14%;background:#f87171"></i></div><b>14</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:96%;background:#34d399"></i></div><b>96</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 2/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#23</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>41.4</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">14 赞 · 7 藏 · 6 评</span>
+          <span class="time">10-01 12:25 · 143h前</span>
+          <span class="author">@襄阳小姐姐</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6abde0a4000000001203ec6b?xsec_token=YB5R-GyXXbeNdXI5g9WNigTkJzLsoLdoArqmvfuWtmSLQ%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图26年杨幂同款骑士靴KW04</a>
+        <div class="why">标题蹭杨幂同款加货号KW04引流，正文纯标签堆砌无真实体验，疑似模板化投放。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:45%;background:#f87171"></i></div><b>45</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:6%;background:#f87171"></i></div><b>6</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:80%;background:#a3e635"></i></div><b>80</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 2/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#24</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>41.2</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">9 赞 · 3 藏 · 9 评</span>
+          <span class="time">10-02 19:19 · 112h前</span>
+          <span class="author">@布鲁斑里</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6abf9353000000000b0079d2?xsec_token=YBC2f8wNN76OeD8CADicMHdEFz6_cOgz19pW0bfISoITk%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图靴子蹲好折！</a>
+        <div class="why">纯蹲折扣表态无实测无干货，仅反映购买意向，可作柜姐私域转化线索参考。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:44%;background:#f87171"></i></div><b>44</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:6%;background:#f87171"></i></div><b>6</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:84%;background:#a3e635"></i></div><b>84</b></div></div><div class="chips"><span class="chip">AI相关 8/10</span><span class="chip">内容价值 2/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#25</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>41.2</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">3 赞 · 0 藏 · 6 评</span>
+          <span class="time">10-02 13:07 · 118h前</span>
+          <span class="author">@生气鲨鱼🦈</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6abf3c09000000001a032191?xsec_token=YBghmNvwwdT7ce4iEx3R1ZzFI8no8Fgy195vL-wtEM430%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图杨幂同款靴子蹲柜姐</a>
+        <div class="why">标题蹭杨幂同款热度蹲柜姐折扣，正文仅一句蹲个折，无任何实质内容与反馈</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:37%;background:#f87171"></i></div><b>37</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:3%;background:#f87171"></i></div><b>3</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:84%;background:#a3e635"></i></div><b>84</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 3/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#26</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>40.4</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">9 赞 · 4 藏 · 0 评</span>
+          <span class="time">09-08 16:58 · 690h前</span>
+          <span class="author">@🍊橙子爱美丽</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6a9fce4b0000000011032a1b?xsec_token=YBkBPm-xMQumbIBxk2eqlJyMXdky4tJoQNVl4laHOYO-8%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图杨幂同款2026年冬季新款</a>
+        <div class="why">素人带货帖，标题借杨幂同款引流，正文仅货号尺码堆砌无内容，属模板化导购。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:39%;background:#f87171"></i></div><b>39</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:1%;background:#f87171"></i></div><b>1</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:4%;background:#f87171"></i></div><b>4</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 2/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#27</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>39.4</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">12 赞 · 5 藏 · 0 评</span>
+          <span class="time">09-10 21:57 · 637h前</span>
+          <span class="author">@郑东万象城思加图</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6aa2b72c0000000028038e8e?xsec_token=YBDC7wnMtMjOI36AMSFbeUUroKEVpNDZdc9fRJgTcZ8zo%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">思加图骑士靴、太好看了吧、好穿、百搭</a>
+        <div class="why">门店官号视频，正文仅堆砌话题标签，无上脚细节与卖点信息，价值低。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:37%;background:#f87171"></i></div><b>37</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:1%;background:#f87171"></i></div><b>1</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:12%;background:#f87171"></i></div><b>12</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 2/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#28</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>39.0</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">2 赞 · 1 藏 · 1 评</span>
+          <span class="time">10-06 16:27 · 19h前</span>
+          <span class="author">@狸花家私藏</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6ac4b0e20000000014033045?xsec_token=YBwYwP9kR09_C34kcwtl4n6BH9Gph_Q4mFkNpXkChOJyk%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">STACCATO黑金软木孤品千禧古早坡跟鞋</a>
+        <div class="why">副业号转卖思加图古早绝版坡跟鞋，孤品稀缺话术加尺码信息，实为二手带货帖</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:28%;background:#f87171"></i></div><b>28</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:8%;background:#f87171"></i></div><b>8</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:97%;background:#34d399"></i></div><b>97</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 3/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#29</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>37.2</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">4 赞 · 0 藏 · 3 评</span>
+          <span class="time">09-17 19:53 · 472h前</span>
+          <span class="author">@含泪微笑</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6aabd4a9000000000b035e22?xsec_token=YBaGAYpu5HjhxG9frOcPCKKVbVAYkLc3-Q4yEL8n_gl4Y%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">怎么会有这么好看的鞋子～思加图</a>
+        <div class="why">纯图晒鞋无正文，仅标题感叹鞋子好看，信息量为零，评论或为同好询款式。</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:32%;background:#f87171"></i></div><b>32</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:1%;background:#f87171"></i></div><b>1</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:34%;background:#f87171"></i></div><b>34</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 2/10</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="rankmedal rank4"><span>#30</span></div>
+      <div class="score" style="color:#f87171;border-color:#f8717155"><b>36.8</b><span>总分</span></div>
+      <div class="body">
+        <div class="meta"><span class="badge" style="color:#8b93a7;border-color:#8b93a766;background:#8b93a714">小红书</span><span class="ctype" style="color:#7aa2ff;border-color:#7aa2ff66;background:#7aa2ff14">资讯</span>
+          <span class="eng">3 赞 · 2 藏 · 0 评</span>
+          <span class="time">10-01 11:38 · 144h前</span>
+          <span class="author">@staccato.linss</span>
+        </div>
+        <a class="title" href="https://www.xiaohongshu.com/discovery/item/6abdd5a400000000180387e8?xsec_token=YB5R-GyXXbeNdXI5g9WNigTgIGt1cwpPnziWqIMpzfGIw%3D&amp;xsec_source=app_share" target="_blank" rel="noopener">❄️ 思加图26上新💌-英伦短靴 #STACCATO思加图新款</a>
+        <div class="why">品牌相关号发26英伦短靴上新视频，正文仅标题一句，新品信息量少手法平淡</div>
+        <div class="bars"><div class="bar"><em>热度</em><div class="track"><i style="width:28%;background:#f87171"></i></div><b>28</b></div><div class="bar"><em>速度</em><div class="track"><i style="width:1%;background:#f87171"></i></div><b>1</b></div><div class="bar"><em>相关</em><div class="track"><i style="width:0%;background:#f87171"></i></div><b>0</b></div><div class="bar"><em>时效</em><div class="track"><i style="width:80%;background:#a3e635"></i></div><b>80</b></div></div><div class="chips"><span class="chip">AI相关 9/10</span><span class="chip">内容价值 3/10</span></div>
+      </div>
+    </article></div></section></main>
+<footer>数据截至 <b>2026-10-07</b> 1 天历史 · 生成于 2026-10-07 11:45 · 每 finalize 自动更新本页 · 通道与排障见 README.md<br>通道：HN/PH 免key直连 · Reddit/X/TikTok 经 Apify · YouTube 经代理+yt-dlp · 打分=热度40%+速度25%+AI相关25%+价值10%</footer>
+</div></body></html>

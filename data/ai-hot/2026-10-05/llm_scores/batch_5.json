@@ -1,0 +1,86 @@
+[
+  {
+    "id": "ph_1269667",
+    "ai_relevance": 8,
+    "value": 5,
+    "why": "Cloudflare上线Web Search API供AI Agent调实时网络数据，基础设施级发布，但无互动数据"
+  },
+  {
+    "id": "hn_49942429",
+    "ai_relevance": 8,
+    "value": 6,
+    "why": "把iPhone当MacBook外接GPU跑Qwen3.8 27B，预填充提速29%-44%，可复刻但仅37分2评论"
+  },
+  {
+    "id": "ph_1269907",
+    "ai_relevance": 6,
+    "value": 4,
+    "why": "PH新品Marv是AI光标伴侣，实时提示该点哪里，引导类小工具创意一般，无互动数据"
+  },
+  {
+    "id": "ph_1269735",
+    "ai_relevance": 6,
+    "value": 5,
+    "why": "Pilot5 Legal用五个AI模型交叉质询法律答案，多模型互检思路有看点，但无互动数据"
+  },
+  {
+    "id": "ph_1268954",
+    "ai_relevance": 6,
+    "value": 3,
+    "why": "Sellio把AI客服Agent塞进共享收件箱，客服SaaS同质化明显，无互动数据"
+  },
+  {
+    "id": "ph_1268781",
+    "ai_relevance": 6,
+    "value": 3,
+    "why": "Unscary AI卖短视频课帮小白追上AI进度，纯内容付费无技术亮点，零互动"
+  },
+  {
+    "id": "ph_1269546",
+    "ai_relevance": 5,
+    "value": 3,
+    "why": "SpeechShield做Mac端面试会议实时copilot，按简历给提词，用途有争议且零互动"
+  },
+  {
+    "id": "tiktok_7692272290544749837",
+    "ai_relevance": 5,
+    "value": 1,
+    "why": "AI工具盘点系列第4弹，仅59播放2赞疑似噪音，无任何具体工具信息与干货"
+  },
+  {
+    "id": "hn_49933386",
+    "ai_relevance": 9,
+    "value": 5,
+    "why": "Anthropic官方研究Claude参与科研的边界与失真，话题核心但热度低仅29分12评论"
+  },
+  {
+    "id": "ph_1268851",
+    "ai_relevance": 7,
+    "value": 5,
+    "why": "Aperture是能自查工作的AI代码编辑器，自验证直击Agent代码可信痛点，但零互动"
+  },
+  {
+    "id": "hn_49937571",
+    "ai_relevance": 8,
+    "value": 5,
+    "why": "Dynomight反事实长文探讨2005年为何造不出GPT-2，追溯算力与数据瓶颈，思辨佳但仅23分"
+  },
+  {
+    "id": "ph_1267987",
+    "ai_relevance": 4,
+    "value": 3,
+    "why": "Siteprint量化任意网站设计再交给AI处理，AI只是导出出口，功能单薄且零互动"
+  },
+  {
+    "id": "ph_1267967",
+    "ai_relevance": 7,
+    "value": 4,
+    "why": "devpit给Claude Code Agent做原生控制室，多Agent集中监控有实用价值，但已发布两日零互动"
+  },
+  {
+    "id": "ph_1267919",
+    "ai_relevance": 4,
+    "value": 3,
+    "why": "qarunbook生成团队与AI可共同执行的测试计划，QA工具仅轻度贴AI，零互动"
+  }
+]

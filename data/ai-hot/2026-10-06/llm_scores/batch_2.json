@@ -1,0 +1,92 @@
+[
+  {
+    "id": "youtube_qU3fmidNbJE",
+    "ai_relevance": 8,
+    "value": 7,
+    "why": "Tina Huang用21分钟讲透Agent基础概念，160万播放5.2万赞，但夹带HubSpot指南与付费训练营导流"
+  },
+  {
+    "id": "youtube_EsTrWCV0Ph4",
+    "ai_relevance": 8,
+    "value": 7,
+    "why": "Nick Saraev两小时Agent完整课，从搭建讲到交付客户案例，86万播放，干货足但主推自家Skool付费社群"
+  },
+  {
+    "id": "youtube_5p-sq8v3OXw",
+    "ai_relevance": 7,
+    "value": 6,
+    "why": "自学AI运营者Remy Gaskell讲用Agent矩阵替老板跑公司，87万播放，送Playbook但标题贩卖焦虑"
+  },
+  {
+    "id": "youtube_eA9Zf2-qYYM",
+    "ai_relevance": 9,
+    "value": 8,
+    "why": "Greg Isenberg对谈实搭课：覆盖Agent循环、记忆、MCP工具连接，现场做出能用的行政助理，78万播放"
+  },
+  {
+    "id": "youtube_Bm84BAtOfQw",
+    "ai_relevance": 7,
+    "value": 5,
+    "why": "Dan Martell教零基础搭首个Agent，73万播放，但标题打焦虑牌并以免费OS引流，实操干货占比一般"
+  },
+  {
+    "id": "youtube_GjN3xLDuc8o",
+    "ai_relevance": 10,
+    "value": 8,
+    "why": "CNET汇总DevDay：ChatGPT推Agent dots代打电话发短信，并发布GPT-6.1 Sol"
+  },
+  {
+    "id": "youtube_lHmZoRHMZyM",
+    "ai_relevance": 10,
+    "value": 7,
+    "why": "一周AI发布打包：Gemini 4、GPT-6.1、Sonnet 5.5、Flux 3等，32万播放，含Luma软广"
+  },
+  {
+    "id": "youtube__rtp1XzaP6Q",
+    "ai_relevance": 10,
+    "value": 9,
+    "why": "AI Explained解读OpenAI安全警告：控制模型已成地狱，兼谈RSI论文与白宫承诺，23万播放千条评论"
+  },
+  {
+    "id": "youtube_AZDSpS5v57w",
+    "ai_relevance": 8,
+    "value": 7,
+    "why": "freeCodeCamp新手课：从transformer讲到搭四个Agent再升级多Agent系统，16.9万播放"
+  },
+  {
+    "id": "tiktok_7692441089940229396",
+    "ai_relevance": 6,
+    "value": 3,
+    "why": "TikTok短视频推介Vibes AI免费AI视频与对口型工具，9.9万播放，标签堆砌信息量低，疑似工具软广"
+  },
+  {
+    "id": "youtube_EH5jx5qPabU",
+    "ai_relevance": 8,
+    "value": 9,
+    "why": "Futurepedia无代码25分钟用n8n搭首个Agent，432万播放10万赞为全场最高，教程可零基础照做"
+  },
+  {
+    "id": "youtube_TL8V41Ea6oM",
+    "ai_relevance": 8,
+    "value": 7,
+    "why": "博主带观众连搭四个生活自动化Agent，187万播放，标题自动化99%人生夸张但步骤具体可跟做"
+  },
+  {
+    "id": "youtube_ZaPbP9DwBOE",
+    "ai_relevance": 8,
+    "value": 6,
+    "why": "KodeKloud从LLM、token、嵌入讲到LangChain并配免费实验，130万播放，体系完整但内容偏基础"
+  },
+  {
+    "id": "youtube_jGg_1h0qzaM",
+    "ai_relevance": 9,
+    "value": 8,
+    "why": "freeCodeCamp LangGraph全程课，用Python图结构构建复杂对话式多Agent，105万播放可复刻"
+  },
+  {
+    "id": "youtube_Zqno_vux6d8",
+    "ai_relevance": 9,
+    "value": 8,
+    "why": "Google官方8分钟讲Agent并用ADK搭自纠错多Agent系统，附codelab和GitHub仓库，54万播放"
+  }
+]

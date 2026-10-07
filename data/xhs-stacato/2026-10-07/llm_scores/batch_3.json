@@ -1,0 +1,110 @@
+[
+  {
+    "id": "xhs_6ac5b0ef000000001b021125",
+    "brand_rel": "思加图官方",
+    "note_type": "疑似广告水军",
+    "ai_relevance": 9,
+    "value": 1,
+    "deconstruct": 2,
+    "why": "柜姐号纯标签堆砌无正文，零互动零信息，仅可佐证门店日常铺量发帖习惯。"
+  },
+  {
+    "id": "xhs_6aa14d620000000029011bc0",
+    "brand_rel": "思加图官方",
+    "note_type": "疑似广告水军",
+    "ai_relevance": 9,
+    "value": 2,
+    "deconstruct": 2,
+    "why": "员工号视频仅堆话题标签，无卖点无上脚信息，663小时仅98互动，模板化铺量。"
+  },
+  {
+    "id": "xhs_6ac0f89b000000001b02c71c",
+    "brand_rel": "思加图UGC",
+    "note_type": "日常分享",
+    "ai_relevance": 8,
+    "value": 4,
+    "deconstruct": 4,
+    "why": "第三方科普号以今日识品牌栏目科普品牌定位与百丽背景，信息浅但栏目公式可仿。"
+  },
+  {
+    "id": "xhs_6aa631df000000002802d499",
+    "brand_rel": "思加图UGC",
+    "note_type": "疑似广告水军",
+    "ai_relevance": 9,
+    "value": 3,
+    "deconstruct": 2,
+    "why": "同作者模板化SKU带货帖，仅罗列乐福鞋货号尺码颜色，无上脚反馈无穿搭信息。"
+  },
+  {
+    "id": "xhs_6abc3aff000000001c02d366",
+    "brand_rel": "思加图UGC",
+    "note_type": "日常分享",
+    "ai_relevance": 9,
+    "value": 2,
+    "deconstruct": 1,
+    "why": "用户转卖线下购入仅穿一次的乐福鞋，反映真实持有与流通，但无内容价值。"
+  },
+  {
+    "id": "xhs_6aa428c8000000000b034fc5",
+    "brand_rel": "思加图UGC",
+    "note_type": "种草",
+    "ai_relevance": 9,
+    "value": 7,
+    "deconstruct": 7,
+    "why": "真实试穿记：柜台一眼看中试杏紫两色，理性买杏回家仍惦记紫，意难平叙事代入强。"
+  },
+  {
+    "id": "xhs_6ab20a22000000003400fbab",
+    "brand_rel": "思加图UGC",
+    "note_type": "穿搭教程",
+    "ai_relevance": 6,
+    "value": 4,
+    "deconstruct": 5,
+    "why": "170/105身高体重开头FitCheck晒思加图靴，身材代入公式可复制，正文仅列单品。"
+  },
+  {
+    "id": "xhs_6a9fd1470000000025037c1f",
+    "brand_rel": "思加图UGC",
+    "note_type": "疑似广告水军",
+    "ai_relevance": 9,
+    "value": 3,
+    "deconstruct": 2,
+    "why": "同作者又一模板SKU帖，罗列骑士靴货号与全尺码，连续铺量特征明显，疑似经销商号。"
+  },
+  {
+    "id": "xhs_6ac4dafb000000001802e98f",
+    "brand_rel": "思加图官方",
+    "note_type": "种草",
+    "ai_relevance": 9,
+    "value": 5,
+    "deconstruct": 6,
+    "why": "员工号种草爱丽丝玛丽珍，漆皮方头羊皮内里宽脚背友好卖点具体，但口播广告味重。"
+  },
+  {
+    "id": "xhs_6aabd4a9000000000b035e22",
+    "brand_rel": "思加图UGC",
+    "note_type": "日常分享",
+    "ai_relevance": 9,
+    "value": 2,
+    "deconstruct": 3,
+    "why": "纯图晒鞋无正文，仅标题感叹鞋子好看，信息量为零，评论或为同好询款式。"
+  },
+  {
+    "id": "xhs_6aa4be44000000002b011e48",
+    "brand_rel": "思加图官方",
+    "note_type": "种草",
+    "ai_relevance": 9,
+    "value": 5,
+    "deconstruct": 5,
+    "why": "成都专柜号推冷雾玫瑰靴，进口羊绒加手工捏褶卖点具体，4条评论疑似到店咨询。"
+  },
+  {
+    "id": "xhs_6a9fec5000000000270093a9",
+    "brand_rel": "思加图官方",
+    "note_type": "疑似广告水军",
+    "ai_relevance": 9,
+    "value": 3,
+    "deconstruct": 3,
+    "why": "专柜号双感叹号标题堆话题标签推流浪牧歌西部靴，蹭西部风但正文空无卖点。"
+  }
+]

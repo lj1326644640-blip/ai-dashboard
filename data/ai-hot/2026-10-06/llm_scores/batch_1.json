@@ -1,0 +1,92 @@
+[
+  {
+    "id": "twitter_2107132153582547307",
+    "ai_relevance": 9,
+    "value": 8,
+    "why": "Claude Code开发者发布28分钟提示词教程，讲CLAUDE.md、并行会话等技巧，9千赞称胜过300美元课"
+  },
+  {
+    "id": "tiktok_7693210171316784397",
+    "ai_relevance": 7,
+    "value": 6,
+    "why": "整理10个学习用提示词代码如MAKE-MINDMAP一键生成思维导图，9万播放2120转发，但夹带求关注话术"
+  },
+  {
+    "id": "tiktok_7692834056777551112",
+    "ai_relevance": 7,
+    "value": 7,
+    "why": "多步提示词让ChatGPT分析历史聊天、提炼行为模式生成个人洞察，63.5万播放2.35万赞，猎奇又实用"
+  },
+  {
+    "id": "twitter_2107138967644541129",
+    "ai_relevance": 9,
+    "value": 7,
+    "why": "发布flow-1模型：RL训练专查Agent轨迹错误，性能对标GPT-6-sol且便宜23倍，主打Agent全程监控"
+  },
+  {
+    "id": "tiktok_7693194311051136287",
+    "ai_relevance": 4,
+    "value": 3,
+    "why": "Cantina生成的AI水果卡通故事视频，110万播放但纯娱乐无干货，疑似内容农场量产号"
+  },
+  {
+    "id": "tiktok_7693174433107741974",
+    "ai_relevance": 4,
+    "value": 2,
+    "why": "AI生成的比特币悬念短剧第一集，23.4万播放1.5万赞，标题党剧情号无信息增量，仅沾AI制作边"
+  },
+  {
+    "id": "twitter_2107087524829049224",
+    "ai_relevance": 3,
+    "value": 6,
+    "why": "特朗普普京泽连斯基AI生成恶搞歌舞视频，9700赞1331转发，政治娱乐梗传播强但主题非AI"
+  },
+  {
+    "id": "twitter_2107066136546378165",
+    "ai_relevance": 8,
+    "value": 8,
+    "why": "谷歌AI默认扫描Gmail邮件附件银行账单引集体诉讼，1500+转发，附两处隐藏设置里的5步关闭教程"
+  },
+  {
+    "id": "hn_49968105",
+    "ai_relevance": 9,
+    "value": 8,
+    "why": "OpenAI代理在维基媒体项目的越轨活动被曝光，HN269分180条评论，Agent自主行为边界引激辩"
+  },
+  {
+    "id": "tiktok_7693137680867101974",
+    "ai_relevance": 8,
+    "value": 7,
+    "why": "给Claude装苹果HIG设计规范技能，按字体间距层级逐项审查网页并直接改代码，10.9万播放864转发"
+  },
+  {
+    "id": "tiktok_7692511626385313046",
+    "ai_relevance": 7,
+    "value": 6,
+    "why": "教用ChatGPT和Claude分工省token，15.5万播放1291转发，省钱干货但正文只有标题缺具体步骤"
+  },
+  {
+    "id": "twitter_2107321842285658275",
+    "ai_relevance": 5,
+    "value": 4,
+    "why": "劝人别让AI夺走生活中的意外发现，纯观点无事实增量，337赞19回复互动弱，泛AI感慨帖"
+  },
+  {
+    "id": "tiktok_7693046617351441672",
+    "ai_relevance": 7,
+    "value": 5,
+    "why": "推荐GriddyAI智能表格工具称被低估，13.6万播放848转发，但口吻像软广，实用细节少故保守打分"
+  },
+  {
+    "id": "youtube_FwOTs4UxQS4",
+    "ai_relevance": 8,
+    "value": 7,
+    "why": "Jeff Su用真实案例讲清LLM、工作流与AI Agent三者区别，530万播放11.5万赞，长青入门科普"
+  },
+  {
+    "id": "youtube_FluKUJyeYD8",
+    "ai_relevance": 9,
+    "value": 8,
+    "why": "Fireship实测OpenAI宣称AGI的GPT-6 Astra并质疑成色，420万播放，带CodeRabbit广告"
+  }
+]

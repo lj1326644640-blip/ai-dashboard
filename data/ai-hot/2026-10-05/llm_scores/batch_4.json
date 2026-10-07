@@ -1,0 +1,92 @@
+[
+  {
+    "id": "hn_49955839",
+    "ai_relevance": 9,
+    "value": 6,
+    "why": "复盘为法律与治理从业者办AI安全训练营的经验，LessWrong长文干货足，但HN仅22分20评，热度低"
+  },
+  {
+    "id": "tiktok_7693013730040237318",
+    "ai_relevance": 6,
+    "value": 2,
+    "why": "仅390播放21赞的儿童AI编程提问贴，无内容无结论，属互动诱饵式低质内容"
+  },
+  {
+    "id": "hn_49956148",
+    "ai_relevance": 9,
+    "value": 7,
+    "why": "JetBrains开发者日记详解语义代码搜索RAG管线构建，工程细节可复刻，HN 36分9评热度一般"
+  },
+  {
+    "id": "hn_49942592",
+    "ai_relevance": 8,
+    "value": 7,
+    "why": "Reddit网友爆料Google将终止Gemini Flash/Pro免费额度，HN 59分52评，用户抱怨引热议"
+  },
+  {
+    "id": "tiktok_7692496066100448534",
+    "ai_relevance": 6,
+    "value": 2,
+    "why": "西语视频称Claude Code额度易耗尽并推OmniRoute工具，评论送链接属导流广告，仅703播放"
+  },
+  {
+    "id": "tiktok_7692967768689249566",
+    "ai_relevance": 6,
+    "value": 2,
+    "why": "博主预言Muse将成最受欢迎AI工具但未给出论据，299播放14赞，属无干货的营销预测贴"
+  },
+  {
+    "id": "hn_49932606",
+    "ai_relevance": 9,
+    "value": 8,
+    "why": "哈佛粒子物理学家Schwartz一次挂出36篇与Claude合著论文，学界质疑质量，HN 49分74评争议大"
+  },
+  {
+    "id": "tiktok_7693076866013465869",
+    "ai_relevance": 3,
+    "value": 1,
+    "why": "Seedance生成的卡通猫咪短片，仅135播放5赞，纯娱乐刷屏内容无信息价值"
+  },
+  {
+    "id": "twitter_2106995300518777113",
+    "ai_relevance": 2,
+    "value": 1,
+    "why": "WEEX加密交易所以Team AI或Team Human拉票抽奖分100 USDT，纯营销互动，疑似噪音"
+  },
+  {
+    "id": "hn_49934502",
+    "ai_relevance": 7,
+    "value": 6,
+    "why": "Mozilla旗下AI建站工具Solo宣布关停并发布FAQ，HN 31分65评，AI产品存活引讨论"
+  },
+  {
+    "id": "hn_49938326",
+    "ai_relevance": 9,
+    "value": 6,
+    "why": "研究让三个AI代理在两个国家环境下浏览同一网络，揭示多语言网络资源不均，HN 42分仅1评"
+  },
+  {
+    "id": "hn_49942437",
+    "ai_relevance": 7,
+    "value": 7,
+    "why": "Daily Beast称泄露信息显示特朗普因Grok聊天被推动对委内瑞拉动武，AI介入地缘政治"
+  },
+  {
+    "id": "hn_49934569",
+    "ai_relevance": 7,
+    "value": 5,
+    "why": "甲骨文威斯康星AI数据中心因电力审批将延期，行业基础设施常规消息，HN 50分23评"
+  },
+  {
+    "id": "hn_49933476",
+    "ai_relevance": 8,
+    "value": 6,
+    "why": "Red Hat基准测试显示Jev类决策模型不敌LLM-as-a-judge与传统分类器，含对比数据"
+  },
+  {
+    "id": "hn_49934037",
+    "ai_relevance": 9,
+    "value": 7,
+    "why": "资深工程师吐槽Claude与Copilot等编码代理产码难读，HN 29分40评，代码质量争议引共鸣"
+  }
+]
